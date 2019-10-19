@@ -11,13 +11,6 @@
         <v-toolbar-title>{{ this.$route.name }}</v-toolbar-title>
 
         <div class="flex-grow-1"></div>
-        <!-- <v-text-field
-        hide-details
-        prepend-icon="mdi-magnify"
-        single-line
-        dark
-        color="white"
-      ></v-text-field> -->
       <v-menu>
         <template v-slot:activator="{ on }">
           <v-btn
@@ -28,41 +21,18 @@
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
-        <!-- <HeaderMenu  /> -->
       </v-menu>
     </v-app-bar>
-    <!-- <v-navigation-drawer 
-      app
-      fixed
-      v-model="drawer"
-    > -->
-      <!-- <CurrentUserDrawer />
-      <v-btn block to="/">Dashboard</v-btn>
-      <v-btn block to="/servermanagement">Server Management</v-btn>
-      <v-btn block to="/system">System</v-btn>
-      <v-btn block to="/logs">Logs</v-btn>
-      <v-btn block to="/services">Services</v-btn>
-      <v-btn block to="/accounts">Accounts</v-btn>
-      <v-btn block to="/diagnostics">Diagnostics</v-btn>
-      <v-btn block to="/terminal">Terminal</v-btn> 
-
-        >System
-        >Logs
-        >Services
-        >Accounts
-        >Diagnostics
-        >Terminal
-     
-    </v-navigation-drawer>  -->
+    <LeftDrawer />
   </div>
 </template>
 
 <script>
-// import HeaderMenu from "./HeaderMenu"
+import LeftDrawer from "./LeftDrawer"
 
 export default {
   components: {
-    // HeaderMenu
+    LeftDrawer
   },
   data: () => ({
     drawer: null,
