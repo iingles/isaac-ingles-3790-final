@@ -8,7 +8,7 @@
       >
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-        <v-toolbar-title>{{ this.$route.name }}</v-toolbar-title>
+        <v-toolbar-title>{{ this.$route.name }}(title goes here)</v-toolbar-title>
 
         <div class="flex-grow-1"></div>
       <v-menu>

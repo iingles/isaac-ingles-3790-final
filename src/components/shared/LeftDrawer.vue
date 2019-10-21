@@ -18,10 +18,10 @@
 <script>
 export default {
     props: {
-        
+    
     },
     data: ()=>({
-
+        drawer: null,
     }),
 }
 </script>
