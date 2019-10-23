@@ -29,9 +29,6 @@
         v-model="drawer"
         >
         <v-btn block to="/">Dashboard</v-btn>
-        <!-- <v-btn block to="/servermanagement">Design</v-btn>
-        <v-btn block to="/system">Admin</v-btn>
-        <v-btn block to="/history">History</v-btn> -->
     </v-navigation-drawer>
   </div>
 </template>

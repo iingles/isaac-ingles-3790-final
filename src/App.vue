@@ -2,7 +2,7 @@
   <v-app>
     <Header  />
     <v-content>
-        <p>Content!</p>
+        <router-view></router-view>
     </v-content>
     <Footer />
   </v-app>
@@ -11,6 +11,7 @@
 <script>
 import Header from './components/shared/Header'
 import Footer from './components/shared/Footer'
+
 
 export default {
   name: 'App',
