@@ -1,7 +1,9 @@
 <template>
     <v-container>
         <v-row>
-            <WorkspaceMenu />
+            <WorkspaceMenu 
+                @changemode="change($event)"
+            />
         </v-row>
         <v-row>
             <Workspace />
@@ -17,6 +19,16 @@ export default {
     components: {
         WorkspaceMenu,
         Workspace,
+    },
+    data: () => {
+        return {
+            viewMode: '',
+        }
+    },
+    methods: {
+        change(theEvent) {
+            this.viewMode = theEvent
+        }
     }
 }
 </script>
