@@ -21,7 +21,9 @@
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
+        <TopRightMenu />
       </v-menu>
+      
     </v-app-bar>
      <v-navigation-drawer 
         app
@@ -34,10 +36,11 @@
 </template>
 
 <script>
+import TopRightMenu from "./TopRightMenu.vue"
 
 export default {
   components: {
-
+    TopRightMenu
   },
   data: () => ({
     drawer: null,
