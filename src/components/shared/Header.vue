@@ -8,9 +8,9 @@
       >
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
-        <v-toolbar-title>{{ this.$route.name }}(title goes here)</v-toolbar-title>
+        <!-- <v-toolbar-title>{{ this.$route.name }}(title goes here)</v-toolbar-title> -->
 
-        <div class="flex-grow-1"></div>
+      <div class="flex-grow-1"></div>
       <v-menu>
         <template v-slot:activator="{ on }">
           <v-btn
@@ -29,13 +29,9 @@
         v-model="drawer"
         >
         <v-btn block to="/">Dashboard</v-btn>
-        <v-btn block to="/servermanagement">Server Management</v-btn>
-        <v-btn block to="/system">System</v-btn>
-        <v-btn block to="/logs">Logs</v-btn>
-        <v-btn block to="/services">Services</v-btn>
-        <v-btn block to="/accounts">Accounts</v-btn>
-        <v-btn block to="/diagnostics">Diagnostics</v-btn>
-        <v-btn block to="/terminal">Terminal</v-btn>
+        <!-- <v-btn block to="/servermanagement">Design</v-btn>
+        <v-btn block to="/system">Admin</v-btn>
+        <v-btn block to="/history">History</v-btn> -->
     </v-navigation-drawer>
   </div>
 </template>
