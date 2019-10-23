@@ -1,6 +1,6 @@
 <template>
     <v-container>
-        <v-row>
+        <v-row class="unselectable">
             <h1 class="workspace-link" :class="{active: isActive==1}" @click="activeView='content', isActive = 1">Content</h1>
             <h1 class="workspace-link" :class="{active: isActive==2}" @click="activeView='design', isActive= 2">Design</h1>
             <h1 class="workspace-link" :class="{active: isActive==3}" @click="activeView='admin', isActive = 3">Admin</h1>
