@@ -1,24 +1,24 @@
 <template>
     <v-container>
-        <v-row>
+        <!-- <v-row>
             <WorkspaceMenu 
                 @changemode="change($event)"
             />
         </v-row>
         <v-row>
             <Workspace />
-        </v-row>
+        </v-row> -->
     </v-container>
 </template>
 
 <script>
-import WorkspaceMenu from '../components/workspace/menus/WorkspaceMenu.vue'
-import Workspace from '../components/workspace/Workspace.vue'
+// import WorkspaceMenu from '../components/workspace/menus/WorkspaceMenu.vue'
+// import Workspace from '../components/workspace/Workspace.vue'
 
 export default {
     components: {
-        WorkspaceMenu,
-        Workspace,
+        // WorkspaceMenu,
+        // Workspace,
     },
     data: () => {
         return {

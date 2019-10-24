@@ -31,6 +31,7 @@
         v-model="drawer"
         >
         <v-btn block to="/">Dashboard</v-btn>
+        <v-btn block to="/workspace">Workspace</v-btn>
     </v-navigation-drawer>
   </div>
 </template>
