@@ -5,7 +5,9 @@
         />
         <v-row>
             <v-col xs="12" md="3"> 
-                <SideBar />
+                <SideBar 
+                    :view="this.viewMode"
+                />
             </v-col>
             <v-col xs="12" md="9">
                 <router-view></router-view>            
