@@ -8,6 +8,8 @@ import Help from './views/Help.vue'
 import About from './views/About.vue'
 import Settings from './views/Settings.vue'
 import Logs from './views/Logs.vue'
+import SearchResults from './components/workspace/SearchResults.vue'
+import ModuleEditor from './components/workspace/ModuleEditor.vue'
 
 Vue.use(Router)
 
@@ -28,6 +30,18 @@ export default new Router({
       name: 'Workspace',
       path: '/workspace',      
       component: Workspace,
+      children: [
+        {
+          path: '/searchresults/:id',
+          name: 'Search Results',
+          component: SearchResults,
+        },
+        {
+          path: '/moduleeditor/:id',
+          name: 'Module Editor',
+          component: ModuleEditor,
+        }
+      ],
     },
     {
       name: 'Settings',
