@@ -6,6 +6,7 @@ import Dashboard from './views/Dashboard.vue'
 import Help from './views/Help.vue'
 import About from './views/About.vue'
 import Settings from './views/Settings.vue'
+import Logs from './views/Logs.vue'
 
 Vue.use(Router)
 
@@ -20,23 +21,28 @@ export default new Router({
     {
       name: 'Dashboard',
       path: '/',      
-      component: Dashboard
+      component: Dashboard,
     },
     {
       name: 'Settings',
       path: '/settings',      
-      component: Settings
+      component: Settings,
     },
     {
       name: 'Help',
       path: '/help',      
-      component: Help
+      component: Help,
     },
     {
       name: 'About',
       path: '/about',      
-      component: About
+      component: About,
     },
+    {
+      name: 'Logs',
+      path: '/logs',
+      component: Logs,
+    }
   ]
 
 })
