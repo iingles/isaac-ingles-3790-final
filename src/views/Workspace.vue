@@ -8,7 +8,7 @@
                 <SideBar />
             </v-col>
             <v-col xs="12" md="9">
-                <ModuleEditor />                
+                <router-view></router-view>            
             </v-col>
         </v-row>
     </v-container>
@@ -17,14 +17,11 @@
 <script>
 import SideBar from '../components/workspace/menus/Sidebar.vue'
 import WorkspaceMenu from '../components/workspace/menus/WorkspaceMenu.vue'
-//do this here for now
-import ModuleEditor from  '../components/workspace/ModuleEditor.vue'
 
 export default {
     components: {
         SideBar,
         WorkspaceMenu,
-        ModuleEditor,
     },
     data: () => {
         return {

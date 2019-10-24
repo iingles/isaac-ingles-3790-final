@@ -1,20 +1,20 @@
 <template>
-    <v-container>
-        <ul>
-            <router-link
-                class="module-link"
-                tag="li"  
-                v-for="module in modules" 
-                :key="module.id" 
-                :to="'/workspace/moduleeditor/' + module.name"
-                style="cursor: pointer"
-            >
-                Module {{ module.id }} {{ module.name}}
-            </router-link>
-        </ul>
+    <v-container>        
          <v-card class="pa-10">
             <v-card-title class="mb-10 pa-0 editor-title">Editing</v-card-title>          
-            <router-view></router-view>
+            <ul>
+            <router-link
+                    class="module-link"
+                    tag="li"  
+                    v-for="module in modules" 
+                    :key="module.id" 
+                    :to="'/workspace/moduleeditor/' + module.name"
+                    style="cursor: pointer"
+                >
+                    Module {{ module.id }} {{ module.name}}
+                </router-link>
+            </ul>
+            <!-- <router-view></router-view> -->
         </v-card>
     </v-container>
 </template>
