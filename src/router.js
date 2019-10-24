@@ -10,6 +10,8 @@ import Settings from './views/Settings.vue'
 import Logs from './views/Logs.vue'
 import SearchResults from './components/workspace/SearchResults.vue'
 import ModuleEditor from './components/workspace/ModuleEditor.vue'
+import ModuleDetail from './components/workspace/ModuleDetail.vue'
+
 
 Vue.use(Router)
 
@@ -17,10 +19,10 @@ export default new Router({
   mode: 'history',
 
   routes: [
-    {
-      name: 'root',
-      path: '*',
-    },
+    // {
+    //   name: 'root',
+    //   path: '*',
+    // },
     {
       name: 'Dashboard',
       path: '/',      
@@ -32,14 +34,21 @@ export default new Router({
       component: Workspace,
       children: [
         {
-          path: '/searchresults/:id',
+          path: '/workspace/searchresults',
           name: 'Search Results',
           component: SearchResults,
         },
         {
-          path: '/moduleeditor/:name',
+          path: '/workspace/moduleeditor',
           name: 'Module Editor',
           component: ModuleEditor,
+          children: [
+            {
+              path: '/workspace/moduleeditor/:id',
+              name: 'Module Detail',
+              component: ModuleDetail,
+            }
+          ]
         }
       ],
     },

@@ -10,10 +10,11 @@
                 >                
                 </v-text-field>
             </v-form>
-            <div class="overline mb-4"><v-icon>mdi-history</v-icon>History</div>
+            <v-btn block to="">Edit Modules</v-btn>
+            <!-- <div class="overline mb-4"><v-icon>mdi-history</v-icon>History</div>
             <div class="sidebar-history">
                 No History
-            </div>
+            </div> -->
         </v-card>
     </v-container>
 </template>
