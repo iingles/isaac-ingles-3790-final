@@ -37,7 +37,7 @@ export default new Router({
           component: SearchResults,
         },
         {
-          path: '/moduleeditor/:id',
+          path: '/moduleeditor/:name',
           name: 'Module Editor',
           component: ModuleEditor,
         }

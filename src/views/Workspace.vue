@@ -13,14 +13,11 @@
 
 <script>
 import SideBar from '../components/workspace/menus/Sidebar.vue'
-import SearchResults from '../components/workspace/SearchResults.vue'
-import ModuleEditor from '../components/workspace/ModuleEditor.vue'
+
 
 export default {
     components: {
         SideBar,
-        SearchResults,
-        ModuleEditor,
     }
 }
 </script>
