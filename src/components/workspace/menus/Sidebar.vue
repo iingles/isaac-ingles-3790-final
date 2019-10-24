@@ -6,10 +6,11 @@
                 <v-text-field
                     v-model="searchInput"
                     label="search"
-                >
+                    prepend-inner-icon="mdi-magnify"
+                >                
                 </v-text-field>
             </v-form>
-            <div class="overline mb-4">History</div>
+            <div class="overline mb-4"><v-icon>mdi-history</v-icon>History</div>
             <div class="sidebar-history">
                 No History
             </div>
