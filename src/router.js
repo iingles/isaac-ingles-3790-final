@@ -39,12 +39,12 @@ export default new Router({
           component: SearchResults,
         },
         {
-          path: '/workspace/moduleeditor',
-          name: 'Module Editor',
+          path: '/workspace/content',
+          name: 'Content Editor',
           component: ModuleEditor,
           children: [
             {
-              path: '/workspace/moduleeditor/:id',
+              path: '/workspace/content/:id,
               name: 'Module Detail',
               component: ModuleDetail,
             }

@@ -39,9 +39,10 @@ export default {
         change(theEvent) {
             //change workspace view to content, design, or admin
             this.viewMode = theEvent
+            this.$router.push(this.$route.path + '/' + this.viewMode)
         },
         loadWorkspace(workView) {
-            console.log(workView)
+            this.$router.push(this.$route.path + '/' + workView)
         },
     },
 }
