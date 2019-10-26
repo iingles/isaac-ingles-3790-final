@@ -11,7 +11,7 @@
                 </v-text-field>
             </v-form>
             <template v-if="this.view == 'content'">
-                <v-btn block to="">Modules</v-btn>
+                <v-btn block @click="loadThisWorkspace('modules')">Modules</v-btn>
                 <v-btn block to="">Articles</v-btn>
                 <v-btn block to="">Images</v-btn>
                 <v-btn block to="">Videos</v-btn>
@@ -45,10 +45,14 @@ export default {
     },
     data: () => {
         return {
-            searchInput: '',       
+            searchInput: '',
         }
     },
-
+    methods: {
+        loadThisWorkspace(work) {
+            this.$emit('work', work)
+        },
+    },
 }
 </script>
 

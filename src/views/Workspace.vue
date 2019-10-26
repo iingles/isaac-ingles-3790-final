@@ -7,6 +7,7 @@
             <v-col xs="12" md="3"> 
                 <SideBar 
                     :view="this.viewMode"
+                    @work="loadWorkspace($event)"
                 />
             </v-col>
             <v-col xs="12" md="9">
@@ -31,12 +32,18 @@ export default {
             viewMode: 'content',
         }
     },
+    computed: {
+        
+    },
     methods: {
         change(theEvent) {
             //change workspace view to content, design, or admin
             this.viewMode = theEvent
-        }
-    }
+        },
+        loadWorkspace(workView) {
+            console.log(workView)
+        },
+    },
 }
 </script>
 
