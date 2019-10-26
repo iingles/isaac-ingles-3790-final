@@ -12,22 +12,22 @@
             </v-form>
             <template v-if="this.view == 'content'">
                 <v-btn block @click="loadThisWorkspace('modules')">Modules</v-btn>
-                <v-btn block to="">Articles</v-btn>
-                <v-btn block to="">Images</v-btn>
-                <v-btn block to="">Videos</v-btn>
-                <v-btn block to="">Audio</v-btn>
-                <v-btn block to="">Feeds</v-btn>
+                <v-btn block @click="loadThisWorkspace('articles')">Articles</v-btn>
+                <v-btn block @click="loadThisWorkspace('content-images')">Images</v-btn>
+                <v-btn block @click="loadThisWorkspace('videos')">Videos</v-btn>
+                <v-btn block @click="loadThisWorkspace('audio')">Audio</v-btn>
+                <v-btn block @click="loadThisWorkspace('feeds')">Feeds</v-btn>
             </template>
             <template v-if="this.view == 'design'">
-                <v-btn block to="">Templates</v-btn>
-                <v-btn block to="">Styles</v-btn>
-                <v-btn block to="">Themes</v-btn>
-                <v-btn block to="">Scripts</v-btn>
-                <v-btn block to="">Design Images</v-btn>
+                <v-btn block @click="loadThisWorkspace('templates')">Templates</v-btn>
+                <v-btn block @click="loadThisWorkspace('styles')">Styles</v-btn>
+                <v-btn block @click="loadThisWorkspace('themes')">Themes</v-btn>
+                <v-btn block @click="loadThisWorkspace('scripts')">Scripts</v-btn>
+                <v-btn block @click="loadThisWorkspace('design-images')">Design Images</v-btn>
             </template>
             <template v-if="this.view == 'admin'">
-                <v-btn block to="">Users</v-btn>
-                <v-btn block to="">Permissions</v-btn>
+                <v-btn block @click="loadThisWorkspace('users')">Users</v-btn>
+                <v-btn block @click="loadThisWorkspace('permissions')">Permissions</v-btn>
             </template>
                 
             <!-- <div class="overline mb-4"><v-icon>mdi-history</v-icon>History</div>
