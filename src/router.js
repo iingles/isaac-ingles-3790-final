@@ -44,7 +44,7 @@ export default new Router({
           component: ModuleEditor,
           children: [
             {
-              path: '/workspace/content/:id,
+              path: '/workspace/content/:id',
               name: 'Module Detail',
               component: ModuleDetail,
             }
