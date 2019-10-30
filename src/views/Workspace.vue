@@ -30,6 +30,19 @@ export default {
         return {
             //default to content view
             viewMode: 'content',
+            workMode: 'none',
+            viewPort: {
+                name: 'Search Results', 
+                params: { 
+                    //id: this.$route.params.id
+                },
+                query: { 
+                   search: 'hi',
+                },
+                //also pass hash fragment; here it will 
+                //go to the #data section of the edit page
+                //hash: '#data',
+            },
         }
     },
     computed: {
@@ -39,10 +52,11 @@ export default {
         change(theEvent) {
             //change workspace view to content, design, or admin
             this.viewMode = theEvent
-            this.$router.push(this.$route.path + '/' + this.viewMode)
+            this.$router.push('/workspace/' + this.viewMode)
         },
         loadWorkspace(workView) {
-            this.$router.push(this.$route.path + '/' + workView)
+            this.$router.push('/workspace/' + this.viewMode + '/' + workView)
+            this.workMode = workView
         },
     },
 }

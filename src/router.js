@@ -11,6 +11,7 @@ import Logs from './views/Logs.vue'
 import SearchResults from './components/workspace/SearchResults.vue'
 import ModuleEditor from './components/workspace/ModuleEditor.vue'
 import ModuleDetail from './components/workspace/ModuleDetail.vue'
+import WorkspaceViewPort from './components/workspace/WorkspaceViewPort.vue'
 
 
 Vue.use(Router)
@@ -34,22 +35,15 @@ export default new Router({
       component: Workspace,
       children: [
         {
-          path: '/workspace/searchresults',
-          name: 'Search Results',
-          component: SearchResults,
+          path:'/workspace/:viewmode',
+          name:'workspaceview',
+          component: WorkspaceViewPort,
         },
         {
-          path: '/workspace/content',
-          name: 'Content Editor',
-          component: ModuleEditor,
-          children: [
-            {
-              path: '/workspace/content/:id',
-              name: 'Module Detail',
-              component: ModuleDetail,
-            }
-          ]
-        }
+          path: '/workspace/:viewmode/:workview',
+          name: 'Content',
+          component: WorkspaceViewPort,
+        },
       ],
     },
     {
