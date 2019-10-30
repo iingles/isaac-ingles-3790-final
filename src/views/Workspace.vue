@@ -30,20 +30,8 @@ export default {
         return {
             //default to content view
             viewMode: 'content',
-            workMode: 'none',
-            viewPort: {
-                name: 'Search Results', 
-                params: { 
-                    //id: this.$route.params.id
-                },
-                query: { 
-                   search: 'hi',
-                },
-                //also pass hash fragment; here it will 
-                //go to the #data section of the edit page
-                //hash: '#data',
-            },
-        }
+            query: '',
+         }
     },
     computed: {
         
@@ -56,8 +44,8 @@ export default {
             this.$router.push('/workspace/' + this.viewMode).catch(err => {})
         },
         loadWorkspace(workView) {
+            this.query=workView
             this.$router.push('/workspace/' + this.viewMode + '/' + workView).catch(err => {})
-            this.workMode = workView
         },
     },
 }
