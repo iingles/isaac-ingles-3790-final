@@ -108,12 +108,12 @@ export default new Router({
       children: [
         {
           path:'/workspace/:viewmode',
-          name:'workspaceview',
+          name:'Workspace View',
           component: WorkspaceViewPort,
         },
         {
           path: '/workspace/:viewmode/:workview',
-          name: 'Content',
+          name: 'Workspace Detail',
           component: WorkspaceViewPort,
         },
       ],
