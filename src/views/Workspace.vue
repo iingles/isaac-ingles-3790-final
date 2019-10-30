@@ -50,12 +50,13 @@ export default {
     },
     methods: {
         change(theEvent) {
-            //change workspace view to content, design, or admin
+            //change workspace view to content, design, or admin; catch the error
+            //(was getting an error when the same button was clicked for the same route the client was on)
             this.viewMode = theEvent
-            this.$router.push('/workspace/' + this.viewMode)
+            this.$router.push('/workspace/' + this.viewMode).catch(err => {})
         },
         loadWorkspace(workView) {
-            this.$router.push('/workspace/' + this.viewMode + '/' + workView)
+            this.$router.push('/workspace/' + this.viewMode + '/' + workView).catch(err => {})
             this.workMode = workView
         },
     },
