@@ -1,17 +1,20 @@
 <template>
   <div>
-      <v-data-table
-        :v-model="selected"
-        :headers="headers"
-        :items="modules"
-        :items-per-page="5"
-        class="elevation-1"
-        >
-        </v-data-table>
-    
-      <!-- <div v-for="mod in modules" :key="mod.id">
-       {{ mod.name }}
-      </div> -->
+    <v-data-table
+      :v-model="selected"
+      :headers="headers"
+      :items="modules"
+      :items-per-page="5"
+      class="elevation-1"
+      >
+      <template v-slot:top>
+        <v-toolbar>
+          <v-toolbar-title>Select a module</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn>New Module</v-btn>
+        </v-toolbar>
+      </template>
+    </v-data-table>
   </div>   
 </template>
 
