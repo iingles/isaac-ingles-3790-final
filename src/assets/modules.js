@@ -1,4 +1,4 @@
-var contentModules = [
+const contentModules = [
     {
         id: 1,
         name: 'Homepage',
