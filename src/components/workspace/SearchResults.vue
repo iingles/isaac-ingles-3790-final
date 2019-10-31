@@ -11,7 +11,10 @@
         <v-toolbar>
           <v-toolbar-title>Select a module</v-toolbar-title>
           <v-spacer></v-spacer>
-          <v-btn>New Module</v-btn>
+          <v-btn
+            dark
+            color="blue"
+          >New Module</v-btn>
         </v-toolbar>
       </template>
     </v-data-table>
