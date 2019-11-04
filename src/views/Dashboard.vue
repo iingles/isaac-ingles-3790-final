@@ -23,7 +23,7 @@
              -->
             <v-col>
                 <v-card class="card-title">
-                    <v-card-title class="light-blue darken-1 white--text" >Alerts</v-card-title>
+                    <v-card-title class="red lighten-1 white--text" >Alerts</v-card-title>
                     <v-list>
                         <v-list-item>Lorem Ipsum: consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</v-list-item>
                         <v-list-item>Excepteur sint: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </v-list-item>
