@@ -33,8 +33,9 @@ export default {
                 // console.log(response.data)
                 const allCoursesObj = response.data 
                 //"e" means entry
+               
+               //this is unique to firebase
                 const objectsToArray = Object.entries(allCoursesObj).map(e => 
-                //this is unique to firebase
                 Object.assign(e[1], {key: e[0]}))
                 //Don't normally need to do this if your server returns normal JSON
                 // console.log(objectsToArray)
