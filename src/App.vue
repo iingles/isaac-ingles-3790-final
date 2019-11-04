@@ -3,7 +3,9 @@
     <template v-if="login">
     <Header  />
       <v-content>
-          <router-view></router-view>
+        <transition name="fade">
+           <router-view></router-view>
+        </transition>         
       </v-content>
       <Footer />
     </template>
@@ -44,4 +46,13 @@ export default {
     -ms-user-select: none;
     user-select: none;
 }
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
 </style>

@@ -28,6 +28,7 @@ export default {
     methods: {
         getCourses() {
             //might kill the browser if you ask for a ton of data at once
+            //for a ton of data, use pagination stuffs
             axios.get('https://sweltering-fire-2420.firebaseio.com/courses.json')
             .then(response => {
                 // console.log(response.data)
