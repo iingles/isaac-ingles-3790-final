@@ -4,7 +4,7 @@
       color="indigo darken-4"
       dark
     >
-        Footer stuff
+        &copy;2019
     </v-footer>
 </template>
 
