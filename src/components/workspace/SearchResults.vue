@@ -14,6 +14,7 @@
           <v-btn
             dark
             color="blue"
+            :to="'/workspace/' + $route.params.viewmode + '/' + $route.params.workview + '/editor'"
           >New Module</v-btn>
         </v-toolbar>
       </template>
