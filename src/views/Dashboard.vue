@@ -10,9 +10,9 @@
         class="elevation-1"
         >
             <template v-slot:top>
-                <v-toolbar>
-                <v-toolbar-title>Recently Edited</v-toolbar-title>
-                <v-spacer></v-spacer>
+                <v-toolbar class="green lighten-1 white--text">
+                    <v-toolbar-title>Recently Edited</v-toolbar-title>
+                    <v-spacer></v-spacer>
                 </v-toolbar>
             </template>
         </v-data-table>
