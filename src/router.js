@@ -11,7 +11,7 @@ import Dashboard from './views/Dashboard.vue'
 //import Settings from './views/Settings.vue'
 //import Logs from './views/Logs.vue'
 import SearchResults from './components/workspace/SearchResults.vue'
-import ModuleEditor from './components/workspace/ModuleEditor.vue'
+// import ModuleEditor from './components/workspace/ModuleEditor.vue'
 import ModuleDetail from './components/workspace/ModuleDetail.vue'
 //import WorkspaceViewPort from './components/workspace/WorkspaceViewPort.vue'
 
@@ -85,6 +85,15 @@ const Logs = resolve => {
  )
 }
 
+const ModuleEditor = resolve => {
+  require.ensure(
+     ['./components/workspace/ModuleEditor.vue'],
+     () => {
+         resolve(require('./components/workspace/ModuleEditor.vue'))
+     }
+ )
+}
+
 
 Vue.use(Router)
 
@@ -115,6 +124,11 @@ export default new Router({
           path: '/workspace/:viewmode/:workview',
           name: 'Workspace Detail',
           component: WorkspaceViewPort,
+        },
+        {
+          path: '/workspace/:viewmode/:workview/editor',
+          name: 'Editing',
+          component: ModuleEditor,
         },
       ],
     },
