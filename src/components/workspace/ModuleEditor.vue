@@ -6,6 +6,10 @@
                 <p>Created: {{ mod.created }}</p>
                 <p>Version: {{ mod.version }}</p>
                 <p>ID: {{ mod.id }} </p>
+                <v-combobox
+                    :items="desTemplates"
+                    label="Template"
+                ></v-combobox>
                 <v-checkbox
                     v-model="changeInternalName"
                     label="Change Internal Name"
@@ -41,11 +45,13 @@
 
 <script>
 import contentModules from '../../assets/modules.js'
+import designTemplates from '../../assets/templates.js'
 
 export default {
     data: () => {
         return {
             modules: contentModules,
+            desTemplates: [],
             mod: 'test',
             changeInternalName: false,
             changeModName: false,
@@ -59,6 +65,9 @@ export default {
                 vm.mod = vm.modules[i]
                 break
             }
+       }
+       for(let i = 0; i < designTemplates.length; i++) {
+            vm.desTemplates[i] = designTemplates[i].name
        }
     }
 }
