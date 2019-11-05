@@ -127,7 +127,7 @@ export default new Router({
           component: WorkspaceViewPort,
         },
         {
-          path: '/workspace/:viewmode/:workview/editor',
+          path: '/workspace/:viewmode/:workview/editor/:id',
           name: 'Editing',
           component: ModuleEditor,
         },
