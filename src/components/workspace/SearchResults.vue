@@ -11,12 +11,30 @@
         <v-toolbar>
           <v-toolbar-title>Select a module</v-toolbar-title>
           <v-spacer></v-spacer>
-          <v-btn
+          <template v-slot:activator="{ on }">klj
+            <v-btn color="blue" dark v-on="on">New Item</v-btn>
+          </template>
+          <!-- <v-btn
             dark
             color="blue"
-            :to="'/workspace/' + $route.params.viewmode + '/' + $route.params.workview + '/editor'"
-          >New Module</v-btn>
+            :to="'/workspace/' + $route.params.viewmode + '/' + $route.params.workview + '/editor' + '/new'"
+          >New Module</v-btn> -->
         </v-toolbar>
+      </template>
+      <template v-slot:item.action="{ item }">
+      <v-icon
+          small
+          class="mr-2"
+          @click="editItem(item)"
+        >
+          edit
+        </v-icon>
+        <v-icon
+          small
+          @click="deleteItem(item)"
+        >
+          delete
+        </v-icon>
       </template>
     </v-data-table>
   </div>   
@@ -41,16 +59,20 @@ export default {
           { text: 'Template', value: 'template' },
           { text: 'Created', value: 'created' },
           { text: 'Version', value: 'version' },
+          { text: 'Actions', value: 'action', sortable: false },
       ],
       modules: contentModules,
     }
   },
-  created() {
-    // for(let i = 0; i < contentModules.length; i++){
-    //   this.modules.push(contentModules[i])
-    // }
-    
-  }
+  methods: {
+    editItem (item) {
+        this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.internalName ).catch(err => {})
+      },
+
+      deleteItem (item) {
+        console.log('delete ' + item.id)
+      },
+  },
 }
 </script>
 
