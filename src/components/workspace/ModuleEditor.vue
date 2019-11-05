@@ -8,6 +8,7 @@
                 <p>ID: {{ mod.id }} </p>
                 <v-combobox
                     :items="desTemplates"
+                    :value="mod.template"
                     label="Template"
                 ></v-combobox>
                 <v-checkbox
