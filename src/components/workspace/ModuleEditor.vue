@@ -15,7 +15,6 @@
                     :value="mod.internalName"
                     label="Internal (system) Name"
                     :disabled="!changeInternalName"
-                    readonly=""
                 ></v-text-field>
                 <v-checkbox
                     v-model="changeModName"
@@ -26,7 +25,6 @@
                     :value="mod.name"
                     label="Module Name"
                     :disabled="!changeModName"
-                    readonly=""
                 ></v-text-field>
                 <v-textarea
                 label="Content Area 1"
