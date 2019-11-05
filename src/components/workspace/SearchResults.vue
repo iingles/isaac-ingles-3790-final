@@ -11,14 +11,14 @@
         <v-toolbar>
           <v-toolbar-title>Select a module</v-toolbar-title>
           <v-spacer></v-spacer>
-          <template v-slot:activator="{ on }">klj
+          <!-- <template v-slot:activator="{ on }">
             <v-btn color="blue" dark v-on="on">New Item</v-btn>
-          </template>
-          <!-- <v-btn
+          </template> -->
+          <v-btn
             dark
             color="blue"
             :to="'/workspace/' + $route.params.viewmode + '/' + $route.params.workview + '/editor' + '/new'"
-          >New Module</v-btn> -->
+          >New Module</v-btn>
         </v-toolbar>
       </template>
       <template v-slot:item.action="{ item }">
