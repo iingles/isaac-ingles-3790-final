@@ -10,12 +10,14 @@ Vue.config.productionTip = false
 
 Vue.directive('floater', {
   inserted: el => {
-    el.style.position="absolute"
-    el.style.left="10%"
+    el.style.position="fixed"
+    el.style.right="10%"
     el.style.top="50%"
     el.style.textcolor="white"
     el.style.background="gray"
     el.style.opacity="50%"
+    el.style.borderradius="10px"
+    el.style.padding="10px"
   }
 })
 
