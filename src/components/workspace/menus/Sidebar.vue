@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <v-card class="pa-3">
-            <v-card-title class="sidebar-title mb-4">Search</v-card-title>
+            <v-card-title class="sidebar-title mb-4">Search</v-card-title>                
             <v-form>
                 <v-text-field
                     v-model="searchInput"
@@ -11,6 +11,7 @@
                 </v-text-field>
             </v-form>
             <template v-if="this.view == 'content'">
+                <!-- Could I do this dynamically - like load/loop the workspaces from a data file? -->
                 <v-btn block @click="loadThisWorkspace('modules')">Modules</v-btn>
                 <v-btn block @click="loadThisWorkspace('articles')">Articles</v-btn>
                 <v-btn block @click="loadThisWorkspace('content-images')">Images</v-btn>
@@ -29,11 +30,6 @@
                 <v-btn block @click="loadThisWorkspace('users')">Users</v-btn>
                 <v-btn block @click="loadThisWorkspace('permissions')">Permissions</v-btn>
             </template>
-                
-            <!-- <div class="overline mb-4"><v-icon>mdi-history</v-icon>History</div>
-            <div class="sidebar-history">
-                No History
-            </div> -->
         </v-card>
     </v-container>
 </template>
