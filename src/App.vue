@@ -38,6 +38,9 @@ export default {
 </script>
 
 <style>
+  body {
+    padding: 10px 15px;
+  }
   .unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;

@@ -5,11 +5,12 @@
             <v-card-title class="blue lighten-1 white--text mb-5">Fill out the form below.</v-card-title>
             <v-form>
                 <v-row>
-                    <v-col md="12" sm="12" xs="12">
+                    <v-col lg="12" md="12" sm="12" xs="12">
                         <v-text-field
                         v-model.lazy="userData.firstname"
                         id="firstname"
                         label="First Name"
+                        :rules="nameRules"
                         >
                         </v-text-field>
                     </v-col>
@@ -20,6 +21,7 @@
                         v-model.lazy="userData.lastname"
                         id="lastname"
                         label="Last Name"
+                        :rules="nameRules"
                         >
                         </v-text-field>
                     </v-col>
@@ -28,6 +30,7 @@
                         v-model="userData.email"
                         id="email"
                         label="Email"
+                        :rules="emailRules"
                         >
                         </v-text-field>
                     </v-col>
@@ -82,6 +85,14 @@
 </template>
 
 <script>
+// valid: false,
+//         firstname: '',
+//         //using fun ES6 stuff
+//         nameRules: [
+//             v => !!v || 'Name is required',
+//             v => v.length <= 10 || 'Name must be less than 10 characters.'
+//         ]
+
 export default {
     data() {
         return {
@@ -94,7 +105,15 @@ export default {
             //keep our issues in an array
             issues: [],
             response: '',
-            isSubmitted: false
+            isSubmitted: false,
+            valid: false,
+            nameRules: [
+                v => !!v || 'Name is required',
+                v => v.length <= 10 || 'Name must be less than 10 characters.'
+            ],
+            emailRules: [
+                v => !!v || 'Email is required',
+            ],
         }
     },
     methods: {
