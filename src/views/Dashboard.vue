@@ -46,6 +46,9 @@
                 </v-card>
             </v-col>
         </v-row>
+        <div v-floater>
+            Floater
+        </div>
     </v-container>
 </template>
 

@@ -6,6 +6,19 @@ import vuetify from './plugins/vuetify'
 
 Vue.config.productionTip = false
 
+//Custom directive 
+
+Vue.directive('floater', {
+  inserted: el => {
+    el.style.position="absolute"
+    el.style.left="10%"
+    el.style.top="50%"
+    el.style.textcolor="white"
+    el.style.background="gray"
+    el.style.opacity="50%"
+  }
+})
+
 new Vue({
   router,
   store,
