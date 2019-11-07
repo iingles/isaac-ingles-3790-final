@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app> 
     <template v-if="login">
     <Header  />
       <v-content>
@@ -30,10 +30,13 @@ export default {
   data: () => ({
     login: true,
   }),
-  
+  created() {
+    this.$store.dispatch('setLogin')
+    return this.$store.getters.loggedIn, this.$store.getters.showHelp
+  },  
   methods: {
 
-  }
+  },
 };
 </script>
 

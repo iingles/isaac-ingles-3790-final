@@ -5,31 +5,29 @@ Vue.use(Vuex)
 //Dummy login stuff ( I don't know anything about authentication)
 export default new Vuex.Store({
   state: {
-    login: false,
+    loggedIn: false,
     showHelp: false,
   },
   mutations: {
-    'SET_LOGIN'(state, login) {
-      state.login = login
+    'SET_LOGGEDIN'(state, loggedIn) {
+      state.loggedIn = loggedIn
     },
     'SET_HELP'(state, showHelp) {
       state.showHelp = showHelp
     },
   },
   actions: {
-    userLogin: ({commit}) => {
-      commit()
-    },
+    //using destructuring
     setLogin: ({commit}) => {
-      commit('SET_LOGIN')
+      commit('SET_LOGGEDIN')
     },
     setHelp: ({commit}) => {
       commit('SET_HELP')
     }
   },
   getters: {
-    login: state => {
-      return state.login
+    loggedIn: state => {
+      return state.loggedIn
     },
     showHelp: state => {
       return state.showHelp
