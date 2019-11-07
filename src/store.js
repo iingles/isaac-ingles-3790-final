@@ -13,11 +13,16 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    userLogin: ({commit}, order)  {
+    userLogin: ({commit}, order) => {
       commit()
     },
     setLogin: ({commit}) => {
       commit('SET_LOGIN')
     },
   },
+  getters: {
+    login: state => {
+      return state.login
+    }
+  }
 })
