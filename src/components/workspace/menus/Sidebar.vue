@@ -27,8 +27,10 @@
                 <v-btn block @click="loadThisWorkspace('design-images')">Design Images</v-btn>
             </template>
             <template v-if="this.view == 'admin'">
-                <v-btn block @click="loadThisWorkspace('users')">Users</v-btn>
-                <v-btn block @click="loadThisWorkspace('permissions')">Permissions</v-btn>
+                <v-btn block @click="loadThisWorkspace('Users')">Users</v-btn>
+                <v-btn block @click="loadThisWorkspace('Permissions')">Permissions</v-btn>
+                <v-btn block @click="loadThisWorkspace('Keywords')">Keywords</v-btn>
+                <v-btn block @click="loadThisWorkspace('Database')">Database</v-btn>
             </template>
         </v-card>
     </v-container>
