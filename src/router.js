@@ -107,7 +107,7 @@ export default new Router({
     //   path: '*',
     // },
     {
-      name: 'Dashboard',
+      name: 'Content Management System - Dashboard',
       path: '/',      
       component: Dashboard,
     },

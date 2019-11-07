@@ -9,7 +9,7 @@
       >
       <template v-slot:top>
         <v-toolbar>
-          <v-toolbar-title>Select a module</v-toolbar-title>
+          <v-toolbar-title>Select a (type goes here)</v-toolbar-title>
           <v-spacer></v-spacer>
           <!-- <template v-slot:activator="{ on }">
             <v-btn color="blue" dark v-on="on">New Item</v-btn>
@@ -63,6 +63,7 @@ export default {
       ],
       modules: contentModules,
     }
+    
   },
   methods: {
     editItem (item) {
