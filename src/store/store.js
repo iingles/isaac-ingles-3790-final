@@ -5,6 +5,12 @@ Vue.use(Vuex)
 //Dummy login stuff ( I don't know anything about authentication)
 export default new Vuex.Store({
   state: {
+    user: {
+      username: '',
+      login: true,
+      history:[],
+      permissions: '', 
+    },
     loggedIn: false,
     showHelp: false,
   },

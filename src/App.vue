@@ -3,9 +3,10 @@
     <template v-if="login">
     <Header  />
       <v-content>
-        <transition name="fade">
+        Login: {{ this.$store.state.user.login }}
+        <!-- <transition name="fade">
            <router-view></router-view>
-        </transition>         
+        </transition>          -->
       </v-content>
       <Footer />
     </template>
@@ -30,7 +31,7 @@ export default {
   data: () => ({
     login: true,
   }),
-  created() {
+  beforeCreate() {
     this.$store.dispatch('setLogin')
     return this.$store.getters.loggedIn, this.$store.getters.showHelp
   },  
