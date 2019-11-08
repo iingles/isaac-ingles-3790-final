@@ -11,7 +11,9 @@
                 />
             </v-col>
             <v-col xs="12" md="9">
-                <router-view></router-view>            
+                <transition name="fade">
+                    <router-view></router-view>
+                </transition>        
             </v-col>
         </v-row>
     </v-container>
@@ -52,5 +54,11 @@ export default {
 </script>
 
 <style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
 
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
 </style>

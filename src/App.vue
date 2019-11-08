@@ -3,10 +3,10 @@
     <template v-if="login">
     <Header  />
       <v-content>
-        Login: {{ this.$store.state.user.login }}
-        <!-- <transition name="fade">
+        <!-- Login: {{ this.$store.state.user.login }} -->
+        <transition name="fade">
            <router-view></router-view>
-        </transition>          -->
+        </transition>         
       </v-content>
       <Footer />
     </template>
