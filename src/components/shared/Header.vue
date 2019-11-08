@@ -23,7 +23,6 @@
         </template>
         <TopRightMenu />
       </v-menu>
-      
     </v-app-bar>
      <v-navigation-drawer 
         app
@@ -32,7 +31,11 @@
         >
         <v-btn block to="/">Dashboard</v-btn>
         <v-btn block to="/workspace">Workspace</v-btn>
-        <v-btn block to="/users">Users</v-btn>
+        <!-- <v-btn block to="/users">Users</v-btn> -->
+        <div>
+          <p>Logged in as</p> 
+          {{ userName }}
+        </div>
     </v-navigation-drawer>
   </div>
 </template>
@@ -47,6 +50,19 @@ export default {
   data: () => ({
     drawer: null,
   }),
+  computed: {
+    userName() {
+      return this.$store.getters.userName
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('userLoggedOut', {
+          userName: '',
+          password: '',
+      })
+    }
+  },
 }
 </script>
 

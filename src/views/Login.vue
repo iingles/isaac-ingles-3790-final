@@ -3,18 +3,19 @@
         <v-card-title>Welcome to your Content Management System</v-card-title>
         <v-form @submit.prevent="onSubmit">
             <v-text-field
-                v-model="userName"
+                v-model.lazy="userName"
                 label="Username"
             >
             </v-text-field>
             <v-text-field
-                v-model="password"
+                v-model.lazy="password"
                 label="Password"
+                type="password"
             >
             </v-text-field>
             <v-btn 
             @click="onSubmit" 
-            round 
+            rounded
             color="blue"
             dark
             >Submit</v-btn>
@@ -25,9 +26,10 @@
 import users from '../../src/assets/users.js'
 
 export default {
-    data: ()=> {
+    data: () => {
         return {
-
+            userName: '',
+            password: ''
         }
     },
     methods: {
@@ -36,7 +38,10 @@ export default {
                 userName: this.userName,
                 password: this.password,
             }
-
+            this.$store.dispatch('userLoggedIn', {
+                userName: this.userName,
+                password: this.password,
+            })
         }
     }
 }

@@ -1,6 +1,6 @@
 <template>
   <v-app> 
-    <template v-if="login">
+    <template v-if="this.$store.state.user.loggedIn">
     <Header  />
       <v-content>
         <transition name="fade">
@@ -28,7 +28,7 @@ export default {
     Login
   },
   data: () => ({
-    login: false,
+    
   }),   
   methods: {
 
