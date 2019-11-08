@@ -36,6 +36,7 @@
           <p>Logged in as</p> 
           {{ userName }}
         </div>
+        <v-btn @click="logout">Logout</v-btn>
     </v-navigation-drawer>
   </div>
 </template>

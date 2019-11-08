@@ -2,13 +2,13 @@
     <v-container>
         <h1>Dashboard</h1>
         <h2>Use the lefthand slideout menu to navigate.</h2>
-        <!-- <v-data-table
-        :v-model="selected"
-        :headers="headers"
-        :items="modules"
-        :items-per-page="5"
-        class="elevation-1"
-        > -->
+        <v-data-table
+            :v-model="selected"
+            :headers="headers"
+
+            :items-per-page="5"
+            class="elevation-1"
+            >
             <template v-slot:top>
                 <v-toolbar class="green lighten-1 white--text">
                     <v-toolbar-title>Recently Edited</v-toolbar-title>

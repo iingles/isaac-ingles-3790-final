@@ -30,7 +30,7 @@ export default new Vuex.Store({
     },
     changeLoggedInStatus(state) {
       state.user.loggedIn = !state.user.loggedIn
-      return state.user.loggedIn
+      return state.user
     },
   },
   actions: {
@@ -42,7 +42,7 @@ export default new Vuex.Store({
     },
     userLoggedOut({commit}, user) {
       commit('changeLoggedInStatus', user)
-      router.replace('/').catch(err => {})
+      router.replace('/login').catch(err => {})
     }
   },
  
