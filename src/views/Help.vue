@@ -85,14 +85,6 @@
 </template>
 
 <script>
-// valid: false,
-//         firstname: '',
-//         //using fun ES6 stuff
-//         nameRules: [
-//             v => !!v || 'Name is required',
-//             v => v.length <= 10 || 'Name must be less than 10 characters.'
-//         ]
-
 export default {
     data() {
         return {

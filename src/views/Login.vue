@@ -5,12 +5,14 @@
             <v-text-field
                 v-model.lazy="userName"
                 label="Username"
+                :rules="userNameRules"
             >
             </v-text-field>
             <v-text-field
                 v-model.lazy="password"
                 label="Password"
                 type="password"
+                :rules="passwordRules"
             >
             </v-text-field>
             <v-btn 
@@ -30,7 +32,13 @@ export default {
     data: () => {
         return {
             userName: '',
-            password: ''
+            password: '',
+            userNameRules: [
+                v => !!v || 'Name is required',
+            ],
+            passwordRules: [
+                v => !!v || 'Password is required',
+            ],
         }
     },
     methods: {
