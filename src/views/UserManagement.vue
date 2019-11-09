@@ -4,12 +4,13 @@
         <!-- Could use vue-resource, but using axios instead -->
         <h1>Remote DB example</h1>
         <v-spacer></v-spacer>
-        <v-btn @click="getCourses">Get Courses</v-btn>
+        <v-btn @click="getPeople">Get People</v-btn>
         <v-spacer></v-spacer>
         <ul>
-            <li v-for="course in courses" :key='course.key'>
-               <p> {{ course.title }} </p>
-               <p> {{ course.prefix }} : {{ course.number }}</p>
+            <li v-for="(person,index) in people" :key='index'>
+               <p> {{ person.name }} </p>
+               <p> {{ person.gender }}</p>
+               <p> {{index}} </p>
             </li>
         </ul>
     </v-container>
@@ -22,25 +23,25 @@ import axios from 'axios'
 export default {
     data() {
         return {
-            courses: [],
+            people: [],
         }
     },
     methods: {
-        getCourses() {
+        getPeople() {
             //might kill the browser if you ask for a ton of data at once
             //for a ton of data, use pagination stuffs
-            axios.get('https://sweltering-fire-2420.firebaseio.com/courses.json')
+            axios.get('https://uinames.com/api/?amount=25&region=United States')
             .then(response => {
                 // console.log(response.data)
-                const allCoursesObj = response.data 
+                // const allCoursesObj = response.data 
                 //"e" means entry
                
                //this is unique to firebase
-                const objectsToArray = Object.entries(allCoursesObj).map(e => 
-                Object.assign(e[1], {key: e[0]}))
+                // const objectsToArray = Object.entries(allCoursesObj).map(e => 
+                // Object.assign(e[1], {key: e[0]}))
                 //Don't normally need to do this if your server returns normal JSON
                 // console.log(objectsToArray)
-                this.courses = objectsToArray
+                this.people = response.data
             })
             .catch(error => console.error(error))
             .finally(()=>{

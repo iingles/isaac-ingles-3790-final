@@ -31,7 +31,7 @@
         >
         <v-btn block to="/">Dashboard</v-btn>
         <v-btn block to="/workspace">Workspace</v-btn>
-        <!-- <v-btn block to="/users">Users</v-btn> -->
+        <v-btn block to="/users">Users</v-btn>
         <div>
           <p>Logged in as</p> 
           {{ userName }}
