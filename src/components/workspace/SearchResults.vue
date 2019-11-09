@@ -30,13 +30,13 @@
           class="mr-2"
           @click="editItem(item)"
         >
-          edit
+          mdi-lead-pencil
         </v-icon>
         <v-icon
           small
           @click="deleteItem(item)"
         >
-          delete
+          mdi-delete
         </v-icon>
       </template>
     </v-data-table>
