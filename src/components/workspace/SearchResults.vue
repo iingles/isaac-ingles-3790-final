@@ -50,7 +50,7 @@ import designTemplates from '../../assets/templates.js'
 export default {
  data () {
     return {
-      // theView: this.$route.params.workview,
+      searchData: false,
       selected: [],
       contentHeaders: [
         {
