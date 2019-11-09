@@ -9,7 +9,7 @@
         <v-row>
             <template v-if="search">
                 <SearchResults />
-            </template>
+            </template>            
             <template v-if="editor">
                 <ModuleEditor />
             </template>
