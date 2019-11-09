@@ -19,6 +19,7 @@ export default new Vuex.Store({
       showModal: false,
       modalMessage: '',
       modalTitle: '',
+      modalAction: '',
     },
   },
   getters: {

@@ -5,7 +5,8 @@
       <v-content>
         <transition name="fade">
            <router-view></router-view>
-        </transition>         
+        </transition>
+        
       </v-content>
       <Footer />
     </template>
@@ -19,13 +20,15 @@
 import Header from './components/shared/Header'
 import Footer from './components/shared/Footer'
 import Login from './views/Login.vue'
+import Modal from './components/shared/Modal';
 
 export default {
   name: 'App',
   components: {
     Header,
     Footer,
-    Login
+    Login,
+    Modal
   },
   data: () => ({
     
