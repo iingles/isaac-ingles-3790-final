@@ -18,7 +18,7 @@
                     v-on="on"
                     color="blue"
                     :to="'/workspace/' + $route.params.viewmode + '/' + $route.params.workview + '/editor' + '/new'"
-                  >New Module</v-btn>
+                  >New</v-btn>
               </template>
               <span>Lorem Ipsum Dolor sit amet</span>
           </v-tooltip> 
