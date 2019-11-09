@@ -8,7 +8,7 @@
         <v-spacer></v-spacer>
         <ul>
             <li v-for="(person,index) in people" :key='index'>
-               <p> {{ person.name }} </p>
+               <p> {{person.surname}},&nbsp;{{ person.name }} </p>
                <p> {{ person.gender }}</p>
                <p> {{index}} </p>
             </li>
