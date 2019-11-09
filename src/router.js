@@ -102,12 +102,13 @@ export default new Router({
   mode: 'history',
 
   routes: [
-    // {
-    //   name: 'root',
-    //   path: '*',
-    // },
     {
-      name: 'Content Management System - Dashboard',
+      name: 'Dashboard',
+      path: '*',
+      component: Dashboard
+    },
+    {
+      name: 'Dashboard',
       path: '/',      
       component: Dashboard,
     },
