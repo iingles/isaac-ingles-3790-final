@@ -3,7 +3,7 @@
     <v-data-table
       :v-model="selected"
       :headers="getTableHeaders(this.$route.params.workview)"
-      :items="modules"
+      :items="getTableItems(this.$route.params.workview)"
       :items-per-page="5"
       class="elevation-1"
       >
@@ -50,6 +50,7 @@ import designTemplates from '../../assets/templates.js'
 export default {
  data () {
     return {
+      // theView: this.$route.params.workview,
       selected: [],
       moduleHeaders: [
         {
@@ -75,6 +76,7 @@ export default {
         {text: 'Name', value: "name"},
         {text: 'Version', value: "version"},
         {text: 'modified', value: "modified"},
+        {text: 'Actions', value: 'action', sortable: false },
       ],
       templates: designTemplates,
       modules: contentModules,
@@ -95,6 +97,15 @@ export default {
       }
       if(theView == 'templates') {
         return vm.templateHeaders
+      }
+    },
+    getTableItems(theView) {
+      let vm = this
+      if(theView == 'modules') {
+        return vm.modules
+      }
+      if(theView == 'templates') {
+        return vm.templates
       }
     }
   },
