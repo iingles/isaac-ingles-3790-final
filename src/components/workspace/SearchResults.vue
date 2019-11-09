@@ -11,14 +11,17 @@
         <v-toolbar>
           <v-toolbar-title>Select a (type goes here)</v-toolbar-title>
           <v-spacer></v-spacer>
-          <!-- <template v-slot:activator="{ on }">
-            <v-btn color="blue" dark v-on="on">New Item</v-btn>
-          </template> -->
-          <v-btn
-            dark
-            color="blue"
-            :to="'/workspace/' + $route.params.viewmode + '/' + $route.params.workview + '/editor' + '/new'"
-          >New Module</v-btn>
+          <v-tooltip top> 
+              <template v-slot:activator="{ on }">
+                  <v-btn
+                    dark
+                    v-on="on"
+                    color="blue"
+                    :to="'/workspace/' + $route.params.viewmode + '/' + $route.params.workview + '/editor' + '/new'"
+                  >New Module</v-btn>
+              </template>
+              <span>Tooltip</span>
+          </v-tooltip> 
         </v-toolbar>
       </template>
       <template v-slot:item.action="{ item }">
