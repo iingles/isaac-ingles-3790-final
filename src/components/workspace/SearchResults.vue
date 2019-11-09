@@ -20,7 +20,7 @@
                     :to="'/workspace/' + $route.params.viewmode + '/' + $route.params.workview + '/editor' + '/new'"
                   >New Module</v-btn>
               </template>
-              <span>Tooltip</span>
+              <span>Lorem Ipsum Dolor sit amet</span>
           </v-tooltip> 
         </v-toolbar>
       </template>
