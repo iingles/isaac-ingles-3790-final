@@ -2,20 +2,20 @@
     <v-container>
         <h1>Dashboard</h1>
         <h2>Use the lefthand slideout menu to navigate.</h2>
-        <v-data-table
-            :v-model="selected"
-            :headers="headers"
+            <v-data-table
+                :v-model="selected"
+                :headers="headers"
 
-            :items-per-page="5"
-            class="elevation-1"
-            >
-            <template v-slot:top>
-                <v-toolbar class="green lighten-1 white--text">
-                    <v-toolbar-title>Recently Edited</v-toolbar-title>
-                    <v-spacer></v-spacer>
-                </v-toolbar>
-            </template>
-        </v-data-table>
+                :items-per-page="5"
+                class="elevation-1"
+                >
+                <template v-slot:top>
+                    <v-toolbar class="green lighten-1 white--text">
+                        <v-toolbar-title>Recently Edited</v-toolbar-title>
+                        <v-spacer></v-spacer>
+                    </v-toolbar>
+                </template>
+            </v-data-table>
         <v-row>
             <!-- 
             Eventually I could pull all of these dynamically, maybe even
@@ -77,5 +77,32 @@ export default {
 </script>
 
 <style scoped>
+.slide-enter-active {
+    animation: slide-in 200ms ease-out forwards;
+}
+.slide-leave-active {
+    animation: slide-out 200ms ease-out forwards;
+}
 
+@keyframes slide-in {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+}
 </style>

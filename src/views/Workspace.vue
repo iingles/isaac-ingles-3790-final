@@ -11,7 +11,7 @@
                 />
             </v-col>
             <v-col xs="12" md="9">
-                <transition name="fade">
+                <transition name="slide" mode="out-in">
                     <router-view></router-view>
                 </transition>        
             </v-col>
@@ -54,11 +54,32 @@ export default {
 </script>
 
 <style scoped>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.slide-enter-active {
+    animation: slide-in 200ms ease-out forwards;
+}
+.slide-leave-active {
+    animation: slide-out 200ms ease-out forwards;
 }
 
-.fade-enter, .fade-leave-to {
-  opacity: 0;
+@keyframes slide-in {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
 }
 </style>

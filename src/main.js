@@ -8,16 +8,14 @@ Vue.config.productionTip = false
 
 //Custom directive 
 
-Vue.directive('floater', {
+Vue.directive('emphasized', {
   inserted: el => {
-    el.style.position="fixed"
-    el.style.right="10%"
-    el.style.top="50%"
-    el.style.textcolor="white"
-    el.style.background="gray"
+    el.style.color="green"
+    el.style.boxshadow="5px 5px 5px #ccc"
     el.style.opacity="50%"
     el.style.borderradius="10px"
     el.style.padding="10px"
+    el.style.fontstyle="italic"
   }
 })
 
@@ -26,6 +24,11 @@ Vue.mixin({
   created: function () {
     
   }
+})
+
+//global filter
+Vue.filter('upper', (value) => {
+  return value.toUpperCase()
 })
 
 

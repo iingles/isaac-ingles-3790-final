@@ -37,9 +37,9 @@
                 >
                 </v-textarea>
             </div>
-            <v-btn color="red" light>Cancel</v-btn>
+            <v-btn color="red" light @click="confirmCancel(this.$route.params.id)">Cancel</v-btn>
             <v-spacer></v-spacer>
-            <v-btn color="green" light>Save</v-btn>            
+            <v-btn color="green" light @click="confirmSave(this.$route.params.id)">Save</v-btn>            
         </v-card>
     </v-container>
 </template>
@@ -70,6 +70,14 @@ export default {
        for(let i = 0; i < designTemplates.length; i++) {
             vm.desTemplates[i] = designTemplates[i].name
        }
+    },
+    computed: {
+        confirmCancel(moduleID) {
+            return this.$store.getters.modal
+        },
+        confirmSave(moduleID) {
+            return this.$store.getters.modal
+        }
     }
 }
 </script>

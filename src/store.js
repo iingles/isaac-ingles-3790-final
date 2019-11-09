@@ -45,19 +45,27 @@ export default new Vuex.Store({
       state.modalWindow.showModal = modalWindow.show
       state.modalWindow.modalTitle = modalWindow.title
       state.modalWindow.modalMessage = modalWindow.message
-    }
+    },
+    changeModalDisplay(state) {
+      state.modalWindow.showModal = !state.modalWindow.showModal
+      return state.modalWindow
+    },
   },
   actions: {
     userLoggedIn({commit}, user) {
       commit('storeUser', user)
       commit('changeLoggedInStatus', user)
       //set login to true, route to main app
-      router.replace('/').catch(err => {})
+      router.replace('/').catch(err => {console.log(err)})
     },
     userLoggedOut({commit}, user) {
       commit('changeLoggedInStatus', user)
-      router.replace('/login').catch(err => {})
-    }
+      router.replace('/login').catch(err => {console.log(err)})
+    },
+    displayModal({commit}, modalWindow) {
+      commit('changeModalDisplay', modalWindow)
+
+    },
   },
  
 })
