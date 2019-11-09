@@ -21,6 +21,13 @@ Vue.directive('floater', {
   }
 })
 
+//global mixin
+Vue.mixin({
+  created: function () {
+    
+  }
+})
+
 
 
 new Vue({

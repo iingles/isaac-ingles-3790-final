@@ -14,7 +14,12 @@ export default new Vuex.Store({
       password: '',
       permissions: 'admin',
       loggedIn: false,
-    }
+    },
+    modalWindow: {
+      showModal: false,
+      modalMessage: '',
+      modalTitle: '',
+    },
   },
   getters: {
     user(state) {
@@ -23,6 +28,9 @@ export default new Vuex.Store({
     userName(state) {
       return state.user.userName
     },
+    modal(state) {
+      return state.modalWindow
+    }
   },
   mutations: {
     storeUser(state, user) {
@@ -32,6 +40,11 @@ export default new Vuex.Store({
       state.user.loggedIn = !state.user.loggedIn
       return state.user
     },
+    modalInfo(state, modalWindow) {
+      state.modalWindow.showModal = modalWindow.show
+      state.modalWindow.modalTitle = modalWindow.title
+      state.modalWindow.modalMessage = modalWindow.message
+    }
   },
   actions: {
     userLoggedIn({commit}, user) {
