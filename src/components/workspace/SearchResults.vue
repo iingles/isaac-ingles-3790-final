@@ -81,6 +81,17 @@ export default {
       ],
       templates: designTemplates,
       modules: contentModules,
+      adminHeaders: [
+        {
+          text: 'ID',
+          align: 'left',
+          sortable: false,
+          value: 'id',
+        },
+        {text: 'Name', value: "name"},
+        {text: 'modified', value: "modified"},
+        {text: 'Actions', value: 'action', sortable: false },
+      ],
     }
     
   },
@@ -98,6 +109,9 @@ export default {
       }
       if(theView == 'design') {
         return vm.designHeaders
+      }
+      if(theView == 'admin') {
+        return vm.adminHeaders
       }
     },
     getTableItems(theView) {
