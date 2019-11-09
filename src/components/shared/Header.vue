@@ -9,7 +9,6 @@
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
         <v-toolbar-title>{{ this.$route.name }}<span v-if="this.$route.params.id">&nbsp;{{ this.$route.params.id }}</span></v-toolbar-title>
-
       <div class="flex-grow-1"></div>
       <v-menu>
         <template v-slot:activator="{ on }">
@@ -32,10 +31,10 @@
         <v-btn block to="/">Dashboard</v-btn>
         <v-btn block to="/workspace">Workspace</v-btn>
         <v-btn block to="/users">Users</v-btn>
-        <v-card class="pd-10 ma-5 text-center">
+        <v-card class="pb-10 pt-10 pl-10 pr-10 ma-5 text-center">
           <p>Logged in as</p> 
           {{ userName }}
-          <v-btn color="blue" dark rounded @click="logout">Logout</v-btn>
+          <v-btn class="mt-5" color="blue" dark rounded @click="logout">Logout</v-btn>
         </v-card>
         
     </v-navigation-drawer>
