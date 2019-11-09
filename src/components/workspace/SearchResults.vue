@@ -2,7 +2,7 @@
   <div>
     <v-data-table
       :v-model="selected"
-      :headers="headers"
+      :headers="getTableHeaders(this.$route.params.workview)"
       :items="modules"
       :items-per-page="5"
       class="elevation-1"
@@ -45,25 +45,38 @@
 
 <script>
 import contentModules from '../../assets/modules.js'
+import designTemplates from '../../assets/templates.js'
 
 export default {
  data () {
     return {
-      selected: [], 
-      headers: [
+      selected: [],
+      moduleHeaders: [
         {
-            text: 'ID',
-            align: 'left',
-            sortable: false,
-            value: 'id',
-          },
-          { text: 'Name', value: 'name' },
-          { text: 'Internal Name', value: 'internalName' },
-          { text: 'Template', value: 'template' },
-          { text: 'Created', value: 'created' },
-          { text: 'Version', value: 'version' },
-          { text: 'Actions', value: 'action', sortable: false },
+          text: 'ID',
+          align: 'left',
+          sortable: false,
+          value: 'id',
+        },
+        { text: 'Name', value: 'name' },
+        { text: 'Internal Name', value: 'internalName' },
+        { text: 'Template', value: 'template' },
+        { text: 'Created', value: 'created' },
+        { text: 'Version', value: 'version' },
+        { text: 'Actions', value: 'action', sortable: false },      
       ],
+      templateHeaders: [
+        {
+          text: 'ID',
+          align: 'left',
+          sortable: false,
+          value: 'id',
+        },
+        {text: 'Name', value: "name"},
+        {text: 'Version', value: "version"},
+        {text: 'modified', value: "modified"},
+      ],
+      templates: designTemplates,
       modules: contentModules,
     }
     
@@ -72,10 +85,18 @@ export default {
     editItem (item) {
         this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.internalName ).catch(err => {})
       },
-
-      deleteItem (item) {
+    deleteItem (item) {
         console.log('delete ' + item.id)
       },
+    getTableHeaders(theView) {
+      let vm = this
+      if(theView == 'modules') {
+        return vm.moduleHeaders
+      }
+      if(theView == 'templates') {
+        return vm.templateHeaders
+      }
+    }
   },
 }
 </script>

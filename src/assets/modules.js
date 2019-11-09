@@ -6,6 +6,8 @@ const contentModules = [
         template: 'mainPage',
         created: '10/2/2019',
         version: '12',
+        modified: '10/22/2019',
+        status: 'live',
     },
     {
         id: 2,
@@ -14,6 +16,8 @@ const contentModules = [
         template: 'article',
         created: '10/2/2019',
         version: '12',
+        modified: '10/22/2019',
+        status: 'live',
     },
     {
         id: 3,
@@ -22,6 +26,8 @@ const contentModules = [
         template: 'media-video',
         created: '10/2/2019',
         version: '12',
+        modified: '10/22/2019',
+        status: 'live',
     },
     {
         id: 4,
@@ -30,6 +36,8 @@ const contentModules = [
         template: 'media-gallery',
         created: '10/2/2019',
         version: '12',
+        modified: '10/22/2019',
+        status: 'live',
     },
     {
         id: 5,
@@ -38,6 +46,8 @@ const contentModules = [
         template: 'newsPage',
         created: '10/2/2019',
         version: '12',
+        modified: '10/22/2019',
+        status: 'live',
     },
 ]
 
