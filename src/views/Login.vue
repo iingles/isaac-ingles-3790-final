@@ -1,7 +1,7 @@
 <template>
     <v-card class="pa-10">
         <v-card-title>Welcome to your Content Management System</v-card-title>
-        <v-form @submit.prevent="onSubmit">
+        <v-form @submit.prevent="onSubmit" @keyup.enter="onSubmit">
             <v-text-field
                 v-model.lazy="userName"
                 label="Username"
@@ -14,7 +14,8 @@
             >
             </v-text-field>
             <v-btn 
-            @click="onSubmit" 
+            @click="onSubmit"
+            type="submit"
             rounded
             color="blue"
             dark
