@@ -1,7 +1,13 @@
 <template>
     <v-container>
         <v-card class="pa-3">
-            <v-card-title class="sidebar-title mb-4">Search</v-card-title>                
+            <v-card-title class="sidebar-title mb-4">Search</v-card-title>
+             <v-tooltip left> 
+                <template v-slot:activator="{ on }">
+                    <v-icon v-on="on">mdi-help</v-icon>
+                </template>
+                <span>Tooltip</span>
+            </v-tooltip>      
             <v-form>
                 <v-text-field
                     v-model="searchInput"
