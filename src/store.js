@@ -10,9 +10,9 @@ export default new Vuex.Store({
     user: {
       name: '',
       userName: '',
-      email: '',
+      email: 'default',
       password: '',
-      permissions: '',
+      permissions: 'admin',
       loggedIn: false,
     }
   },

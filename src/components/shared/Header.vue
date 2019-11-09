@@ -32,11 +32,12 @@
         <v-btn block to="/">Dashboard</v-btn>
         <v-btn block to="/workspace">Workspace</v-btn>
         <v-btn block to="/users">Users</v-btn>
-        <div>
+        <v-card class="pd-10 ma-5 text-center">
           <p>Logged in as</p> 
           {{ userName }}
-        </div>
-        <v-btn @click="logout">Logout</v-btn>
+          <v-btn color="blue" dark rounded @click="logout">Logout</v-btn>
+        </v-card>
+        
     </v-navigation-drawer>
   </div>
 </template>
@@ -53,7 +54,8 @@ export default {
   }),
   computed: {
     userName() {
-      return this.$store.getters.userName
+      console.log(this.$store.getters.user)
+      return this.$store.getters.user.userName
     },
   },
   methods: {
