@@ -1,21 +1,22 @@
 <template>
     <v-container>
         <h1>Dashboard</h1>
-        <h2>Use the lefthand slideout menu to navigate.</h2>
-            <v-data-table
-                :v-model="selected"
-                :headers="headers"
+        <v-spacer></v-spacer>
+        <v-data-table
+            :v-model="selected"
+            :headers="headers"
 
-                :items-per-page="5"
-                class="elevation-1"
-                >
-                <template v-slot:top>
-                    <v-toolbar class="green lighten-1 white--text">
-                        <v-toolbar-title>Recently Edited</v-toolbar-title>
-                        <v-spacer></v-spacer>
-                    </v-toolbar>
-                </template>
-            </v-data-table>
+            :items-per-page="5"
+            class="elevation-1"
+            >
+            <template v-slot:top>
+                <v-toolbar class="green lighten-1 white--text">
+                    <v-toolbar-title>Recently Edited</v-toolbar-title>
+                    <v-spacer></v-spacer>
+                </v-toolbar>
+            </template>
+        </v-data-table>
+        <v-spacer></v-spacer>
         <v-row>
             <!-- 
             Eventually I could pull all of these dynamically, maybe even
@@ -33,6 +34,7 @@
                 </v-card>
             </v-col>
         </v-row>
+        <v-spacer></v-spacer>
         <v-row>
             <v-col>
                 <v-card class="card-title">
