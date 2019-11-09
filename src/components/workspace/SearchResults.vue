@@ -9,7 +9,7 @@
       >
       <template v-slot:top>
         <v-toolbar>
-          <v-toolbar-title>Select a (type goes here)</v-toolbar-title>
+          <v-toolbar-title>Select an item below</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-tooltip top> 
               <template v-slot:activator="{ on }">
