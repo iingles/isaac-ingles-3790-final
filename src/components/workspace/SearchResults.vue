@@ -2,10 +2,10 @@
   <div>
     <v-data-table
       :v-model="selected"
-      :headers="getTableHeaders(this.$route.params.workview)"
+      :headers="getTableHeaders(this.$route.params.viewmode)"
       :items="getTableItems(this.$route.params.workview)"
       :items-per-page="5"
-      class="elevation-1"
+      class="elevation-1 xs-12 lg-12"
       >
       <template v-slot:top>
         <v-toolbar>
@@ -52,7 +52,7 @@ export default {
     return {
       // theView: this.$route.params.workview,
       selected: [],
-      moduleHeaders: [
+      contentHeaders: [
         {
           text: 'ID',
           align: 'left',
@@ -61,12 +61,12 @@ export default {
         },
         { text: 'Name', value: 'name' },
         { text: 'Internal Name', value: 'internalName' },
-        { text: 'Template', value: 'template' },
+        { text: 'Template/Type', value: 'template' },
         { text: 'Created', value: 'created' },
         { text: 'Version', value: 'version' },
         { text: 'Actions', value: 'action', sortable: false },      
       ],
-      templateHeaders: [
+      designHeaders: [
         {
           text: 'ID',
           align: 'left',
@@ -74,6 +74,7 @@ export default {
           value: 'id',
         },
         {text: 'Name', value: "name"},
+        {text: 'Created', value: 'created' },
         {text: 'Version', value: "version"},
         {text: 'modified', value: "modified"},
         {text: 'Actions', value: 'action', sortable: false },
@@ -92,11 +93,11 @@ export default {
       },
     getTableHeaders(theView) {
       let vm = this
-      if(theView == 'modules') {
-        return vm.moduleHeaders
+      if(theView == 'content') {
+        return vm.contentHeaders
       }
-      if(theView == 'templates') {
-        return vm.templateHeaders
+      if(theView == 'design') {
+        return vm.designHeaders
       }
     },
     getTableItems(theView) {
