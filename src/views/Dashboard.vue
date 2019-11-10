@@ -1,6 +1,5 @@
 <template>
     <v-container>
-        <h1>Dashboard</h1>
         <v-spacer></v-spacer>
         <v-data-table
             :v-model="selected"
