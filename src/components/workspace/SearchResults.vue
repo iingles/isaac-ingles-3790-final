@@ -46,12 +46,15 @@
 <script>
 import contentModules from '../../assets/modules.js'
 import designTemplates from '../../assets/templates.js'
+// axios installed!
+import axios from 'axios'
 
 export default {
  data () {
     return {
       searchData: false,
       selected: [],
+      people: [],
       contentHeaders: [
         {
           text: 'ID',
@@ -81,21 +84,32 @@ export default {
       ],
       templates: designTemplates,
       modules: contentModules,
-      adminHeaders: [
+      userHeaders: [
         {
           text: 'ID',
           align: 'left',
           sortable: false,
           value: 'id',
         },
-        {text: 'Name', value: "name"},
-        {text: 'modified', value: "modified"},
+        {text: 'Last Name', value: "surname"},
+        {text: 'First Name', value: "name"},
         {text: 'Actions', value: 'action', sortable: false },
       ],
     }
-    
   },
   methods: {
+    getPeople() {
+      //might kill the browser if you ask for a ton of data at once
+      //for a ton of data, use pagination stuffs
+      axios.get('https://uinames.com/api/?amount=25&region=United States')
+      .then(response => {
+          this.people = response.data
+      })
+      .catch(error => console.error(error))
+      .finally(() => {
+          // console.log(this.courses)
+      })
+    },
     editItem (item) {
         this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.internalName ).catch(err => {})
       },
@@ -111,7 +125,7 @@ export default {
         return vm.designHeaders
       }
       if(theView == 'admin') {
-        return vm.adminHeaders
+        return vm.userHeaders
       }
     },
     getTableItems(theView) {
@@ -121,6 +135,10 @@ export default {
       }
       if(theView == 'templates') {
         return vm.templates
+      }
+      if(theView == 'Users') {
+        vm.getPeople()
+        return vm.people
       }
     }
   },

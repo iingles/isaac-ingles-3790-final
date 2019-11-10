@@ -14,7 +14,7 @@ import Dashboard from './views/Dashboard.vue'
 // import ModuleEditor from './components/workspace/ModuleEditor.vue'
 // import ModuleDetail from './components/workspace/ModuleDetail.vue'
 //import WorkspaceViewPort from './components/workspace/WorkspaceViewPort.vue'
-import UserManagement from './views/UserManagement.vue'
+// import UserManagement from './views/UserManagement.vue'
 
 /* 
 You can group lazy loading stuff using a third 
@@ -154,11 +154,11 @@ export default new Router({
       path: '/logs',
       component: Logs,
     },
-    {
-      name: 'users',
-      path: '/users',
-      component: UserManagement,
-    }
+    // {
+    //   name: 'users',
+    //   path: '/users',
+    //   component: UserManagement,
+    // }
   ]
 
 })

@@ -30,7 +30,6 @@
         >
         <v-btn block to="/">Dashboard</v-btn>
         <v-btn block to="/workspace">Workspace</v-btn>
-        <v-btn block to="/users">Users</v-btn>
         <v-card class="pb-10 pt-10 pl-10 pr-10 ma-5 text-center">
           <p>Logged in as</p> 
           {{ userName }}
