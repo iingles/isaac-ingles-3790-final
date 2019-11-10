@@ -26,7 +26,6 @@
     </v-card>
 </template>
 <script>
-import users from '../../src/assets/users.js'
 
 export default {
     data: () => {

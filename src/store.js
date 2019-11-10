@@ -45,6 +45,7 @@ export default new Vuex.Store({
       state.modalWindow.showModal = modalWindow.show
       state.modalWindow.modalTitle = modalWindow.title
       state.modalWindow.modalMessage = modalWindow.message
+      return state.modalWindow
     },
     changeModalDisplay(state) {
       state.modalWindow.showModal = !state.modalWindow.showModal
@@ -64,7 +65,6 @@ export default new Vuex.Store({
     },
     displayModal({commit}, modalWindow) {
       commit('changeModalDisplay', modalWindow)
-
     },
   },
  
