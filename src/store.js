@@ -13,7 +13,7 @@ export default new Vuex.Store({
       email: 'default',
       password: '',
       permissions: 'admin',
-      loggedIn: false,
+      loggedIn: true,
     },
     modalWindow: {
       showModal: false,
