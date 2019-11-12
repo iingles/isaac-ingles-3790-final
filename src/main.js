@@ -6,7 +6,7 @@ import vuetify from './plugins/vuetify'
 
 Vue.config.productionTip = false
 
-//Custom directive 
+//Custom directive; used in WorkSpaceViewPort
 
 Vue.directive('emphasized', {
   inserted: el => {
@@ -26,7 +26,7 @@ Vue.mixin({
   }
 })
 
-//global filter
+//global filter, used in workspaceViewPort component
 Vue.filter('upper', (value) => {
   return value.toUpperCase()
 })

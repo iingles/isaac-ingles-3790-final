@@ -55,6 +55,7 @@ export default {
       searchData: false,
       selected: [],
       people: [],
+      filterText: '',
       contentHeaders: [
         {
           text: 'ID',

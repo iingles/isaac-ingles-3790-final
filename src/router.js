@@ -103,7 +103,7 @@ export default new Router({
 
   routes: [
     {
-      name: 'Dashboard',
+      name: 'Default',
       path: '*',
       component: Dashboard
     },

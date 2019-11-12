@@ -12,6 +12,7 @@
                 <v-text-field
                     v-model="searchInput"
                     label="search"
+                    :value="searchString"
                     prepend-inner-icon="mdi-magnify"
                 >                
                 </v-text-field>
@@ -50,6 +51,11 @@ export default {
     data: () => {
         return {
             searchInput: '',
+        }
+    },
+    computed: {
+        searchFilter() {
+            
         }
     },
     methods: {
