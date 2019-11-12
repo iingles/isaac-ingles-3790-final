@@ -1,6 +1,8 @@
 <template>
   <div>
-    searchResults: {{ filterText }}
+    <div v-for="result in searchFilter" :key='result.id'>
+      {{ result }}
+    </div>
     <v-data-table
       :v-model="selected"
       :headers="getTableHeaders(this.$route.params.viewmode)"
@@ -58,6 +60,7 @@ export default {
     return {
       searchData: false,
       selected: [],
+      filteredResults: [],
       people: [],
       contentHeaders: [
         {
@@ -103,9 +106,9 @@ export default {
   },
   computed: {
     searchFilter() {
-    // return this.searchString
-      return this.fruits.filter(element => {
-        return element.match(this.filterText)
+      var vm = this
+      return this.filteredResults.filter(element => {
+        return element.name.match(vm.filterText)
       })
     }
   },
@@ -143,15 +146,16 @@ export default {
     getTableItems(theView) {
       let vm = this
       if(theView == 'modules') {
-        return vm.modules
+        vm.filteredResults = vm.modules
       }
       if(theView == 'templates') {
-        return vm.templates
+        vm.filteredResults = vm.templates
       }
       if(theView == 'Users') {
         vm.getPeople()
-        return vm.people
+        vm.filteredResults = vm.people
       }
+      return vm.filteredResults
     }
   },
 }
