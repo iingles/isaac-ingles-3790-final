@@ -31,8 +31,6 @@ Vue.filter('upper', (value) => {
   return value.toUpperCase()
 })
 
-
-
 new Vue({
   router,
   store,
