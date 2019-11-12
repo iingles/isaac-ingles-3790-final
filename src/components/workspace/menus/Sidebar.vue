@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <v-card class="pa-3">
-            <v-card-title class="sidebar-title mb-4">Search</v-card-title>
+            <v-card-title class="mb-4">Menu</v-card-title>
              <v-tooltip left> 
                 <template v-slot:activator="{ on }">
                     <v-icon v-on="on">mdi-help</v-icon>
@@ -61,10 +61,13 @@ export default {
 </script>
 
 <style scoped>
-    .sidebar-title {
-        border-bottom: 1px solid #ccc;
+
+    .v-card__title {
+    background-color: #655B53;
+    color: #fff;
+    border-bottom: 1px solid #ccc;
     }
-    
+
     .sidebar-history {
         padding: 10px;
     }

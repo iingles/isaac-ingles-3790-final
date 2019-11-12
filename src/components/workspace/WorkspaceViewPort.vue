@@ -4,7 +4,7 @@
             <h1 v-emphasized>Results</h1>
         </v-row>
         <v-row>
-            <!-- <h2>{{this.$route.params.workview | upper}}</h2> -->
+            <h2 class="search-type-title">{{this.$route.params.workview | upper}}</h2>
         </v-row>
         <v-row>
             <template v-if="search">
@@ -36,5 +36,8 @@ export default {
 </script>
 
 <style scoped>
+    .search-type-title {
+        
+    }
 
 </style>
