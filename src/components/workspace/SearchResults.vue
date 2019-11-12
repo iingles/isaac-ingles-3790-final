@@ -168,21 +168,5 @@ export default {
 </script>
 
 <style scoped>
-  .flip-enter-active {
-    animation: flipin 1.5s ease-out forwards; 
-  }
-  .flip-leave-active {
-    animation: flipout 1.5s ease-out forwards;
-  }
-
-  @keyframes flipin {
-    from {transform: rotateY(0deg);}
-    to {transform: rotateY(180deg); }
-  }
-
-   @keyframes flipout {
-    from {transform: rotateY(180deg);}
-    to {transform: rotateY(0deg); }
-  }
-
+  
 </style>
