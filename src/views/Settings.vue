@@ -85,6 +85,7 @@ export default {
             switch4: true,
             switch5: true,
             switch6: true,
+            response: ''
         }
     }
 }
