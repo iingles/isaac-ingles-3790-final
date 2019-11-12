@@ -4,7 +4,7 @@
         <v-row>
             <!-- I can set these up to get the data from elsewhere -->
             <v-col lg="12" md="12" sm="12" xs="12">
-                <v-card >
+                <v-card class="v-card blue lighten-1">
                     <v-card-title class="card-title">Statistics</v-card-title>
                     <v-container fluid>
                         <v-sparkline
@@ -43,7 +43,7 @@
             make them their own components -- depending on how complicated they get
              -->
             <v-col>
-                <v-card class="card-title">
+                <v-card class="v-card red lighten-1">
                     <v-card-title>Alerts</v-card-title>
                     <v-list>
                         <v-list-item>Lorem Ipsum: consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</v-list-item>
@@ -56,7 +56,7 @@
         </v-row>
         <v-row>
             <v-col>
-                <v-card class="card-title">
+                <v-card class="v-card blue lighten-1">
                     <v-card-title>Logs</v-card-title>
                     <v-list>
                         <v-list-item>Lorem Ipsum: consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</v-list-item>
@@ -77,9 +77,8 @@ export default {
 </script>
 
 <style scoped>
-    .card-title {
-        background: navy;
-        color: #fff;
+    .v-card {
+        border-radius: 30px 30px 0 0!important;
     }
     .card-row {
         width: 100%;
