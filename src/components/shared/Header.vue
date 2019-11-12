@@ -3,10 +3,10 @@
     <v-app-bar 
       app
       fixed
-      color="blue lighten-3"
+      color="#618E41"
       dark
       dense
-      collapse-on-scroll="true"
+      collapse-on-scroll
       >
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 

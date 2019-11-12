@@ -9,7 +9,7 @@
             class="elevation-1 v-card"
             >
             <template v-slot:top>
-                <v-toolbar class="blue lighten-1 white--text">
+                <v-toolbar class="white--text">
                     <v-toolbar-title>Recently Edited</v-toolbar-title>
                     <v-spacer></v-spacer>
                 </v-toolbar>
@@ -23,7 +23,7 @@
              -->
             <v-col>
                 <v-card class="rounded-card" to="/logs">
-                    <v-card-title class="red lighten-1 white--text" >Alerts</v-card-title>
+                    <v-card-title class="alert" >Alerts</v-card-title>
                     <v-list>
                         <v-list-item>Lorem Ipsum: consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</v-list-item>
                         <v-list-item>Excepteur sint: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </v-list-item>
@@ -37,7 +37,7 @@
         <v-row>
             <v-col>
                 <v-card class="rounded-card" to="/logs">
-                    <v-card-title class="blue lighten-1 white--text">Logs</v-card-title>
+                    <v-card-title>Logs</v-card-title>
                     <v-list>
                         <v-list-item>Lorem Ipsum: consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</v-list-item>
                         <v-list-item>Excepteur sint: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </v-list-item>
@@ -78,9 +78,23 @@ export default {
 </script>
 
 <style scoped>
+.v-toolbar {
+    background-color: #655B53;
+}
+
+.v-card__title {
+    background-color: #655B53;
+    color: #fff;
+}
+
+.v-card__title.alert {
+    background-color: #8D6657;
+}
+
 .v-card {
     border-radius: 30px 30px 0 0!important;
 }
+
 .slide-enter-active {
     animation: slide-in 200ms ease-out forwards;
 }

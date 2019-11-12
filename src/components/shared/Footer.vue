@@ -1,7 +1,7 @@
 <template>
     <v-footer
       height="50"
-      color="blue lighten-3"
+      color="#618E41"
       dark
     >
         &copy;2019
