@@ -161,9 +161,10 @@ export default {
         vm.searchResults = vm.templates
         return vm.templates
       }
-      if(theView == 'Users') {
-        // vm.searchResults = vm.people
-        return vm.getPeople()        
+      if(theView == 'Users') {        
+        vm.getPeople()
+        vm.searchResults = vm.people
+        return vm.people        
       }
     },
   },
