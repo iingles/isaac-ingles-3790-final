@@ -1,30 +1,37 @@
 <template>
-    <v-card class="pa-10">
-        <v-card-title>Welcome to your Content Management System</v-card-title>
-        <v-form @submit.prevent="onSubmit" @keyup.enter="onSubmit">
-            <v-text-field
-                v-model.lazy="userName"
-                label="Username"
-                :rules="userNameRules"
-            >
-            </v-text-field>
-            <v-text-field
-                v-model.lazy="password"
-                label="Password"
-                type="password"
-                :rules="passwordRules"
-            >
-            </v-text-field>
-            <v-btn 
-            @click="onSubmit"
-            type="submit"
-            rounded
-            color="blue"
-            dark
-            >Submit</v-btn>
-        </v-form>
-    </v-card>
+    <v-container>
+        <v-row class="xs-12 md-6 lg-8 xs-ma-0 lg-ma-10">
+            <v-col cols="12">
+            <v-card class="pa-10">
+                <v-card-title>Welcome to your Content Management System</v-card-title>
+                <v-form @submit.prevent="onSubmit" @keyup.enter="onSubmit">
+                    <v-text-field
+                        v-model.lazy="userName"
+                        label="Username"
+                        :rules="userNameRules"
+                    >
+                    </v-text-field>
+                    <v-text-field
+                        v-model.lazy="password"
+                        label="Password"
+                        type="password"
+                        :rules="passwordRules"
+                    >
+                    </v-text-field>
+                    <v-btn 
+                    @click="onSubmit"
+                    type="submit"
+                    rounded
+                    color="blue"
+                    dark
+                    >Submit</v-btn>
+                </v-form>
+            </v-card>
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
+
 <script>
 
 export default {
