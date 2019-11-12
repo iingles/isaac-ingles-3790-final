@@ -1,5 +1,9 @@
 <template>
   <div>
+    <!-- 
+      TODO:
+      Add a search filter from the search input in the sidebar menu
+     -->
     <!-- <div v-for="result in searchFilter" :key='result.id'>
       {{ result }}
     </div> -->

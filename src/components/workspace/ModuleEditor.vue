@@ -1,5 +1,16 @@
 <template>
     <v-container>
+        <!-- 
+            TODO: 
+            Add a warning to the route to ask if the user really wants to leave 
+            without saving if they hit the "back" button
+
+            Add modal windows when save/cancel buttons are pushed to verify
+            save or cancel
+
+            Pull information from templates to only display what the templates have 
+            (i.e. text fields, content areas, image areas, etc.)            
+         -->
          <v-card class="pa-10 xs-12 sm-12">
             <v-card-title class="mb-10 pa-0 editor-title red--text">Editing {{ this.$route.params.id }}</v-card-title>          
             <div>
