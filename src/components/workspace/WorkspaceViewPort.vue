@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <v-row>
-            <h1 v-emphasized> Viewing {{this.$route.params.viewmode}}</h1>
+            <h1 v-emphasized>Results</h1>
         </v-row>
         <v-row>
             <!-- <h2>{{this.$route.params.workview | upper}}</h2> -->
