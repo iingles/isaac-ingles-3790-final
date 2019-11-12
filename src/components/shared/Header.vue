@@ -34,7 +34,7 @@
         <v-btn block to="/workspace">Workspace</v-btn>
         <v-card class="pb-10 pt-10 pl-10 pr-10 ma-5 text-center">
           <p>Logged in as</p> 
-          {{ userName }}
+          <p>{{ userName }}</p>
           <v-btn class="mt-5" color="blue" dark rounded @click="logout">Logout</v-btn>
         </v-card>
         
