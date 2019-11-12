@@ -1,12 +1,13 @@
 <template>
   <div>
+    searchResults: {{ filterText }}
     <v-data-table
       :v-model="selected"
       :headers="getTableHeaders(this.$route.params.viewmode)"
       :items="getTableItems(this.$route.params.workview)"
       :items-per-page="5"
       class="elevation-1 xs-12 lg-12"
-      >
+      >      
       <template v-slot:top>
         <v-toolbar>
           <v-toolbar-title>Select an item below</v-toolbar-title>
@@ -50,12 +51,14 @@ import designTemplates from '../../assets/templates.js'
 import axios from 'axios'
 
 export default {
+  props: {
+    filterText: String,
+  },
  data () {
     return {
       searchData: false,
       selected: [],
       people: [],
-      filterText: '',
       contentHeaders: [
         {
           text: 'ID',
@@ -96,6 +99,14 @@ export default {
         {text: 'First Name', value: "name"},
         {text: 'Actions', value: 'action', sortable: false },
       ],
+    }
+  },
+  computed: {
+    searchFilter() {
+    // return this.searchString
+      return this.fruits.filter(element => {
+        return element.match(this.filterText)
+      })
     }
   },
   methods: {
