@@ -5,8 +5,14 @@
         </v-row>
         <v-row>
             <transition name="slide" mode="out-in">
-                <h2 class="search-type-title">{{ this.$route.params.workview | upper}}</h2>
+                <!-- <h2 class="search-type-title">{{ this.$route.params.workview | upper}}</h2> -->
             </transition>
+            {{ this.searchString }}
+                <!-- <ul>
+                    <li v-for="fruit in searchFilter" :key="fruit">
+                        {{ fruit }}
+                    </li>
+                </ul> -->
         </v-row>
         <v-row>
             <template v-if="search">
@@ -28,12 +34,24 @@ export default {
         SearchResults,
         ModuleEditor,
     },
+    props: {
+        searchString: String,
+    },
     data: () => {
         return {
             search: true,
             editor: false,
+            fruits: ['Apple', 'Bananna', 'Mango', 'Melon'],
         }
     },
+    // watch: {
+    //     searchString() {
+    //         return this.searchString
+    //         // return this.fruits.filter(element => {
+    //         //     return element.match(this.searchString)
+    //         // })
+    //     }
+    // }
 
 }
 </script>

@@ -8,11 +8,14 @@
                 <SideBar 
                     :view="this.viewMode"
                     @work="loadWorkspace($event)"
-                />
+                    @searchEvent="getSearchString($event)"
+                />                
             </v-col>
             <v-col xs="12" md="9">
                 <transition name="slide" mode="out-in">
-                    <router-view></router-view>
+                    <router-view
+                    :searchString="this.searchString"
+                    ></router-view>
                 </transition>        
             </v-col>
         </v-row>
@@ -33,10 +36,8 @@ export default {
             //default to content view
             viewMode: 'content',
             query: '',
+            searchString: '',
          }
-    },
-    computed: {
-        
     },
     methods: {
         change(theEvent) {
@@ -49,6 +50,9 @@ export default {
             this.query=workView
             this.$router.push('/workspace/' + this.viewMode + '/' + workView).catch(err => {})
         },
+        getSearchString(evt) {
+            this.searchString = evt
+        }
     },
 }
 </script>

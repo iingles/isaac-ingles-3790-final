@@ -7,12 +7,11 @@
                     <v-icon v-on="on">mdi-help</v-icon>
                 </template>
                 <span>Lorem Ipsum Dolor sit amet</span>
-            </v-tooltip>      
+            </v-tooltip>
             <v-form>
                 <v-text-field
-                    v-model="searchInput"
+                    v-model="searchString"
                     label="search"
-                    :value="searchString"
                     prepend-inner-icon="mdi-magnify"
                 >                
                 </v-text-field>
@@ -50,19 +49,19 @@ export default {
     },
     data: () => {
         return {
-            searchInput: '',
+            searchString: '',
         }
     },
-    computed: {
-        searchFilter() {
-            
+    watch: {
+        searchString() {
+            this.$emit('searchEvent', this.searchString)
         }
     },
     methods: {
         loadThisWorkspace(work) {
             this.$emit('work', work)
         },
-    },
+     },
 }
 </script>
 
