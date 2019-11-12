@@ -4,7 +4,6 @@
         <v-data-table
             :v-model="selected"
             :headers="headers"
-
             :items-per-page="5"
             class="elevation-1 v-card"
             >

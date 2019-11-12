@@ -54,7 +54,6 @@ export default {
   }),
   computed: {
     userName() {
-      console.log(this.$store.getters.user)
       return this.$store.getters.user.userName
     },
   },
