@@ -20,13 +20,11 @@
 <script>
 import SearchResults from "./SearchResults.vue"
 import ModuleEditor from "./ModuleEditor.vue"
-import UserManagement from "./UserManagement.vue"
 
 export default {
     components: {
         SearchResults,
         ModuleEditor,
-        UserManagement
     },
     data: () => {
         return {
