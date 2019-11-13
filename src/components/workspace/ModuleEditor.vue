@@ -51,9 +51,6 @@
             </div>
             <v-btn color="red" light @click="confirmCancel(mod.id)">Cancel</v-btn>
             <v-btn color="green" light @click="confirmSave(mod.id)">Save</v-btn>            
-            {{ modalAction }}
-            {{ modal.showModal }}
-            {{ this.$store.getters.modal.showModal }}
         </v-card>
     </v-container>
     </v-col>

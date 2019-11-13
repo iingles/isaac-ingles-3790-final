@@ -34,7 +34,7 @@ export default {
     Modal,
   },
   data: () => ({
-    //showModal: this.$store.getters.modal.showModal,
+    
   }),   
 };
 </script>
