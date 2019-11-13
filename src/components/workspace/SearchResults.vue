@@ -3,50 +3,56 @@
     <!-- 
       TODO:
       Add a search filter from the search input in the sidebar menu
+      Display a progress meter/spinny circle while results are loading
      -->
     <!-- <div v-for="result in searchFilter" :key='result.id'>
       {{ result }}
     </div> -->
-    <v-data-table
-      :v-model="selected"
-      :headers="getTableHeaders(this.$route.params.viewmode)"
-      :items="getTableItems(this.$route.params.workview)"
-      :items-per-page="5"
-      class="elevation-1 xs-12 lg-12"
-      >      
-      <template v-slot:top>
-        <v-toolbar>
-          <v-toolbar-title>Select an item below</v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-tooltip top> 
-              <template v-slot:activator="{ on }">
-                  <v-btn
-                    dark
-                    v-on="on"
-                    color="blue"
-                    :to="'/workspace/' + $route.params.viewmode + '/' + $route.params.workview + '/editor' + '/new'"
-                  >New</v-btn>
-              </template>
-              <span>Lorem Ipsum Dolor sit amet</span>
-          </v-tooltip> 
-        </v-toolbar>
-      </template>
-      <template v-slot:item.action="{ item }">
-      <v-icon
-          small
-          class="mr-2"
-          @click="editItem(item)"
-        >
-          mdi-lead-pencil
-        </v-icon>
+    <!-- <template v-if="resultsLoading">
+      <v-progress-circular indeterminate color="primary"></v-progress-circular>
+    </template> -->
+    <template>
+      <v-data-table
+        :v-model="selected"
+        :headers="getTableHeaders(this.$route.params.viewmode)"
+        :items="getTableItems(this.$route.params.workview)"
+        :items-per-page="5"
+        class="elevation-1 xs-12 lg-12"
+        >      
+        <template v-slot:top>
+          <v-toolbar>
+            <v-toolbar-title>Select an item below</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-tooltip top> 
+                <template v-slot:activator="{ on }">
+                    <v-btn
+                      dark
+                      v-on="on"
+                      color="blue"
+                      :to="'/workspace/' + $route.params.viewmode + '/' + $route.params.workview + '/editor' + '/new'"
+                    >New</v-btn>
+                </template>
+                <span>Lorem Ipsum Dolor sit amet</span>
+            </v-tooltip> 
+          </v-toolbar>
+        </template>
+        <template v-slot:item.action="{ item }">
         <v-icon
-          small
-          @click="deleteItem(item)"
-        >
-          mdi-delete
-        </v-icon>
-      </template>
-    </v-data-table>
+            small
+            class="mr-2"
+            @click="editItem(item)"
+          >
+            mdi-lead-pencil
+          </v-icon>
+          <v-icon
+            small
+            @click="deleteItem(item)"
+          >
+            mdi-delete
+          </v-icon>
+        </template>
+      </v-data-table>
+    </template>
   </div>   
 </template>
 
@@ -62,6 +68,7 @@ export default {
   },
  data () {
     return {
+      resultsLoading: true,
       searchData: false,
       selected: [],
       searchResults: [],
@@ -124,12 +131,17 @@ export default {
     getPeople() {
       //might kill the browser if you ask for a ton of data at once
       //for a ton of data, use pagination stuffs
-      axios.get('https://uinames.com/api/?amount=25&region=United States')
+      let vm = this
+      axios.get('https://uinames.com/api/?amount=25&region=United States',)
       .then(response => {
+          console.log(vm.resultsLoading)
           this.people = response.data
       })
       .catch(error => console.error(error))
       .finally(() => {
+          //I want to use vm.resultsLoading for the progress indicator
+          vm.resultsLoading = true
+          console.log(vm.resultsLoading)
           // console.log(this.courses)
       })
     },
