@@ -25,7 +25,7 @@ export default {
     props: {
         showModal: Boolean,
         modalMessage: String,
-        modalTitle: String
+        modalTitle: String,
     },
     methods: {
         modal: function(choice) {

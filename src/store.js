@@ -53,7 +53,8 @@ export default new Vuex.Store({
     modalSelectedOption(state, modalWindowOption) {
       return state.modalWindow.modalAction = modalWindowOption
     },
-    changeModalDisplay(state) {
+    changeModalDisplay(state, modalWindowMessage) {
+      state.modalWindow.modalMessage = modalWindowMessage
       state.modalWindow.showModal = !state.modalWindow.showModal
       return state.modalWindow
     },
@@ -74,9 +75,9 @@ export default new Vuex.Store({
       //handle the modal window option
       commit('modalSelectedOption', modalWindowOption)
     },
-    displayModal({commit}, modalWindow) {
+    displayModal({commit}, modalWindowMessage) {
       //toggle the display state of the modal window
-      commit('changeModalDisplay', modalWindow)
+      commit('changeModalDisplay', modalWindowMessage)
     },
   },
 })

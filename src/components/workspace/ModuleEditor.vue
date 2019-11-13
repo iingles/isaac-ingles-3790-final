@@ -91,15 +91,16 @@ export default {
     methods: {
         confirmCancel(moduleID) {
             this.$store.dispatch('displayModal', {
-
+                modalMessage: 'Cancel edit without saving?'
             })
             this.$store.dispatch('modalSelectedOption', {
+ 
                 modalAction: 'cancel'
             })
         },
         confirmSave(moduleID) {
             this.$store.dispatch('displayModal', {
-
+                modalMessage: 'Save changes?'
             })
             this.$store.dispatch('modalSelectedOption', {
                 modalAction: 'save'
