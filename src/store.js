@@ -17,8 +17,8 @@ export default new Vuex.Store({
     },
     modalWindow: {
       showModal: false,
-      modalMessage: '',
-      modalTitle: '',
+      modalMessage: 'Message',
+      modalTitle: 'Dialog',
       modalAction: 'default',
     },
   },
