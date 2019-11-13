@@ -30,14 +30,16 @@ export default {
     methods: {
         modal: function(choice) {
             if(choice == 'no') {
-                this.$emit('modalNo');
+                this.$store.dispatch('displayModal', {
+                    modalAction: 'no'
+                })
             } 
             if(choice == 'yes') {
-                this.$emit('modalYes');
+                this.$store.dispatch('displayModal', {
+                    modalAction: 'yes'
+                })
             }
-            this.$emit('modalShown')
         },
-
     }
 }
 </script>
