@@ -49,9 +49,8 @@
                 >
                 </v-textarea>
             </div>
-            <v-btn color="red" light @click="confirmCancel(this.$route.params.id)">Cancel</v-btn>
-            <v-spacer></v-spacer>
-            <v-btn color="green" light @click="confirmSave(this.$route.params.id)">Save</v-btn>            
+            <v-btn color="red" light @click="confirmCancel(mod.id)">Cancel</v-btn>
+            <v-btn color="green" light @click="confirmSave(mod.id)">Save</v-btn>            
         </v-card>
     </v-container>
 </template>
@@ -84,7 +83,7 @@ export default {
        let vm = this
 
        for(let i = 0; i < vm.modules.length; i++) {
-            if(vm.modules[i].internalName == this.$route.params.id) {
+            if(vm.modules[i].internalName == vm.$route.params.id) {
                 vm.mod = vm.modules[i]
                 break
             }
@@ -93,12 +92,14 @@ export default {
             vm.desTemplates[i] = designTemplates[i].name
        }
     },
-    computed: {
+    methods: {
         confirmCancel(moduleID) {
-            return this.$store.getters.modal
+            console.log("Cancel " + moduleID)
+            // return this.$store.getters.modal
         },
         confirmSave(moduleID) {
-            return this.$store.getters.modal
+            console.log("Save " + moduleID)
+            // return this.$store.getters.modal
         }
     }
 }
