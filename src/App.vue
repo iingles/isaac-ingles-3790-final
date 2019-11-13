@@ -33,7 +33,7 @@ export default {
     Modal,
   },
   data: () => ({
-    
+    showModal: false,
   }),   
   methods: {
 

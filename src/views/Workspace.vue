@@ -4,14 +4,14 @@
         @changemode="change($event)"
         />
         <v-row>
-            <v-col xs="12" md="3"> 
+            <v-col xs="12" sm="12" md="4" lg="3" cols='12'> 
                 <SideBar 
                     :view="this.viewMode"
                     @work="loadWorkspace($event)"
                     @searchEvent="getSearchString($event)"
                 />                
             </v-col>
-            <v-col xs="12" md="9">
+            <v-col xs="12" sm="12" md="8" cols='12'>
                 <transition name="slide" mode="out-in">
                     <router-view
                     :searchString="this.searchString"

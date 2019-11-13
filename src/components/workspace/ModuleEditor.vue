@@ -1,4 +1,5 @@
 <template>
+    <v-col>
     <v-container>
         <!-- 
             TODO: 
@@ -52,6 +53,7 @@
             <v-btn color="green" light @click="confirmSave(mod.id)">Save</v-btn>            
         </v-card>
     </v-container>
+    </v-col>
 </template>
 
 <script>
@@ -67,7 +69,7 @@ export default {
             mod: 'test',
             changeInternalName: false,
             changeModName: false,
-        }
+       }
     },
     created() {
        let vm = this
