@@ -31,12 +31,12 @@ export default {
         modal: function(choice) {
             if(choice == 'no') {
                 this.$store.dispatch('displayModal', {
-                    modalAction: 'no'
+                    // modalAction: 'no'
                 })
             } 
             if(choice == 'yes') {
                 this.$store.dispatch('displayModal', {
-                    modalAction: 'yes'
+                    // modalAction: 'yes'
                 })
             }
         },

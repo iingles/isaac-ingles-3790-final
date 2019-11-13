@@ -51,6 +51,9 @@
             </div>
             <v-btn color="red" light @click="confirmCancel(mod.id)">Cancel</v-btn>
             <v-btn color="green" light @click="confirmSave(mod.id)">Save</v-btn>            
+            {{ modalAction }}
+            {{ modal.showModal }}
+            {{ this.$store.getters.modal.showModal }}
         </v-card>
     </v-container>
     </v-col>
@@ -59,7 +62,7 @@
 <script>
 import contentModules from '../../assets/modules.js'
 import designTemplates from '../../assets/templates.js'
-
+import { mapGetters } from 'vuex'
 
 export default {
     data: () => {
@@ -84,14 +87,26 @@ export default {
             vm.desTemplates[i] = designTemplates[i].name
        }
     },
+    computed: mapGetters([
+            'modal',
+            'modalAction',
+        ]),
     methods: {
         confirmCancel(moduleID) {
-            console.log("Cancel " + moduleID)
-            // return this.$store.getters.modal
+            this.$store.dispatch('displayModal', {
+
+            })
+            this.$store.dispatch('modalSelectedOption', {
+                modalAction: 'cancel'
+            })
         },
         confirmSave(moduleID) {
-            console.log("Save " + moduleID)
-            // return this.$store.getters.modal
+            this.$store.dispatch('displayModal', {
+
+            })
+            this.$store.dispatch('modalSelectedOption', {
+                modalAction: 'save'
+            })
         }
     }
 }

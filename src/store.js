@@ -19,7 +19,7 @@ export default new Vuex.Store({
       showModal: false,
       modalMessage: '',
       modalTitle: '',
-      modalAction: '',
+      modalAction: 'default',
     },
   },
   getters: {
@@ -31,6 +31,9 @@ export default new Vuex.Store({
     },
     modal(state) {
       return state.modalWindow
+    },
+    modalAction(state) {
+      return state.modalWindow.modalAction
     }
   },
   mutations: {
@@ -46,6 +49,9 @@ export default new Vuex.Store({
       state.modalWindow.modalTitle = modalWindow.title
       state.modalWindow.modalMessage = modalWindow.message
       return state.modalWindow
+    },
+    modalSelectedOption(state, modalWindowOption) {
+      return state.modalWindow.modalAction = modalWindowOption
     },
     changeModalDisplay(state) {
       state.modalWindow.showModal = !state.modalWindow.showModal
@@ -63,6 +69,10 @@ export default new Vuex.Store({
     userLoggedOut({commit}, user) {
       commit('changeLoggedInStatus', user)
       router.replace('/login').catch(err => {console.log(err)})
+    },
+    modalSelectedOption({commit}, modalWindowOption) {
+      //handle the modal window option
+      commit('modalSelectedOption', modalWindowOption)
     },
     displayModal({commit}, modalWindow) {
       //toggle the display state of the modal window

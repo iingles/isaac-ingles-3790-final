@@ -13,7 +13,7 @@
       <Login />
     </template>
     <Modal 
-        :showModal="this.showModal"
+        :showModal="this.$store.getters.modal.showModal"
     />
   </v-app>
 </template>
@@ -23,6 +23,7 @@ import Header from './components/shared/Header'
 import Footer from './components/shared/Footer'
 import Login from './views/Login.vue'
 import Modal from './components/shared/Modal';
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'App',
@@ -33,11 +34,8 @@ export default {
     Modal,
   },
   data: () => ({
-    showModal: false,
+    //showModal: this.$store.getters.modal.showModal,
   }),   
-  methods: {
-
-  },
 };
 </script>
 
