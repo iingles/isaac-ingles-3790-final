@@ -42,7 +42,6 @@
                     label="Module Name"
                     :disabled="!changeModName"
                 ></v-text-field>
-                <!-- <CKEditor :editor="editor" /> -->
                 <v-textarea
                 label="Content Area 1"
                 value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
@@ -58,13 +57,9 @@
 <script>
 import contentModules from '../../assets/modules.js'
 import designTemplates from '../../assets/templates.js'
-//Use CKEditor for the wsiwyg editor
-// import CKEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 export default {
-    // components: {
-    //     CKEditor,
-    // },
     data: () => {
         return {
             modules: contentModules,
@@ -72,11 +67,6 @@ export default {
             mod: 'test',
             changeInternalName: false,
             changeModName: false,
-            // editor: ClassicEditor,
-            // editorData: '<p>Content of the editor.</p>',
-            // editorConfig: {
-                // The configuration of the editor.
-            // }
         }
     },
     created() {
