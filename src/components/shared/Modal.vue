@@ -1,15 +1,15 @@
 <template>
     <v-dialog 
-    v-model="this.$store.getters.modal.showModal"
+    v-model="this.$store.getters.modalWindow.showModal"
     persistent
     max-width="600px"
     >        
         <v-card>
             <v-card-title>
-                <h1>{{ this.$store.getters.modal.modalTitle }}</h1>
+                <h1>{{ this.$store.getters.modalWindow.modalTitle }}</h1>
             </v-card-title>
             <v-card-text>
-                {{ this.$store.getters.modal.modalMessage }}
+                {{ this.$store.getters.modalWindow.modalMessage }}
             </v-card-text>
             <v-card-actions>
                 <div class="flex-grow-1"></div>
@@ -23,7 +23,12 @@
 <script>
 import { mapGetters } from 'vuex'
 
-export default {    
+export default {
+    data: () => {
+        return {
+            
+        }
+    },
     methods: {
         modal: function(choice) {
             if(choice == 'no') {

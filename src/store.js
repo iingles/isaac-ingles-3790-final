@@ -15,9 +15,9 @@ export default new Vuex.Store({
       permissions: 'admin',
       loggedIn: true,
     },
-    modalWindow: {
+    modalWindow: {      
       showModal: false,
-      modalMessage: 'Message',
+      modalMessage: 'Message Text',
       modalTitle: 'Dialog',
       modalAction: 'default',
     },
@@ -29,7 +29,7 @@ export default new Vuex.Store({
     userName(state) {
       return state.user.userName
     },
-    modal(state) {
+    modalWindow(state) {
       return state.modalWindow
     },
     modalAction(state) {
@@ -44,12 +44,12 @@ export default new Vuex.Store({
       state.user.loggedIn = !state.user.loggedIn
       return state.user
     },
-    modalInfo(state, modalWindow) {
-      state.modalWindow.showModal = modalWindow.show
-      state.modalWindow.modalTitle = modalWindow.title
-      state.modalWindow.modalMessage = modalWindow.message
-      return state.modalWindow
-    },
+    // modalInfo(state, modalWindow) {
+    //   state.modalWindow.showModal = modalWindow.show
+    //   state.modalWindow.modalTitle = modalWindow.title
+    //   state.modalWindow.modalMessage = modalWindow.message
+    //   return state.modalWindow
+    // },
     modalSelectedOption(state, modalWindowOption) {
       return state.modalWindow.modalAction = modalWindowOption
     },

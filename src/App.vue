@@ -13,10 +13,10 @@
       <Login />
     </template>
     <Modal 
-      :showModal="this.$store.getters.modal.showModal"
-      :modalTitle="this.$store.getters.modal.modalTitle"
-      :modalMessage="this.$store.getters.modal.modalMessage"
-      :modalAction="this.$store.getters.modal.modalAction"
+      :showModal="this.$store.getters.modalWindow.showModal"
+      :modalTitle="this.$store.getters.modalWindow.modalTitle"
+      :modalMessage="this.$store.getters.modalWindow.modalMessage"
+      :modalAction="this.$store.getters.modalWindow.modalAction"
     />
   </v-app>
 </template>

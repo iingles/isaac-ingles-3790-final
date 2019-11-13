@@ -49,8 +49,14 @@
                 >
                 </v-textarea>
             </div>
-            <v-btn color="red" light @click="confirmCancel(mod.id)">Cancel</v-btn>
-            <v-btn color="green" light @click="confirmSave(mod.id)">Save</v-btn>            
+            <v-btn 
+            color="red" 
+            light
+            @click="confirmCancel(mod.id)"
+            >Cancel</v-btn>
+            <v-btn 
+            color="green"
+            light @click="confirmSave(mod.id)">Save</v-btn>            
         </v-card>
     </v-container>
     </v-col>
@@ -90,21 +96,12 @@ export default {
         ]),
     methods: {
         confirmCancel(moduleID) {
-            this.$store.dispatch('displayModal', {
-                modalMessage: 'Cancel edit without saving?'
-            })
-            this.$store.dispatch('modalSelectedOption', {
- 
-                modalAction: 'cancel'
-            })
+            this.$store.dispatch('displayModal', 'Cancel edit without saving?')
+            this.$store.dispatch('modalSelectedOption', 'cancel')
         },
         confirmSave(moduleID) {
-            this.$store.dispatch('displayModal', {
-                modalMessage: 'Save changes?'
-            })
-            this.$store.dispatch('modalSelectedOption', {
-                modalAction: 'save'
-            })
+            this.$store.dispatch('displayModal', 'Save changes?')
+            this.$store.dispatch('modalSelectedOption', 'save')
         }
     }
 }
