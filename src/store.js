@@ -55,6 +55,7 @@ export default new Vuex.Store({
   actions: {
     userLoggedIn({commit}, user) {
       commit('storeUser', user)
+      //change the user's login status
       commit('changeLoggedInStatus', user)
       //set login to true, route to main app
       router.replace('/').catch(err => {console.log(err)})
@@ -64,8 +65,8 @@ export default new Vuex.Store({
       router.replace('/login').catch(err => {console.log(err)})
     },
     displayModal({commit}, modalWindow) {
+      //toggle the display state of the modal window
       commit('changeModalDisplay', modalWindow)
     },
   },
- 
 })

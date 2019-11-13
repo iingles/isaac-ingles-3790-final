@@ -12,6 +12,9 @@
     <template v-else>
       <Login />
     </template>
+    <Modal 
+        :showModal="this.showModal"
+    />
   </v-app>
 </template>
 
