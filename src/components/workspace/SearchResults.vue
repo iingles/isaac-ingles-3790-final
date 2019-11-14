@@ -132,16 +132,22 @@ export default {
       //might kill the browser if you ask for a ton of data at once
       //for a ton of data, use pagination stuffs
       let vm = this
-      axios.get('https://uinames.com/api/?amount=25&region=United States',)
+      
+      axios.get('https://cors-anywhere.herokuapp.com/https://uinames.com/api/', {
+        params: {
+          amount: 25,
+          region: 'United States',
+          ext: '',
+        },
+      })
       .then(response => {
-          console.log(vm.resultsLoading)
           this.people = response.data
       })
       .catch(error => console.error(error))
       .finally(() => {
           //I want to use vm.resultsLoading for the progress indicator
-          vm.resultsLoading = true
-          console.log(vm.resultsLoading)
+          // vm.resultsLoading = true
+          // console.log(vm.resultsLoading)
           // console.log(this.courses)
       })
     },
