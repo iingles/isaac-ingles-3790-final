@@ -53,7 +53,7 @@
                 <v-col>
                     <v-list>
                         <v-list-item>
-                            <v-radio-group v-model="response" :mandatory="false">
+                            <v-radio-group v-model="response1" :mandatory="false">
                                 <h3>Lorem Ipsum</h3>
                                 <v-radio label="Yes" value="Yes"></v-radio>
                                 <v-radio label="No" value="No"></v-radio>
@@ -61,7 +61,7 @@
                             </v-radio-group>
                             </v-list-item>
                             <v-list-item>
-                            <v-radio-group v-model="response" :mandatory="false">
+                            <v-radio-group v-model="response2" :mandatory="false">
                                 <h3>Lorem Ipsum</h3>
                                 <v-radio label="Yes" value="Yes"></v-radio>
                                 <v-radio label="No" value="No"></v-radio>
@@ -85,7 +85,8 @@ export default {
             switch4: true,
             switch5: true,
             switch6: true,
-            response: ''
+            response1: '',
+            response2: '',
         }
     }
 }
