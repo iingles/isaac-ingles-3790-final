@@ -82,6 +82,8 @@ export default {
        }
     },
     created() {
+        //load initial information for modules and templates
+
         let vm = this
         let rtId = this.$route.params.id
 
@@ -106,12 +108,22 @@ export default {
             }
             vm.templateNames.push(designTemplates[i].name)
         }
-
     },
     computed: mapGetters([
             'modal',
             'modalAction',
         ]),
+    watch: {
+        selectedTemplateName() {
+            let vm = this
+            //get the data from a newly selected template
+            for(let i = 0; i < vm.templates.length; i++) {
+                if(vm.templates[i].name === vm.selectedTemplateName) {
+                    vm.selectedTemplateHtml = vm.templates[i].html
+                }
+            }
+        }
+    },
     methods: {
         confirmCancel(moduleID) {
             this.$store.dispatch('displayModal', 'Cancel edit without saving?')
