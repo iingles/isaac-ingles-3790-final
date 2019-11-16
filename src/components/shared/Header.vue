@@ -69,6 +69,7 @@ export default {
           this.$store.dispatch('userLoggedOut', {
             userName: '',
             password: '',
+            loggedIn: false,
          })
          this.$store.dispatch('displayModal',{
            title: '',

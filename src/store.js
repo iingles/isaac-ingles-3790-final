@@ -40,8 +40,10 @@ export default new Vuex.Store({
     storeUser(state, user) {
       return state.user = user
     },
-    changeLoggedInStatus(state) {
-      state.user.loggedIn = !state.user.loggedIn
+    changeLoggedInStatus(state, user) {
+      state.user.userName = user.userName
+      state.user.password = user.password
+      state.user.loggedIn = user.loggedIn
       return state.user
     },
     modalSelectedOption(state, modalAction) {
@@ -49,11 +51,14 @@ export default new Vuex.Store({
       return state.modalWindow.modalAction
     },
     changeModalDisplay(state, modal) {
-      if(modal.title || modal.message) {
+      if(modal.title != '' || modal.message != '') {
         state.modalWindow.modalTitle = modal.title
         state.modalWindow.modalMessage = modal.message
-      }      
-      state.modalWindow.showModal = !state.modalWindow.showModal
+        state.modalWindow.showModal = true
+      }  else {
+        //if there is no message/title to display, don't show the modal
+        state.modalWindow.showModal = false
+      }
       return state.modalWindow
     },
   },
@@ -62,11 +67,13 @@ export default new Vuex.Store({
       commit('storeUser', user)
       //change the user's login status
       commit('changeLoggedInStatus', user)
-      //set login to true, route to main app
+      //route to main app
       router.replace('/').catch(err => {console.log(err)})
     },
     userLoggedOut({commit}, user) {
       commit('changeLoggedInStatus', user)
+      console.log(user)
+      //route back to login screen
       router.replace('/login').catch(err => {console.log(err)})
     },
     modalOption({commit}, modalWindowOption) {
