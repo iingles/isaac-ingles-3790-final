@@ -6,9 +6,6 @@
             Add a warning to the route to ask if the user really wants to leave 
             without saving if they hit the "back" button
 
-            Add modal windows when save/cancel buttons are pushed to verify
-            save or cancel
-
             Pull information from templates to only display what the templates have 
             (i.e. text fields, content areas, image areas, etc.)            
          -->
@@ -20,7 +17,7 @@
                 <p>ID: {{ mod.id }} </p>
                 <v-combobox
                     :items="templateNames"
-                    :value="mod.template"
+                    v-model="selectedTemplateName"
                     label="Template"
                 ></v-combobox>
                 <v-checkbox
@@ -43,11 +40,15 @@
                     label="Module Name"
                     :disabled="!changeModName"
                 ></v-text-field>
-                <v-textarea
+                <div>
+                    {{selectedTemplateHtml}}
+
+                </div>
+                <!-- <v-textarea
                 label="Content Area 1"
                 value="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. "
                 >
-                </v-textarea>
+                </v-textarea> -->
             </div>
             <v-btn 
             color="red" 
@@ -72,6 +73,9 @@ export default {
         return {
             modules: contentModules,
             templateNames: [],
+            templates: designTemplates,
+            selectedTemplateName: '',
+            selectedTemplateHtml: '',
             mod: {},
             changeInternalName: false,
             changeModName: false,
@@ -89,14 +93,17 @@ export default {
         */
         for(let i = 0; i < vm.modules.length; i++) {
             if(vm.modules[i].internalName === rtId) {
-                console.log(vm.modules[i])
                 //The module "name" is the same as the route ID
                 vm.mod = vm.modules[i]
+                vm.selectedTemplateName = vm.modules[i].template
                 break
             }
         }
         //Loop through the templates
         for(let i = 0; i < designTemplates.length; i++) {
+            if(vm.selectedTemplateName === designTemplates[i].name) {
+                vm.selectedTemplateHtml = designTemplates[i].html
+            }
             vm.templateNames.push(designTemplates[i].name)
         }
 
