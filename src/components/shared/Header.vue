@@ -52,6 +52,7 @@ export default {
   },
   data: () => ({
     drawer: null,
+    //set this to keep my mutation listener from triggering on every single dialog
   }),
   computed: {
     userName() {
@@ -61,28 +62,33 @@ export default {
     ...mapState(['modalWindow'])
   },
   created() {
+    let vm = this
     //watch the state of the selected modal option for the modal window
     this.$store.subscribe((mutation, state) => {
-      if(mutation.type === 'modalSelectedOption') {
-        let theAction = state.modalWindow.modalAction
-        if(theAction == 'yes') {
-          this.$store.dispatch('userLoggedOut', {
-            userName: '',
-            password: '',
-            loggedIn: false,
-         })
-         this.$store.dispatch('displayModal',{
-           title: '',
-           message: '',
-         })
-        } 
-        else {
-           this.$store.dispatch('displayModal',{
-           title: '',
-           message: '',
-         })
+      //check to make sure the change came from the logout click button
+      if(vm.logOutClicked) {
+        if(mutation.type === 'modalSelectedOption') {
+          let theAction = state.modalWindow.modalAction
+          if(theAction == 'yes') {
+            this.$store.dispatch('userLoggedOut', {
+              userName: '',
+              password: '',
+              loggedIn: false,
+          })
+          this.$store.dispatch('displayModal',{
+            title: '',
+            message: '',
+          })
+          } 
+          else {
+            this.$store.dispatch('displayModal',{
+            title: '',
+            message: '',
+          })
+          }
         }
-
+        //make sure to set this back to false after its been checked
+        // vm.logOutClicked = false
       }
     })
   },

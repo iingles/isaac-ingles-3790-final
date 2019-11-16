@@ -126,12 +126,21 @@ export default {
     },
     methods: {
         confirmCancel(moduleID) {
-            this.$store.dispatch('displayModal', 'Cancel edit without saving?')
-            this.$store.dispatch('modalSelectedOption', 'cancel')
+            this.$store.dispatch('displayModal', 
+            {
+                title: 'Are you sure?',
+                message: 'Cancel edit without saving?'
+            
+            })
+            // this.$store.dispatch('modalSelectedOption', 'cancel')
         },
         confirmSave(moduleID) {
-            this.$store.dispatch('displayModal', 'Save changes?')
-            this.$store.dispatch('modalSelectedOption', 'save')
+            this.$store.dispatch('displayModal', {
+                title: 'Are you sure?',
+                message: 'Save changes?'            
+            })
+            // this.$store.dispatch('modalSelectedOption', 'save')
+            
         }
     }
 }
