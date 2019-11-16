@@ -68,13 +68,12 @@ export default new Vuex.Store({
       //change the user's login status
       commit('changeLoggedInStatus', user)
       //route to main app
-      router.replace('/').catch(err => {console.log(err)})
+      router.replace('/').catch(err => {/*catching duplicate route error*/})
     },
     userLoggedOut({commit}, user) {
       commit('changeLoggedInStatus', user)
-      console.log(user)
       //route back to login screen
-      router.replace('/login').catch(err => {console.log(err)})
+      router.replace('/login').catch(err => {/*catching duplicate route error*/})
     },
     modalOption({commit}, modalWindowOption) {
       //handle the modal window option
