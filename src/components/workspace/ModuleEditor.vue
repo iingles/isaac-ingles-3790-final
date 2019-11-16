@@ -19,7 +19,7 @@
                 <p>Version: {{ mod.version }}</p>
                 <p>ID: {{ mod.id }} </p>
                 <v-combobox
-                    :items="desTemplates"
+                    :items="templateNames"
                     :value="mod.template"
                     label="Template"
                 ></v-combobox>
@@ -71,24 +71,35 @@ export default {
     data: () => {
         return {
             modules: contentModules,
-            desTemplates: [],
-            mod: 'test',
+            templateNames: [],
+            mod: {},
             changeInternalName: false,
             changeModName: false,
        }
     },
     created() {
-       let vm = this
+        let vm = this
+        let rtId = this.$route.params.id
 
-       for(let i = 0; i < vm.modules.length; i++) {
-            if(vm.modules[i].internalName == vm.$route.params.id) {
+        /* 
+            loop through the modules, find the one that matches 
+            the route (there may be a better way of doing this; it could 
+            potentially lock up if there are a lot, and won't work right
+            if the routes somehow get messed up) 
+        */
+        for(let i = 0; i < vm.modules.length; i++) {
+            if(vm.modules[i].internalName === rtId) {
+                console.log(vm.modules[i])
+                //The module "name" is the same as the route ID
                 vm.mod = vm.modules[i]
                 break
             }
-       }
-       for(let i = 0; i < designTemplates.length; i++) {
-            vm.desTemplates[i] = designTemplates[i].name
-       }
+        }
+        //Loop through the templates
+        for(let i = 0; i < designTemplates.length; i++) {
+            vm.templateNames.push(designTemplates[i].name)
+        }
+
     },
     computed: mapGetters([
             'modal',
