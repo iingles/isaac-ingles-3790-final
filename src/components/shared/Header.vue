@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import TopRightMenu from "./TopRightMenu.vue"
 
 export default {
@@ -56,12 +57,39 @@ export default {
     userName() {
       return this.$store.getters.user.userName
     },
+    //ES6 destructuring!
+    ...mapState(['modalWindow'])
+  },
+  created() {
+    //watch the state of the selected modal option for the modal window
+    this.$store.subscribe((mutation, state) => {
+      if(mutation.type === 'modalSelectedOption') {
+        let theAction = state.modalWindow.modalAction
+        if(theAction == 'yes') {
+          this.$store.dispatch('userLoggedOut', {
+            userName: '',
+            password: '',
+         })
+         this.$store.dispatch('displayModal',{
+           title: '',
+           message: '',
+         })
+        } 
+        else {
+           this.$store.dispatch('displayModal',{
+           title: '',
+           message: '',
+         })
+        }
+
+      }
+    })
   },
   methods: {
     logout() {
-      this.$store.dispatch('userLoggedOut', {
-          userName: '',
-          password: '',
+      this.$store.dispatch('displayModal',{
+        title: 'Logout',
+        message: 'Are you sure you want to log out?'
       })
     }
   },

@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -32,14 +33,10 @@ export default {
     methods: {
         modal: function(choice) {
             if(choice == 'no') {
-                this.$store.dispatch('displayModal', {
-                    // modalAction: 'no'
-                })
+                this.$store.dispatch('modalOption','no')
             } 
             if(choice == 'yes') {
-                this.$store.dispatch('displayModal', {
-                    // modalAction: 'yes'
-                })
+                this.$store.dispatch('modalOption', 'yes')
             }
         },
     }
