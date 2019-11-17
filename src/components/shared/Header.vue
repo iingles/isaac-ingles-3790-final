@@ -75,9 +75,11 @@ export default {
             loggedIn: false,
           })
         } 
+        //if the answer is no, reset modal, do nothing, and just go to the next block
         this.$store.dispatch('displayModal',{
+          id: 0,
           title: '',
-          message: '',
+          message: '',          
         })
       }
     })
@@ -85,6 +87,7 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch('displayModal',{
+        id: 1,
         title: 'Logout',
         message: 'Are you sure you want to log out?'
       })

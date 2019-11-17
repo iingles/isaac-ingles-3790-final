@@ -17,6 +17,7 @@ export default new Vuex.Store({
     },
     modalWindow: {      
       showModal: false,
+      id: 0,
       modalMessage: 'Message Text',
       modalTitle: 'Dialog',
       modalAction: 'default',
@@ -51,18 +52,19 @@ export default new Vuex.Store({
       state.modalWindow.modalAction = modalAction
       return state.modalWindow.modalAction
     },
-    modalSelectEditor(state, modalAction) {
+    modalEditorConfirm(state, modalAction) {
       //check for save/cancel in the editor
       state.modalWindow.modalAction = modalAction
       return state.modalWindow.modalAction
     },
     changeModalDisplay(state, modal) {
-      if(modal.title != '' || modal.message != '') {
+      if(modal.id != 0) {
+        state.modalWindow.id = modal.id
         state.modalWindow.modalTitle = modal.title
         state.modalWindow.modalMessage = modal.message
         state.modalWindow.showModal = true
       }  else {
-        //if there is no message/title to display, don't show the modal
+        //if the id is zero, there is no message and don't show the modal
         state.modalWindow.showModal = false
       }
       return state.modalWindow
@@ -83,13 +85,17 @@ export default new Vuex.Store({
     },
     modalOption({commit}, modalWindowOption) {
       //handle the modal window option
-      if(this.state.modalWindow.modalTitle === 'Logout') {
+      let id = this.state.modalWindow.id
+      if(id === 1) {
         commit('modalSelectLogout', modalWindowOption)
       }
+      if(id === 2) {
+        commit('modalEditorConfirm', modalWindowOption)
+      }
     },
-    displayModal({commit}, modal) {
+    displayModal({commit}, modalInfo) {
       //toggle the display state of the modal window
-      commit('changeModalDisplay', modal)
+      commit('changeModalDisplay', modalInfo)
     },
   },
 })

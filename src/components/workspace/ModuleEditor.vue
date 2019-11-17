@@ -108,6 +108,24 @@ export default {
             }
             vm.templateNames.push(designTemplates[i].name)
         }
+        //watch the state of the selected modal option for the modal window
+        this.$store.subscribe((mutation, state) => {
+            //check to make sure the change came from the logout click button
+            if(mutation.type === 'modalEditorConfirm'){
+                
+                let theAction = state.modalWindow.modalAction
+                if(theAction == 'yes') {
+                   //do save stuff (for later) 
+                } 
+                //if the answer is no, reset modal, do nothing, and just go to the next block
+                //(for now, just close the modal regardless of the option until I can figure out the "save" feature)
+                this.$store.dispatch('displayModal',{
+                    id: 0,
+                    title: '',
+                    message: '',          
+                })
+            }
+        })
     },
     computed: mapGetters([
             'modal',
@@ -128,6 +146,7 @@ export default {
         confirmCancel(moduleID) {
             this.$store.dispatch('displayModal', 
             {
+                id: 2,
                 title: 'Cancel?',
                 message: 'Cancel edit without saving?'
             })
@@ -135,6 +154,7 @@ export default {
         },
         confirmSave(moduleID) {
             this.$store.dispatch('displayModal', {
+                id: 2,
                 title: 'Save?',
                 message: 'Are you sure you want to save changes?'            
             })
