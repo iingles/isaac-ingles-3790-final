@@ -46,7 +46,13 @@ export default new Vuex.Store({
       state.user.loggedIn = user.loggedIn
       return state.user
     },
-    modalSelectedOption(state, modalAction) {
+    modalSelectLogout(state, modalAction) {
+      //Check for yes/no at logout
+      state.modalWindow.modalAction = modalAction
+      return state.modalWindow.modalAction
+    },
+    modalSelectEditor(state, modalAction) {
+      //check for save/cancel in the editor
       state.modalWindow.modalAction = modalAction
       return state.modalWindow.modalAction
     },
@@ -77,7 +83,10 @@ export default new Vuex.Store({
     },
     modalOption({commit}, modalWindowOption) {
       //handle the modal window option
-      commit('modalSelectedOption', modalWindowOption)
+      if(this.state.modalWindow.modalTitle === 'Logout') {
+        commit('modalSelectLogout', modalWindowOption)
+      }
+      
     },
     displayModal({commit}, modal) {
       //toggle the display state of the modal window

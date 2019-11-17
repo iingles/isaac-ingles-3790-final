@@ -66,8 +66,7 @@ export default {
     //watch the state of the selected modal option for the modal window
     this.$store.subscribe((mutation, state) => {
       //check to make sure the change came from the logout click button
-      if(vm.logOutClicked) {
-        if(mutation.type === 'modalSelectedOption') {
+        if(mutation.type === 'modalSelectLogout') {
           let theAction = state.modalWindow.modalAction
           if(theAction == 'yes') {
             this.$store.dispatch('userLoggedOut', {
@@ -89,7 +88,7 @@ export default {
         }
         //make sure to set this back to false after its been checked
         // vm.logOutClicked = false
-      }
+      
     })
   },
   methods: {
