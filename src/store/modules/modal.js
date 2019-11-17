@@ -2,11 +2,11 @@
 
 const state = {
     modalWindow: {      
-    showModal: false,
-    id: 0,
-    modalMessage: 'Message Text',
-    modalTitle: 'Dialog',
-    modalAction: 'default',
+        showModal: false,
+        id: 0,
+        modalMessage: 'Message Text',
+        modalTitle: 'Dialog',
+        modalAction: 'default',
     },
 }
 
@@ -66,4 +66,5 @@ export default {
     getters,
     mutations,
     actions,
+    // namespaced: true,
 }

@@ -1,6 +1,6 @@
 //Module for the "user" state store
 //not sure if I need to import router here
-// import router from './router'
+import router from '../../router'
 
 const state = {
     user: {
@@ -54,4 +54,5 @@ export default {
     getters,
     mutations, 
     actions,
+    // namespaced: true,
 }

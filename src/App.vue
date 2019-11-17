@@ -1,6 +1,6 @@
 <template>
   <v-app> 
-    <template v-if="this.$store.state.user.loggedIn">
+    <template v-if="this.$store.getters.user.loggedIn">
     <Header  />
       <v-content>
         <transition name="fade" mode="out-in">

@@ -74,6 +74,11 @@ export default {
             password: '',
             loggedIn: false,
           })
+          this.$store.dispatch('displayModal',{
+            id: 0,
+            title: '',
+            message: '',          
+          })
         } 
         //if the answer is no, reset modal, do nothing, and just go to the next block
         this.$store.dispatch('displayModal',{
