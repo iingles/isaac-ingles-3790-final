@@ -56,6 +56,11 @@ export default new Vuex.Store({
       state.modalWindow.modalAction = modalAction
       return state.modalWindow.modalAction
     },
+    modalRouteChangeConfirm(state, modalAction) {
+      //confirm route change in the editor
+      state.modalWindow.modalAction = modalAction
+      return state.modalWindow.modalAction
+    },
     changeModalDisplay(state, modal) {
       if(modal.id != 0) {
         state.modalWindow.id = modal.id
@@ -90,6 +95,9 @@ export default new Vuex.Store({
       }
       if(id === 2) {
         commit('modalEditorConfirm', modalWindowOption)
+      }
+      if(id === 3) {
+        commit('modalRouteChangeConfirm', modalWindowOption)
       }
     },
     displayModal({commit}, modalInfo) {

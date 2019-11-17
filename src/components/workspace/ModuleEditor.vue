@@ -79,11 +79,13 @@ export default {
             mod: {},
             changeInternalName: false,
             changeModName: false,
+            confirmLeave: false,
        }
     },
     created() {
         //load initial information for modules and templates
-
+        //make sure confirmLeave is set to false
+        this.confirmLeave = false
         let vm = this
         let rtId = this.$route.params.id
 
@@ -126,6 +128,24 @@ export default {
                 })
             }
         })
+        //watch the state of the selected modal option for the modal window
+        this.$store.subscribe((mutation, state) => {
+            //check to make sure the change came from the logout click button
+            if(mutation.type === 'modalRouteChangeConfirm'){
+                
+                let theAction = state.modalWindow.modalAction
+                if(theAction == 'yes') {
+                   this.confirmLeave = true 
+                } 
+                //if the answer is no, reset modal, do nothing, and just go to the next block
+                //(for now, just close the modal regardless of the option until I can figure out the "save" feature)
+                this.$store.dispatch('displayModal',{
+                    id: 0,
+                    title: '',
+                    message: '',          
+                })
+            }
+        })
     },
     computed: mapGetters([
             'modal',
@@ -142,6 +162,23 @@ export default {
             }
         }
     },
+    beforeRouteLeave(to, from, next) {
+            //check to make sure the user wants to leave without saving
+            if(this.confirmLeave) {
+                next()
+            } else {
+                    this.$store.dispatch('displayModal', {
+                    id: 3,
+                    title: 'Exit?',
+                    message: 'Are you sure you want to leave without saving?'            
+                })
+                if(this.confirmLeave) {
+                    next();
+                } else {
+                    next(false)
+                }
+            }
+        },
     methods: {
         confirmCancel(moduleID) {
             this.$store.dispatch('displayModal', 
@@ -159,8 +196,7 @@ export default {
                 message: 'Are you sure you want to save changes?'            
             })
             // this.$store.dispatch('modalSelectedOption', 'save')
-            
-        }
+        },
     }
 }
 </script>
