@@ -36,6 +36,7 @@
                 <v-btn block @click="loadThisWorkspace('Users')">Users</v-btn>
                 <v-btn block @click="loadThisWorkspace('Permissions')">Permissions</v-btn>
                 <v-btn block @click="loadThisWorkspace('Keywords')">Keywords</v-btn>
+                <v-btn block @click="loadThisWorkspace('Fields')">Fields</v-btn>
                 <v-btn block @click="loadThisWorkspace('Database')">Database</v-btn>
             </template>
         </v-card>
