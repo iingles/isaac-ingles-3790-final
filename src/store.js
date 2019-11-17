@@ -86,7 +86,6 @@ export default new Vuex.Store({
       if(this.state.modalWindow.modalTitle === 'Logout') {
         commit('modalSelectLogout', modalWindowOption)
       }
-      
     },
     displayModal({commit}, modal) {
       //toggle the display state of the modal window

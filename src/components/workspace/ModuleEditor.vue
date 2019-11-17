@@ -128,16 +128,15 @@ export default {
         confirmCancel(moduleID) {
             this.$store.dispatch('displayModal', 
             {
-                title: 'Are you sure?',
+                title: 'Cancel?',
                 message: 'Cancel edit without saving?'
-            
             })
             // this.$store.dispatch('modalSelectedOption', 'cancel')
         },
         confirmSave(moduleID) {
             this.$store.dispatch('displayModal', {
-                title: 'Are you sure?',
-                message: 'Save changes?'            
+                title: 'Save?',
+                message: 'Are you sure you want to save changes?'            
             })
             // this.$store.dispatch('modalSelectedOption', 'save')
             

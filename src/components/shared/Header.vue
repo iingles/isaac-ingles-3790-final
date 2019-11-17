@@ -73,18 +73,12 @@ export default {
             userName: '',
             password: '',
             loggedIn: false,
-        })
+          })
+        } 
         this.$store.dispatch('displayModal',{
           title: '',
           message: '',
         })
-        } 
-        else {
-          this.$store.dispatch('displayModal',{
-          title: '',
-          message: '',
-        })
-        }
       }
     })
   },
