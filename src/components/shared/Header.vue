@@ -65,30 +65,27 @@ export default {
     let vm = this
     //watch the state of the selected modal option for the modal window
     this.$store.subscribe((mutation, state) => {
-      //check to make sure the change came from the logout click button
-        if(mutation.type === 'modalSelectLogout') {
-          let theAction = state.modalWindow.modalAction
-          if(theAction == 'yes') {
-            this.$store.dispatch('userLoggedOut', {
-              userName: '',
-              password: '',
-              loggedIn: false,
-          })
+    //check to make sure the change came from the logout click button
+      if(mutation.type === 'modalSelectLogout') {
+        let theAction = state.modalWindow.modalAction
+        if(theAction == 'yes') {
+          this.$store.dispatch('userLoggedOut', {
+            userName: '',
+            password: '',
+            loggedIn: false,
+        })
+        this.$store.dispatch('displayModal',{
+          title: '',
+          message: '',
+        })
+        } 
+        else {
           this.$store.dispatch('displayModal',{
-            title: '',
-            message: '',
-          })
-          } 
-          else {
-            this.$store.dispatch('displayModal',{
-            title: '',
-            message: '',
-          })
-          }
+          title: '',
+          message: '',
+        })
         }
-        //make sure to set this back to false after its been checked
-        // vm.logOutClicked = false
-      
+      }
     })
   },
   methods: {
