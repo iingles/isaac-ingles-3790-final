@@ -131,7 +131,7 @@ export default {
   methods: {
     getPeople() {
       //might kill the browser if you ask for a ton of data at once
-      //for a ton of data, use pagination stuffs
+      //for a ton of data, use pagination 
       let vm = this
       
       axios.get('https://cors-anywhere.herokuapp.com/https://uinames.com/api/', {
