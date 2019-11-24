@@ -122,12 +122,10 @@ export default {
     let mods = contentModules
     let vm = this
 
-    for(let i = 0; i < vm.mods.length(); i++) {
-      console.log(vm.mods[i].keys)
-    }
+    console.log(Object.keys(mods[0]))
   },
   computed: {
-    searchResults() {
+    getSearchResults() {
       return this.$store.state.searchResults
     }
   },
