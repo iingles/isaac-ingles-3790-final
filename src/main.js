@@ -19,18 +19,6 @@ Vue.directive('emphasized', {
   }
 })
 
-//global mixin
-Vue.mixin({
-  created: function () {
-    
-  }
-})
-
-//global filter, used in workspaceViewPort component
-Vue.filter('upper', (value) => {
-  return value.toUpperCase()
-})
-
 new Vue({
   router,
   store,
