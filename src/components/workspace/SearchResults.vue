@@ -68,6 +68,7 @@ export default {
   },
  data () {
     return {
+      headerKeys: [],
       resultsLoading: true,
       searchData: false,
       selected: [],
@@ -115,6 +116,14 @@ export default {
         {text: 'Email', value: 'email' },
         {text: 'Actions', value: 'action', sortable: false },
       ],
+    }
+  },
+  created() {
+    let mods = contentModules
+    let vm = this
+
+    for(let i = 0; i < vm.mods.length(); i++) {
+      console.log(vm.mods[i].keys)
     }
   },
   computed: {
