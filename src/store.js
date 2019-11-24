@@ -21,6 +21,7 @@ export default new Vuex.Store({
       modalTitle: 'Dialog',
       modalAction: 'default',
     },
+    searchResults: [],
   },
   getters: {
     user(state) {
@@ -73,6 +74,9 @@ export default new Vuex.Store({
       }
       return state.modalWindow
     },
+    setSearchResults(state, payload) {
+      state.searchResults = payload
+    }
   },
   actions: {
     userLoggedIn({commit}, user) {
@@ -104,5 +108,9 @@ export default new Vuex.Store({
       //toggle the display state of the modal window
       commit('changeModalDisplay', modalInfo)
     },
+    actSearchResults({commit}, response) {
+      //handle our search results
+      commit('setSearchResults', response)
+    }
   },
 })
