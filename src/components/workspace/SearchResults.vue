@@ -118,15 +118,9 @@ export default {
     }
   },
   computed: {
-    // searchFilter() {
-    //   let vm = this
-    //   if(vm.filtertext != '') {
-    //     return vm.searchResults.filter(element => {
-    //       vm.searchResults = element.name.match(vm.filterText)
-    //       return vm.searchResults
-    //     })
-    //   }      
-    // }
+    searchResults() {
+      return this.$store.state.searchResults
+    }
   },
   methods: {
     getPeople() {
