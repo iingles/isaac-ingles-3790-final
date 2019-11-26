@@ -26,10 +26,10 @@ export const cmsDirective = {
             }
 
             for(let i = 0; i < foundDirectives.length; i++) {
-                if(vm.foundDirectives[i] === 'cmsParagraph') {
+                if(foundDirectives[i] === 'cmsParagraph') {
                     included.push( cmsParagraph )
                 }
-                if(vm.foundDirectives[i] === 'cmsArticle') {
+                if(foundDirectives[i] === 'cmsArticle') {
                     included.push( cmsArticle )
                 }
             }

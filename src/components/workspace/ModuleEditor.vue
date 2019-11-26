@@ -41,7 +41,7 @@
                         :disabled="!changeModName"
                     ></v-text-field>
                     <div>
-                        {{parseDirectives(this.selectedTemplateHtml)}}
+                        {{includeDirectives(parseDirectives(this.selectedTemplateHtml))}}
                         
                     </div>
                     <!-- <v-textarea
@@ -212,9 +212,33 @@ export default {
         },
         parseDirectives(inHTML) {
             let foundDirectives = inHTML.replace(/<[^>]*>?/gm, '').split('!')
-            return foundDirectives[0]
+            return foundDirectives
+        },
+        includeDirectives(found) {
+            
+            let vm = this
+            let included = []
+
+            // const cmsParagraph = {
+            //     props: ['text'],
+            //     template: '<v-textarea>{{ text }}</v-textarea>'
+            // }
+            // const cmsArticle = {
+            //     props: ['text'],
+            //     template: '<v-textarea>{{text}}</v-textarea>'
+            // }
+
+            // for(let i = 0; i < foundDirectives.length; i++) {
+            //     if(vm.foundDirectives[i] === 'cmsParagraph') {
+            //         included.push( cmsParagraph )
+            //     }
+            //     if(vm.foundDirectives[i] === 'cmsArticle') {
+            //         included.push( cmsArticle )
+            //     }
+            // }
+
+            return found[1]
         }
-        
     }
 }
 </script>
