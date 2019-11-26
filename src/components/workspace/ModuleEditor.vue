@@ -211,12 +211,10 @@ export default {
             // this.$store.dispatch('modalSelectedOption', 'save')
         },
         parseDirectives(inHTML) {
-            
             let foundDirectives = inHTML.replace(/<[^>]*>?/gm, '').split('!')
-
-                        
             return foundDirectives[0]
         }
+        
     }
 }
 </script>

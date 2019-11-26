@@ -14,6 +14,7 @@ export const cmsDirective = {
         includeDirectives(foundDirectives) {
             
             let vm = this
+            let included = []
 
             const cmsParagraph = {
                 props: ['text'],
@@ -24,16 +25,16 @@ export const cmsDirective = {
                 template: '<v-textarea>{{text}}</v-textarea>'
             }
 
-            for(let i = 0; i < vm.foundDirectives.length; i++) {
+            for(let i = 0; i < foundDirectives.length; i++) {
                 if(vm.foundDirectives[i] === 'cmsParagraph') {
-                    return cmsParagraph
+                    included.push( cmsParagraph )
                 }
-                if(vm.foundDirectives[i]) === 'cmsArticle') {
-                    return cmsArticle
+                if(vm.foundDirectives[i] === 'cmsArticle') {
+                    included.push( cmsArticle )
                 }
             }
-            
-            
+
+            return included
         }
     }
 }
