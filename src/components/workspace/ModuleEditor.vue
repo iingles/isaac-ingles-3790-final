@@ -43,7 +43,8 @@
                     <div id="para">
                         {{parseDirectives(this.selectedTemplateHtml)}}
                         <component 
-                        :inText="this.selectedTemplateHtml"
+                        :inText="'input text'"
+                        :foundDirectives="parseDirectives(this.selectedTemplateHtml)"
                         :is="editorSubComponent"></component>    
                     </div>
                     <!-- <v-textarea
