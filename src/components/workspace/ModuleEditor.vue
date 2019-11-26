@@ -42,7 +42,9 @@
                     ></v-text-field>
                     <div id="para">
                         {{parseDirectives(this.selectedTemplateHtml)}}
-                        <component :is="editorSubComponent"></component>    
+                        <component 
+                        :inText="this.selectedTemplateHtml"
+                        :is="editorSubComponent"></component>    
                     </div>
                     <!-- <v-textarea
                     label="Content Area 1"
