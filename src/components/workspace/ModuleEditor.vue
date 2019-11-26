@@ -41,8 +41,8 @@
                         :disabled="!changeModName"
                     ></v-text-field>
                     <div>
-                        {{selectedTemplateHtml}}
-
+                        {{parseDirectives(this.selectedTemplateHtml)}}
+                        
                     </div>
                     <!-- <v-textarea
                     label="Content Area 1"
@@ -160,6 +160,7 @@ export default {
             'modal',
             'modalAction',
         ]),
+
     watch: {
         selectedTemplateName() {
             let vm = this
@@ -209,6 +210,13 @@ export default {
             })
             // this.$store.dispatch('modalSelectedOption', 'save')
         },
+        parseDirectives(inHTML) {
+            
+            let foundDirectives = inHTML.replace(/<[^>]*>?/gm, '').split('!')
+
+                        
+            return foundDirectives[0]
+        }
     }
 }
 </script>
