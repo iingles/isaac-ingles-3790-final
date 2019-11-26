@@ -41,8 +41,8 @@
                         :disabled="!changeModName"
                     ></v-text-field>
                     <div id="para">
-                        <!-- {{includeDirectives(parseDirectives(this.selectedTemplateHtml))}} -->
-                        
+                        {{parseDirectives(this.selectedTemplateHtml)}}
+                        <component :is="editorSubComponent"></component>    
                     </div>
                     <!-- <v-textarea
                     label="Content Area 1"
@@ -84,7 +84,8 @@ export default {
             changeInternalName: false,
             changeModName: false,
             confirmLeave: false,
-            nextRoute: ''
+            nextRoute: '',
+            editorSubComponent: EditorDirectives
        }
     },
     created() {
@@ -220,31 +221,7 @@ export default {
             let foundDirectives = inHTML.replace(/<[^>]*>?/gm, '').split('!')
             return foundDirectives
         },
-        // includeDirectives(found) {
-            
-        //     let vm = this
-        //     let included = []
-
-        //     const cmsParagraph = {
-        //         props: ['text'],
-        //         template: '<v-textarea>{{ text }}</v-textarea>'
-        //     }
-        //     const cmsArticle = {
-        //         props: ['text'],
-        //         template: '<v-textarea>{{text}}</v-textarea>'
-        //     }
-
-        //     for(let i = 0; i < foundDirectives.length; i++) {
-        //         if(vm.foundDirectives[i] === 'cmsParagraph') {
-        //             included.push( cmsParagraph )
-        //         }
-        //         if(vm.foundDirectives[i] === 'cmsArticle') {
-        //             included.push( cmsArticle )
-        //         }
-        //     }
-
-        //     return found
-        // }
+        
     }
 }
 </script>
