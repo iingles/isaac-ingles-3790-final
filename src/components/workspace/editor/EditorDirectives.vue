@@ -1,48 +1,56 @@
 <template>
     <v-container>
-        <v-textarea v-if="paragraph"  :value="inText" v-model="newText" :label="pLabel">
-
-
-        </v-textarea>
-       <p>text: {{newText}}</p>
+        <template v-if="paragraph">
+            <v-textarea 
+                v-for="(para, index) in paragraphs"
+                :key="para.name"
+                v-model="pText[index].text"                
+                :label="para.name"
+                >
+            </v-textarea>
+            {{ pText }}
+       </template>
     </v-container>
 </template>
 
 <script>
 export default {
     props: {
-        inText: String,
         foundDirectives: Array,
     },
     data: ()=> {
         return {
-            paragraph: true,
-            pText: '',
-            newText: '',
-            pLabel: '',
+            paragraph: false,
+            paragraphs: [],
+            pText: [],
         }
     },
     created() {
         let vm = this
-        let included = []
-
-        this.newText = this.inText
-
+        
+        
         const cmsParagraph = {
-            props: ['text'],
+            name: "paragraph",
+            props: {text: 'paragraph text'},
             template: '<v-textarea>{{ text }}</v-textarea>'
         }
         const cmsArticle = {
-            props: ['text'],
+            name: "article",
+            props: {text: 'this is the article text'},
             template: '<v-textarea>{{text}}</v-textarea>'
         }
-
+        
         for(let i = 0; i < vm.foundDirectives.length; i++) {
-            if(vm.foundDirectives[i] === 'cmsParagraph') {
-                included.push( cmsParagraph )
+            if(vm.foundDirectives[i] === '$cmsParagraph') {
+                vm.paragraph = true
+                vm.pText.push(cmsParagraph.props)
+                vm.paragraphs.push( cmsParagraph )
+                
             }
-            if(vm.foundDirectives[i] === 'cmsArticle') {
-                included.push( cmsArticle )
+            if(vm.foundDirectives[i] === '$cmsArticle') {
+                vm.paragraph = true
+                vm.pText.push(cmsArticle.props)
+                vm.paragraphs.push( cmsArticle )
             }
         }
 

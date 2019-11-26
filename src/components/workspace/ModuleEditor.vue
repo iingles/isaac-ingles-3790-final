@@ -41,11 +41,12 @@
                         :disabled="!changeModName"
                     ></v-text-field>
                     <div id="para">
-                        {{parseDirectives(this.selectedTemplateHtml)}}
                         <component 
                         :inText="'input text'"
                         :foundDirectives="parseDirectives(this.selectedTemplateHtml)"
-                        :is="editorSubComponent"></component>    
+                        :is="editorSubComponent"
+                        >
+                        </component>    
                     </div>
                     <!-- <v-textarea
                     label="Content Area 1"
