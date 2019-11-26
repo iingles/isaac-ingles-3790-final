@@ -40,8 +40,8 @@
                         label="Module Name"
                         :disabled="!changeModName"
                     ></v-text-field>
-                    <div>
-                        {{includeDirectives(parseDirectives(this.selectedTemplateHtml))}}
+                    <div id="para">
+                        <!-- {{includeDirectives(parseDirectives(this.selectedTemplateHtml))}} -->
                         
                     </div>
                     <!-- <v-textarea
@@ -66,9 +66,13 @@
 <script>
 import contentModules from '../../assets/modules.js'
 import designTemplates from '../../assets/templates.js'
+import EditorDirectives from './editor/EditorDirectives.vue'
 import { mapGetters } from 'vuex'
 
 export default {
+    components: {
+        EditorDirectives
+    },
     data: () => {
         return {
             modules: contentModules,
@@ -90,7 +94,7 @@ export default {
         let vm = this
         let rtId = this.$route.params.id
 
-        /* 
+         /* 
             loop through the modules, find the one that matches 
             the route (there may be a better way of doing this; it could 
             potentially lock up if there are a lot, and won't work right
@@ -111,6 +115,8 @@ export default {
             }
             vm.templateNames.push(designTemplates[i].name)
         }
+
+        
         //watch the state of the selected modal option for the modal window
         this.$store.subscribe((mutation, state) => {
             //check to make sure the change came from the logout click button
@@ -214,31 +220,31 @@ export default {
             let foundDirectives = inHTML.replace(/<[^>]*>?/gm, '').split('!')
             return foundDirectives
         },
-        includeDirectives(found) {
+        // includeDirectives(found) {
             
-            let vm = this
-            let included = []
+        //     let vm = this
+        //     let included = []
 
-            // const cmsParagraph = {
-            //     props: ['text'],
-            //     template: '<v-textarea>{{ text }}</v-textarea>'
-            // }
-            // const cmsArticle = {
-            //     props: ['text'],
-            //     template: '<v-textarea>{{text}}</v-textarea>'
-            // }
+        //     const cmsParagraph = {
+        //         props: ['text'],
+        //         template: '<v-textarea>{{ text }}</v-textarea>'
+        //     }
+        //     const cmsArticle = {
+        //         props: ['text'],
+        //         template: '<v-textarea>{{text}}</v-textarea>'
+        //     }
 
-            // for(let i = 0; i < foundDirectives.length; i++) {
-            //     if(vm.foundDirectives[i] === 'cmsParagraph') {
-            //         included.push( cmsParagraph )
-            //     }
-            //     if(vm.foundDirectives[i] === 'cmsArticle') {
-            //         included.push( cmsArticle )
-            //     }
-            // }
+        //     for(let i = 0; i < foundDirectives.length; i++) {
+        //         if(vm.foundDirectives[i] === 'cmsParagraph') {
+        //             included.push( cmsParagraph )
+        //         }
+        //         if(vm.foundDirectives[i] === 'cmsArticle') {
+        //             included.push( cmsArticle )
+        //         }
+        //     }
 
-            return found[1]
-        }
+        //     return found
+        // }
     }
 }
 </script>
