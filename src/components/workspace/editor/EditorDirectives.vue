@@ -8,7 +8,6 @@
                 :label="para.name"
                 >
             </v-textarea>
-            {{ pText }}
        </template>
     </v-container>
 </template>
