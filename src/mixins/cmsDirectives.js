@@ -1,6 +1,4 @@
-import { VMenu } from "vuetify/lib"
-
-export const cmsDirective = {
+export default {
     data: () => {
         return {
             foundDirectives: []
@@ -13,7 +11,6 @@ export const cmsDirective = {
         },
         includeDirectives(foundDirectives) {
             
-            let vm = this
             let included = []
 
             const cmsParagraph = {

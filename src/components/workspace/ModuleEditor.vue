@@ -71,6 +71,7 @@
 import contentModules from '../../assets/modules.js'
 import designTemplates from '../../assets/templates.js'
 import EditorDirectives from './editor/EditorDirectives.vue'
+import cmsDirectives from '../../mixins/cmsDirectives.js'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -91,6 +92,9 @@ export default {
             nextRoute: '',
             editorSubComponent: EditorDirectives
        }
+    },
+    mixins: {
+        cmsDirectives
     },
     created() {
         //load initial information for modules and templates
