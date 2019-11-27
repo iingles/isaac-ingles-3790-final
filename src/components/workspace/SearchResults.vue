@@ -56,8 +56,8 @@
 
           <v-img 
           :src="item.photo"
-          max-height=50    
-          max-width=50
+          max-height=60    
+          max-width=60
           class="circular-thumb-frame"
           > 
           </v-img>
