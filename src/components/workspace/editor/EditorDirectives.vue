@@ -17,6 +17,9 @@ export default {
     props: {
         foundDirectives: Array,
     },
+    mixins: {
+
+    },
     data: ()=> {
         return {
             paragraph: false,
