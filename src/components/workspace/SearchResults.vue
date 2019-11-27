@@ -163,7 +163,12 @@ export default {
       return vm.people
     },
     editItem (item) {
-        this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.internalName ).catch(err => {})
+        if(this.$route.params.workview == 'modules') {
+          this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.internalName ).catch(err => {})
+        }
+        if(this.$route.params.workview == 'Users') {
+          this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.name + item.surname ).catch(err => {})
+        }
       },
     deleteItem (item) {
         console.log('delete ' + item.id)

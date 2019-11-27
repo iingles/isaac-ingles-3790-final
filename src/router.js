@@ -83,7 +83,6 @@ const EditorMaster = resolve => {
  )
 }
 
-
 Vue.use(Router)
 
 export default new Router({
