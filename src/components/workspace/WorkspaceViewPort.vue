@@ -15,8 +15,11 @@
                 </template>
             </transition>
             <transition name="slide" mode="out-in">         
-                <template v-if="editor">
+                <template v-if="moduleEditor">
                     <ModuleEditor />
+                </template>
+                <template v-if="userEditor">
+                    <UserEditor />
                 </template>
             </transition>
         </v-row>
@@ -26,11 +29,13 @@
 <script>
 import SearchResults from "./SearchResults.vue"
 import ModuleEditor from "./ModuleEditor.vue"
+import UserEditor from "./UserEditor.vue"
 
 export default {
     components: {
         SearchResults,
         ModuleEditor,
+        UserEditor,
     },
     props: {
         searchString: String,
@@ -38,7 +43,7 @@ export default {
     data: () => {
         return {
             search: true,
-            editor: false,
+            moduleEditor: false,
         }
     },
 
