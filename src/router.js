@@ -4,18 +4,6 @@ import Router from 'vue-router'
 
 import Dashboard from './views/Dashboard.vue'
 
-//lazy load these when I get the chance
-//import Workspace from './views/Workspace.vue'
-//import Help from './views/Help.vue'
-//import About from './views/About.vue'
-//import Settings from './views/Settings.vue'
-//import Logs from './views/Logs.vue'
-// import SearchResults from './components/workspace/SearchResults.vue'
-// import ModuleEditor from './components/workspace/ModuleEditor.vue'
-// import ModuleDetail from './components/workspace/ModuleDetail.vue'
-//import WorkspaceViewPort from './components/workspace/WorkspaceViewPort.vue'
-// import UserManagement from './views/UserManagement.vue'
-
 /* 
 You can group lazy loading stuff using a third 
 parameter, the groupName, which needs to be
@@ -86,11 +74,11 @@ const Logs = resolve => {
  )
 }
 
-const ModuleEditor = resolve => {
+const EditorMaster = resolve => {
   require.ensure(
-     ['./components/workspace/ModuleEditor.vue'],
+     ['./components/workspace/EditorMaster.vue'],
      () => {
-         resolve(require('./components/workspace/ModuleEditor.vue'))
+         resolve(require('./components/workspace/EditorMaster.vue'))
      }
  )
 }
@@ -129,8 +117,8 @@ export default new Router({
         },
         {
           path: '/workspace/:viewmode/:workview/editor/:id',
-          name: 'Editing',
-          component: ModuleEditor,
+          name: 'Editor',
+          component: EditorMaster,
         },
       ],
     },
