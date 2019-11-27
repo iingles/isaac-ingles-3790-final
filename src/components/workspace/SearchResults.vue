@@ -211,6 +211,7 @@ export default {
 
 <style scoped>
   .circular-thumb-frame {
-    border-radius: 50%
+    border-radius: 50%;
+    margin: 5px 0;
   }
 </style>
