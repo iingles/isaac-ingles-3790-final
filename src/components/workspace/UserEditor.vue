@@ -5,9 +5,14 @@
 </template>
 
 <script>
+import editorModal from '../../mixins/editorModal.js'
+import editorLoadInfo from '../../mixins/editorLoadInfo.js'
+
 export default {
-    
-    
+    mixins: {
+        editorLoadInfo,
+        editorModal,
+    }    
 }
 </script>
 
