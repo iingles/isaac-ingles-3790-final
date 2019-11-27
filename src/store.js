@@ -22,6 +22,7 @@ export default new Vuex.Store({
       modalAction: 'default',
     },
     searchResults: [],
+    registeredUsers: [],
   },
   getters: {
     user(state) {
@@ -35,6 +36,9 @@ export default new Vuex.Store({
     },
     modalAction(state) {
       return state.modalWindow.modalAction
+    },
+    registeredUsers(state) {
+      return state.registeredUsers
     }
   },
   mutations: {
@@ -76,6 +80,9 @@ export default new Vuex.Store({
     },
     setSearchResults(state, payload) {
       state.searchResults = payload
+    },
+    setRegisteredUsers(state, registeredUsers) {
+      state.registeredUsers = registeredUsers
     }
   },
   actions: {
@@ -111,6 +118,10 @@ export default new Vuex.Store({
     actSearchResults({commit}, response) {
       //handle our search results
       commit('setSearchResults', response)
+    },
+    loadRegisteredUsers({commit}, apiUsers) {
+      //load search results into the global store
+      commit('setRegisteredUsers', apiUsers)
     }
   },
 })

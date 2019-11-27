@@ -51,6 +51,15 @@
             mdi-delete
           </v-icon>
         </template>
+
+      <template v-if="this.$route.params.workview == 'Users'" v-slot:item.photo="{ item }">
+        <v-img 
+          :src="item.photo"
+          max-height=50    
+          max-width=50
+        > 
+        </v-img>
+      </template>
       </v-data-table>
     </template>
   </div>   
@@ -106,10 +115,10 @@ export default {
       modules: contentModules,
       userHeaders: [
         {
-          text: 'ID',
+          text: 'photo',
           align: 'left',
           sortable: false,
-          value: 'id',
+          value: 'photo',
         },
         {text: 'Last Name', value: 'surname'},
         {text: 'First Name', value: 'name'},
@@ -121,8 +130,6 @@ export default {
   created() {
     let mods = contentModules
     let vm = this
-
-    console.log(Object.keys(mods[0]))
   },
   computed: {
     getSearchResults() {
@@ -139,7 +146,7 @@ export default {
         params: {
           amount: 25,
           region: 'United States',
-          ext: '',
+          ext: 'photo',
         },
       })
       .then(response => {
@@ -152,6 +159,7 @@ export default {
           // console.log(vm.resultsLoading)
           // console.log(this.courses)
       })
+      return vm.people
     },
     editItem (item) {
         this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.internalName ).catch(err => {})
@@ -181,10 +189,16 @@ export default {
         vm.searchResults = vm.templates
         return vm.templates
       }
-      if(theView == 'Users') {        
-        vm.getPeople()
-        vm.searchResults = vm.people
-        return vm.people        
+      if(theView == 'Users') {
+        //If not done already, load the api call into the local store
+        if(this.$store.getters.registeredUsers.length < 1) {
+          vm.getPeople()
+          vm.searchResults = vm.people
+          this.$store.dispatch('loadRegisteredUsers', vm.searchResults)
+        } else {
+          vm.searchResults = this.$store.getters.registeredUsers
+        }
+        return vm.people
       }
     },
   },
