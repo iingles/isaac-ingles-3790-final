@@ -53,7 +53,6 @@
         </template>
 
       <template v-if="this.$route.params.workview == 'Users'" v-slot:item.photo="{ item }">
-
           <v-img 
           :src="item.photo"
           max-height=60    
@@ -61,7 +60,6 @@
           class="circular-thumb-frame"
           > 
           </v-img>
-      
       </template>
       </v-data-table>
     </template>
