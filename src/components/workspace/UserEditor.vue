@@ -1,6 +1,16 @@
 <template>
     <v-card>
         <v-card-title class="mb-10 pa-0 editor-title red--text">Editing {{ user.name + ' ' + user.surname }}</v-card-title>
+       <v-row>
+           <v-col>
+               <v-img 
+                :src="user.photo"
+                max-height=500
+                max-width=300
+                > 
+                </v-img>
+            </v-col>
+        </v-row>
     </v-card>
 </template>
 
