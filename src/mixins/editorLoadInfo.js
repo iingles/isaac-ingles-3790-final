@@ -6,7 +6,6 @@ export default {
         }
     },
     created() {
-            
         //watch the state of the selected modal option for the modal window
         this.$store.subscribe((mutation, state) => {
             //check to make sure the change came from the logout click button

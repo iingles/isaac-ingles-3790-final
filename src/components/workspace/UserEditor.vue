@@ -1,6 +1,6 @@
 <template>
     <v-card>
-        <v-card-title class="mb-10 pa-0 editor-title red--text">Editing {{ this.$route.params.id }}</v-card-title>
+        <v-card-title class="mb-10 pa-0 editor-title red--text">Editing {{ user.name + ' ' + user.surname }}</v-card-title>
     </v-card>
 </template>
 
@@ -13,8 +13,28 @@ export default {
         editorLoadInfo,
         editorModal,
     },
+    data: ()=> {
+        return {
+            user: {},
+        }
+    },
     created() {
-        console.log(this.$store.getters.registeredUsers)
+        let vm = this
+        let rtId = this.$route.params.id
+        let users = this.$store.getters.registeredUsers
+
+        /* 
+            loop through the users, find the one that matches 
+            the route
+        */
+        for(let i = 0; i < users.length; i++) {
+            if(users[i].email.split('@')[0] === rtId) {
+                //The module "name" is the same as the route ID
+                vm.user = users[i]
+                break
+            }
+        }
+
     }    
 }
 </script>

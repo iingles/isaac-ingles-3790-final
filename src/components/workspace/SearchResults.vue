@@ -167,7 +167,7 @@ export default {
           this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.internalName ).catch(err => {})
         }
         if(this.$route.params.workview == 'Users') {
-          this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.name + item.surname ).catch(err => {})
+          this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.email.split('@')[0] ).catch(err => {})
         }
       },
     deleteItem (item) {
@@ -207,7 +207,6 @@ export default {
       }
     },
   },
-    
 }
 </script>
 
