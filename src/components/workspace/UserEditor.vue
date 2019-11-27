@@ -12,6 +12,9 @@ export default {
     mixins: {
         editorLoadInfo,
         editorModal,
+    },
+    created() {
+        console.log(this.$store.getters.registeredUsers)
     }    
 }
 </script>

@@ -151,7 +151,7 @@ export default {
         },
       })
       .then(response => {
-          this.people = response.data
+        this.$store.dispatch('loadRegisteredUsers', response.data)
       })
       .catch(error => console.error(error))
       .finally(() => {
@@ -199,12 +199,11 @@ export default {
         //If not done already, load the api call into the local store
         if(this.$store.getters.registeredUsers.length < 1) {
           vm.getPeople()
-          vm.searchResults = vm.people
-          this.$store.dispatch('loadRegisteredUsers', vm.searchResults)
+          vm.searchResults = this.$store.getters.registeredUsers
         } else {
           vm.searchResults = this.$store.getters.registeredUsers
         }
-        return vm.people
+        return vm.searchResults
       }
     },
   },
