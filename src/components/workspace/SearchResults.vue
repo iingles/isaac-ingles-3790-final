@@ -53,12 +53,15 @@
         </template>
 
       <template v-if="this.$route.params.workview == 'Users'" v-slot:item.photo="{ item }">
-        <v-img 
+
+          <v-img 
           :src="item.photo"
           max-height=50    
           max-width=50
-        > 
-        </v-img>
+          class="circular-thumb-frame"
+          > 
+          </v-img>
+      
       </template>
       </v-data-table>
     </template>
@@ -207,5 +210,7 @@ export default {
 </script>
 
 <style scoped>
-  
+  .circular-thumb-frame {
+    border-radius: 50%
+  }
 </style>
