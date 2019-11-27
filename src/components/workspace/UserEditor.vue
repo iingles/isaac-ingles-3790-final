@@ -16,7 +16,7 @@
                 <v-checkbox
                     v-model="user.email"
                     label="Change ID"
-                >  
+                >  </v-checkbox>
             </v-col>
         </v-row>
         <v-row>
