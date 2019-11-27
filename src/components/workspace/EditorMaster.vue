@@ -31,9 +31,7 @@ export default {
             }
             if(mode == 'admin') {
                 if(view == 'Users') {
-                    console.log('inside user if')
                     vm.activeEditor = UserEditor
-                    console.log('inside',view)
                 }
             } 
             else {
