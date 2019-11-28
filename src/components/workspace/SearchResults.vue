@@ -143,7 +143,7 @@ export default {
       //for a ton of data, use pagination 
       let vm = this
       
-      axios.get('https://cors-anywhere.herokuapp.com/https://uinames.com/api/', {
+      axios.get('http://cors-anywhere.herokuapp.com//https://uinames.com/api/', {
         params: {
           amount: 25,
           region: 'United States',

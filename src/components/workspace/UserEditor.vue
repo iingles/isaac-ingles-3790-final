@@ -92,6 +92,7 @@ export default {
             if(users[i].email.split('@')[0] === rtId) {
                 //The module "name" is the same as the route ID
                 vm.user = users[i]
+                console.log(vm.user)
                 break
             }
         }
