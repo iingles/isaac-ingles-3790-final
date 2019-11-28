@@ -1,5 +1,5 @@
 <template>
-    <v-card>
+    <v-card class="pa-10 xs-12 sm-12">
         <v-card-title class="mb-10 pa-0 editor-title red--text">Editing {{ user.name + ' ' + user.surname }}</v-card-title>
        <v-row>
            <v-col cols='6'>
