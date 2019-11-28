@@ -14,15 +14,20 @@
                 <p>Created: 11/27/2019 (static)</p>
                 <p>ID: {{ user.email.split('@')[0] }} </p>
                 <v-checkbox
-                    v-model="user.email"
+                    v-model="changeUserId"
                     label="Change ID"
                 >  </v-checkbox>
+                <v-text-field
+                :value=" user.email.split('@')[0]"
+                label="UserId"
+                :disabled="!changeUserId"
+            ></v-text-field>
             </v-col>
         </v-row>
         <v-row>
             <v-col cols='12'>
                 <v-checkbox
-                v-model="user.name"
+                v-model="changUserFirstName"
                 label="Change First Name"
                 >                    
             </v-checkbox>
@@ -32,7 +37,7 @@
                 :disabled="!changeUserFirstName"
             ></v-text-field>
             <v-checkbox
-                v-model="user.surname"
+                v-model="changeUserSurname"
                 label="Change User Surname"
             >                    
             </v-checkbox>
@@ -70,6 +75,7 @@ export default {
             user: {},
             changeUserFirstName: false,
             changeUserSurname: false,
+            changeUserId: false, 
         }
     },
     created() {
