@@ -1,6 +1,6 @@
 export default {
     methods: {
-        confirmCancel(moduleID) {
+        confirmCancel(id) {
             this.$store.dispatch('displayModal', 
             {
                 id: 2,
@@ -9,7 +9,7 @@ export default {
             })
             // this.$store.dispatch('modalSelectedOption', 'cancel')
         },
-        confirmSave(moduleID) {
+        confirmSave(id) {
             this.$store.dispatch('displayModal', {
                 id: 2,
                 title: 'Save?',

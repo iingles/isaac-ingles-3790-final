@@ -52,11 +52,11 @@
             <v-btn 
             color="red" 
             light
-            @click="confirmCancel(user.id)"
+            @click="confirmCancel(userId)"
             >Cancel</v-btn>
             <v-btn 
             color="green"
-            light @click="confirmSave(mod.id)">Save</v-btn>  
+            light @click="confirmSave(userId)">Save</v-btn>  
         </v-row>
     </v-card>
 </template>
@@ -66,16 +66,17 @@ import editorModal from '../../mixins/editorModal.js'
 import editorLoadInfo from '../../mixins/editorLoadInfo.js'
 
 export default {
-    mixins: {
+    mixins: [
         editorLoadInfo,
         editorModal,
-    },
+    ],
     data: ()=> {
         return {
             user: {},
             changeUserFirstName: false,
             changeUserSurname: false,
             changeUserId: false, 
+            userId: user.email.split('@')[0],
         }
     },
     created() {
