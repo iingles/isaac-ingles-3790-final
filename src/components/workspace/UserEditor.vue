@@ -27,7 +27,7 @@
         <v-row>
             <v-col cols='12'>
                 <v-checkbox
-                v-model="changUserFirstName"
+                v-model="changeUserFirstName"
                 label="Change First Name"
                 >                    
             </v-checkbox>
