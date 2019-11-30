@@ -1,0 +1,6 @@
+#redirects for Netlify
+/home       /
+/workspace  /workspace
+/settings   /settings
+/help       /help
+/about      /about

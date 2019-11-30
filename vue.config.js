@@ -10,5 +10,15 @@ module.exports = {
         changeOrigin: true,
       }      
     }
+  },
+  configureWebpack: {
+    plugins: [
+      new CopyWebpackPlugin([
+        {
+          from: '../baseUIconfig.js',
+          to: 'public/UIconfig.js'
+        }
+      ])
+    ]
   }
 }
