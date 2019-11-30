@@ -82,6 +82,8 @@ export default {
             userId: '',
             post: null,
             error: null,
+            confirmLeave: false,
+            nextRoute: '',
         }
     },
     //load the data before navigating to route
@@ -90,7 +92,7 @@ export default {
             next()
         }
     },
-    beforeMount() {
+   beforeMount() {
         let vm = this
         let rtId = this.$route.params.id
         let users = this.$store.getters.registeredUsers
@@ -108,16 +110,6 @@ export default {
             }
         }
     },
-    methods: {        
-        // setData (err, post) {
-        //     if (err) {
-        //         this.error = err.toString()
-        //     } else {
-        //         this.post = post
-        //     }
-        // }
-            
-    }  
 }
 </script>
 
