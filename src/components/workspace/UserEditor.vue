@@ -53,10 +53,13 @@
             color="red" 
             light
             @click="confirmCancel(userId)"
+            class="ma-1"
             >Cancel</v-btn>
             <v-btn 
             color="green"
-            light @click="confirmSave(userId)">Save</v-btn>  
+            light @click="confirmSave(userId)"
+            class="ma-1"
+            >Save</v-btn>  
         </v-row>
     </v-card>
     <v-card v-else>

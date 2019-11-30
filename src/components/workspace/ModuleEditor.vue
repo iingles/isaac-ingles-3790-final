@@ -56,10 +56,13 @@
         color="red" 
         light
         @click="confirmCancel(mod.id)"
+        class="ma-1"
         >Cancel</v-btn>
         <v-btn 
         color="green"
-        light @click="confirmSave(mod.id)">Save</v-btn>            
+        light @click="confirmSave(mod.id)"
+        class="ma-1"
+        >Save</v-btn>            
     </v-card>
 
 </template>
