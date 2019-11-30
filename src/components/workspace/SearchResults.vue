@@ -138,7 +138,7 @@ export default {
       //might kill the browser if you ask for a ton of data at once
       //for a ton of data, use pagination 
       
-      axios.get('http://cors-anywhere.herokuapp.com/https://uinames.com/api/', {
+      axios.get('https://cors-anywhere.herokuapp.com/https://uinames.com/api/', {
         params: {
           amount: 25,
           region: 'United States',
