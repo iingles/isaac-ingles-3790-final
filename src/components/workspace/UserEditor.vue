@@ -1,5 +1,5 @@
 <template>
-    <v-card class="pa-10 xs-12 sm-12">
+    <v-card class="pa-10 xs-12 sm-12" v-if="user">
         <v-card-title class="mb-10 pa-0 editor-title red--text">Editing {{ user.name + ' ' + user.surname }}</v-card-title>
        <v-row>
            <v-col cols='6'>
@@ -59,6 +59,9 @@
             light @click="confirmSave(userId)">Save</v-btn>  
         </v-row>
     </v-card>
+    <v-card v-else>
+        loading
+    </v-card>
 </template>
 
 <script>
@@ -76,10 +79,18 @@ export default {
             changeUserFirstName: false,
             changeUserSurname: false,
             changeUserId: false, 
-            userId: user.email.split('@')[0],
+            userId: '',
+            post: null,
+            error: null,
         }
     },
-    created() {
+    //load the data before navigating to route
+    beforeRouteEnter (to, from, next) {
+        if(this.$store.getters.registeredUsers) {
+            next()
+        }
+    },
+    beforeMount() {
         let vm = this
         let rtId = this.$route.params.id
         let users = this.$store.getters.registeredUsers
@@ -92,12 +103,21 @@ export default {
             if(users[i].email.split('@')[0] === rtId) {
                 //The module "name" is the same as the route ID
                 vm.user = users[i]
-                console.log(vm.user)
+                vm.userID = vm.user.email.split('@')[0]
                 break
             }
         }
-
-    }    
+    },
+    methods: {        
+        // setData (err, post) {
+        //     if (err) {
+        //         this.error = err.toString()
+        //     } else {
+        //         this.post = post
+        //     }
+        // }
+            
+    }  
 }
 </script>
 

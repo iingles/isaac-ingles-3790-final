@@ -128,10 +128,6 @@ export default {
       ],
     }
   },
-  created() {
-    let mods = contentModules
-    let vm = this
-  },
   computed: {
     getSearchResults() {
       return this.$store.state.searchResults
@@ -141,9 +137,8 @@ export default {
     getPeople() {
       //might kill the browser if you ask for a ton of data at once
       //for a ton of data, use pagination 
-      let vm = this
       
-      axios.get('http://cors-anywhere.herokuapp.com//https://uinames.com/api/', {
+      axios.get('http://cors-anywhere.herokuapp.com/https://uinames.com/api/', {
         params: {
           amount: 25,
           region: 'United States',
@@ -152,15 +147,14 @@ export default {
       })
       .then(response => {
         this.$store.dispatch('loadRegisteredUsers', response.data)
+        return response.data
       })
       .catch(error => console.error(error))
       .finally(() => {
           //I want to use vm.resultsLoading for the progress indicator
           // vm.resultsLoading = true
           // console.log(vm.resultsLoading)
-          // console.log(this.courses)
       })
-      return vm.people
     },
     editItem (item) {
         if(this.$route.params.workview == 'modules') {
@@ -198,7 +192,7 @@ export default {
       if(theView == 'Users') {
         //If not done already, load the api call into the local store
         if(this.$store.getters.registeredUsers.length < 1) {
-          vm.getPeople()
+          let theUsers = vm.getPeople()
           vm.searchResults = this.$store.getters.registeredUsers
         } else {
           vm.searchResults = this.$store.getters.registeredUsers
