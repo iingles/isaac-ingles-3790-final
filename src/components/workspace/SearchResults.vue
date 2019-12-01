@@ -151,6 +151,7 @@ export default {
       })
       .catch(error => console.error(error))
       .finally(() => {
+        
           //I want to use vm.resultsLoading for the progress indicator
           // vm.resultsLoading = true
           // console.log(vm.resultsLoading)
