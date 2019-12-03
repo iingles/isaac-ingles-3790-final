@@ -153,10 +153,6 @@ export default {
       })
       .catch(error => console.error(error))
       .finally(() => {
-        
-          //I want to use vm.resultsLoading for the progress indicator
-          // vm.resultsLoading = true
-          // console.log(vm.resultsLoading)
       })
     },
     editItem (item) {
@@ -166,10 +162,10 @@ export default {
       if(this.$route.params.workview == 'Users') {
         this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.email.split('@')[0] ).catch(err => {})
       }
-     },
+    },
     deleteItem (item) {
-        console.log('delete ' + item.id)
-      },
+        //For when I actually figure out how to make CRUD stuff work
+    },
     getTableHeaders(theView) {
       let vm = this
       if(theView == 'content') {
