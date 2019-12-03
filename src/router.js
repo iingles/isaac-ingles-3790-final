@@ -83,6 +83,15 @@ const EditorMaster = resolve => {
  )
 }
 
+const HelpConfirmation = resolve => {
+  require.ensure(
+     ['./components/HelpConfirmation.vue'],
+     () => {
+         resolve(require('./components/HelpConfirmation.vue'))
+     }
+ )
+}
+
 Vue.use(Router)
 
 export default new Router({
@@ -130,6 +139,13 @@ export default new Router({
       name: 'Help',
       path: '/help',      
       component: Help,
+      children: [
+        {
+          name: 'Help Confirmation',
+          path: '/help/help-confirmation',
+          component:  HelpConfirmation,
+        }
+      ],
     },
     {
       name: 'About',

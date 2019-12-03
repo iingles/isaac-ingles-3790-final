@@ -3,7 +3,7 @@
         <h1>Contact the Help Desk</h1>
         <v-card class="ma-10 pb-5 pl-5 pr-5 pt-5">
             <v-card-title class="blue lighten-1 white--text mb-5">Fill out the form below.</v-card-title>
-            <v-form>
+            <v-form ref="helpForm">
                 <v-row>
                     <v-col lg="12" md="12" sm="12" xs="12">
                         <v-text-field
@@ -27,7 +27,7 @@
                     </v-col>
                     <v-col md="12" sm="12" xs="12">
                         <v-text-field
-                        v-model="userData.email"
+                        v-model.lazy="userData.email"
                         id="email"
                         label="Email"
                         :rules="emailRules"
@@ -75,9 +75,9 @@
                 </v-row>
                 <!-- use prevent modifier to use Vue to handle the form -->
                 <v-btn 
-                color="blue" 
+                color="blue"
                 dark
-                @click.prevent="submitted"
+                @click.prevent="submitted()"
                 >Submit</v-btn>
             </v-form>
         </v-card>        
@@ -85,34 +85,39 @@
 </template>
 
 <script>
+
 export default {
     data() {
         return {
             userData: {
-                firstname: '',
-                lastname: '',
-                email:'',
+                firstname: null,
+                lastname: null,
+                email: null,
             },
             message: '',
             //keep our issues in an array
             issues: [],
             response: '',
+            errors: [],
             isSubmitted: false,
             valid: false,
             nameRules: [
                 v => !!v || 'Name is required',
-                v => v.length <= 10 || 'Name must be less than 10 characters.'
+                v => /^[a-zA-Z]*$/.test(v) || 'Name cannot contain any numbers' 
             ],
             emailRules: [
-                v => !!v || 'Email is required',
+                v => !!v || 'Email is required'
             ],
         }
     },
     methods: {
         submitted() {
-            //Do form validation before submission
-            this.isSubmitted = true
-        }
+            let vm = this
+            if(this.$refs.helpForm.validate()) {
+                //submit if form is valid
+            }
+        },
+
     },
 }
 </script>
