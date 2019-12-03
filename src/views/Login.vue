@@ -4,7 +4,7 @@
             <v-col cols="12">
             <v-card class="pa-10">
                 <v-card-title>Welcome to your Content Management System</v-card-title>
-                <v-form @submit.prevent="onSubmit" @keyup.enter="onSubmit">
+                <v-form @submit.prevent="onSubmit" @keyup.enter="onSubmit" ref="loginForm">
                     <v-text-field
                         v-model.lazy="userName"
                         label="Username"
@@ -42,23 +42,28 @@ export default {
             password: '',
             userNameRules: [
                 v => !!v || 'Name is required',
+                v => /^[a-zA-Z]*$/.test(v) || 'Name can only contain letters',
             ],
             passwordRules: [
                 v => !!v || 'Password is required',
+                v => v.length >= 10 || 'Password must be 10 or more characters and contain at least one number',
+                v => /[0-9]/.test(v) || 'Password must contain at least one number'
             ],
         }
     },
     methods: {
         onSubmit() {
-            const formData = {
-                userName: this.userName,
-                password: this.password,
-            }
-            this.$store.dispatch('userLoggedIn', {
-                userName: this.userName,
-                password: this.password,
-                loggedIn: true,
-            })
+            if(this.$refs.loginForm.validate()) {
+               const formData = {
+                    userName: this.userName,
+                    password: this.password,
+                }
+                this.$store.dispatch('userLoggedIn', {
+                    userName: this.userName,
+                    password: this.password,
+                    loggedIn: true,
+                })
+            } else{ /*handle invalid form error here*/ }
         }
     }
 }
