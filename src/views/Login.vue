@@ -41,13 +41,16 @@ export default {
             userName: '',
             password: '',
             userNameRules: [
-                v => !!v || 'Name is required',
-                v => /^[a-zA-Z]*$/.test(v) || 'Name can only contain letters',
+                v => !!v || 'Username is required.',
+                v => v.length <= 16 || 'Username cannot exceed 15 characters.',
+                v => /^[a-zA-Z\-_]*$/.test(v) || 'Username can only contain letters, dashes, or underscores.',
             ],
             passwordRules: [
                 v => !!v || 'Password is required',
-                v => v.length >= 10 || 'Password must be 10 or more characters and contain at least one number',
-                v => /[0-9]/.test(v) || 'Password must contain at least one number'
+                v => !/^[;,"']*$/.test(v) || 'Password cannot contain semicolons, commas, or quotes.',
+                v => v.length >= 10 || 'Password must be 10 or more characters and contain at least one number.',
+                v => /[0-9]/.test(v) || 'Password must contain at least one number.',
+                
             ],
         }
     },
