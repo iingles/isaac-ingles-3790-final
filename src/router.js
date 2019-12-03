@@ -139,13 +139,11 @@ export default new Router({
       name: 'Help',
       path: '/help',      
       component: Help,
-      children: [
-        {
-          name: 'Help Confirmation',
-          path: '/help/help-confirmation',
-          component:  HelpConfirmation,
-        }
-      ],
+    },
+    {
+      name: 'Help Confirmation',
+      path: '/help/help-confirmation',
+      component:  HelpConfirmation,
     },
     {
       name: 'About',
