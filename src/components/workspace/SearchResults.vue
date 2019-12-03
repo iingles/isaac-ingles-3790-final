@@ -8,10 +8,10 @@
     <!-- <div v-for="result in searchFilter" :key='result.id'>
       {{ result }}
     </div> -->
-    <!-- <template v-if="resultsLoading">
+    <template v-if="resultsLoading">
       <v-progress-circular indeterminate color="primary"></v-progress-circular>
-    </template> -->
-    <template>
+    </template>
+    <template v-else>
       <v-data-table
         :v-model="selected"
         :headers="getTableHeaders(this.$route.params.viewmode)"
@@ -79,7 +79,7 @@ export default {
  data () {
     return {
       headerKeys: [],
-      resultsLoading: true,
+      resultsLoading: false,
       searchData: false,
       selected: [],
       searchResults: [],
@@ -134,19 +134,21 @@ export default {
     }
   },
   methods: {
-    getPeople() {
+     getPeople() {
       //might kill the browser if you ask for a ton of data at once
       //for a ton of data, use pagination 
-      
-      axios.get('https://cors-anywhere.herokuapp.com/https://uinames.com/api/', {
+      let vm = this
+      vm.resultsLoading = true
+     axios.get('https://cors-anywhere.herokuapp.com/https://uinames.com/api/', {
         params: {
           amount: 25,
           region: 'United States',
           ext: 'photo',
         },
       })
-      .then(response => {
-        this.$store.dispatch('loadRegisteredUsers', response.data)
+      .then(async response => {
+        await this.$store.dispatch('loadRegisteredUsers', response.data)
+        this.resultsLoading = false
         return response.data
       })
       .catch(error => console.error(error))
