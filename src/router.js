@@ -155,11 +155,5 @@ export default new Router({
       path: '/logs',
       component: Logs,
     },
-    // {
-    //   name: 'users',
-    //   path: '/users',
-    //   component: UserManagement,
-    // }
   ]
-
 })

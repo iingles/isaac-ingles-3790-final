@@ -4,7 +4,7 @@
             <h1>Contact the Help Desk</h1>
             <v-card class="ma-10 pb-5 pl-5 pr-5 pt-5">
                 <v-card-title class="blue lighten-1 white--text mb-5">Fill out the form below.</v-card-title>
-                <v-form ref="helpForm">
+                <v-form ref="helpForm" method="post">
                     <v-row>
                         <v-col lg="12" md="12" sm="12" xs="12">
                             <v-text-field
@@ -37,6 +37,7 @@
                         </v-col>
                         <v-col md="12" sm="12" xs="12">
                             <h3>Check all that apply:</h3>
+                            <h6>Not required</h6>
                             <!-- Normally, the v-model goes on the actual HTML input element -->
                             <v-checkbox
                                 v-model="issues"
@@ -61,7 +62,7 @@
                                 modifier.
                             -->
                             </v-checkbox>
-                            <v-radio-group v-model="response" :mandatory="false">
+                            <v-radio-group v-model="resreq" :mandatory="false">
                                 <h3>Would you like a response?</h3>
                                 <v-radio label="Yes" value="Yes"></v-radio>
                                 <v-radio label="No" value="No"></v-radio>
@@ -102,7 +103,7 @@ export default {
             message: '',
             //keep our issues in an array
             issues: [],
-            response: '',
+            resreq: "No",
             errors: [],
             isSubmitted: false,
             valid: false,
@@ -141,16 +142,30 @@ export default {
             let vm = this
             if(this.$refs.helpForm.validate()) {
                vm.valid = true
-               this.$router.push('/help/help-confirmation').catch(err => {})
+               this.$router.push(
+                   {
+                       name:'Help Confirmation', 
+                       params: {
+                           firstname: vm.userData.firstname,
+                           lastname: vm.userData.lastname,                           
+                           email: vm.userData.email,
+                           issues: vm.issues,
+                           resreq: vm.resreq,
+                           message: vm.message,
+                       }
+                    }).catch(err => {})
+               
             } else{ /*handle invalid form error here*/ }
         },
         
     },
+    
 }
 </script>
 
 <style scoped>
     .count {
+        margin-top: 20px;
         font-size: 20px;
     } 
 
