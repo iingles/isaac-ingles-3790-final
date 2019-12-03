@@ -67,11 +67,13 @@
                                 <v-radio label="No" value="No"></v-radio>
                             </v-radio-group>
                             <v-textarea
-                            label="Please describe your issue"
-                            v-model="message"
-                            id="message"
+                                label="Please describe your issue"
+                                v-model="message"
+                                id="message"
+                                :rules="messageRules"
                             >
                             </v-textarea>
+                            <p class="count"> characters remaining: <span :class="charCount">{{ 500 - message.length }} </span></p>
                         </v-col>
                     </v-row>
                     <!-- use prevent modifier to use Vue to handle the form -->
@@ -91,6 +93,7 @@
 export default {
     data() {
         return {
+            charCount: 'good',
             userData: {
                 firstname: null,
                 lastname: null,
@@ -105,11 +108,32 @@ export default {
             valid: false,
             nameRules: [
                 v => !!v || 'Name is required',
-                v => /^[a-zA-Z]*$/.test(v) || 'Name can only contain letters' 
+                v => /^[a-zA-Z]*$/.test(v) || 'Name can only contain letters',
             ],
             emailRules: [
-                v => !!v || 'Email is required'
+                v => !!v || 'Email is required',
+                v => /\S+@\S+\.\S+/.test(v) || 'Please enter a valid email (example: user@domain.com)',
             ],
+            messageRules: [
+                v => !!v || 'You must submit a message.',
+                v => v.length >=10 || 'Your message must greater than 10 characters.',
+                v => v.length <= 500 || 'Your message must be less than 500 characters',
+            ]
+        }
+    },
+    watch: {
+        message() {
+            let vm = this
+
+            if(vm.message.length < 400) {
+                vm.charCount = 'good'
+            }
+            if(vm.message.length >= 400  && vm.message.length < 500) {
+                vm.charCount = 'count-warning'
+            }
+            if(vm.message.length > 500) {
+                vm.charCount = 'over'
+            }
         }
     },
     methods: {
@@ -120,11 +144,25 @@ export default {
                this.$router.push('/help/help-confirmation').catch(err => {})
             } else{ /*handle invalid form error here*/ }
         },
-
+        
     },
 }
 </script>
 
 <style scoped>
+    .count {
+        font-size: 20px;
+    } 
 
+    .good {
+        color: #00ff00;
+    }
+
+    .count-warning {
+        color: #ffff00;
+    }
+
+    .over {
+        color: #ff0000;
+    }
 </style>
