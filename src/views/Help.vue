@@ -103,7 +103,7 @@ export default {
             valid: false,
             nameRules: [
                 v => !!v || 'Name is required',
-                v => /^[a-zA-Z]*$/.test(v) || 'Name cannot contain any numbers' 
+                v => /^[a-zA-Z]*$/.test(v) || 'Name can only contain letters' 
             ],
             emailRules: [
                 v => !!v || 'Email is required'
