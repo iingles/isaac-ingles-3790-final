@@ -7,7 +7,7 @@
         Pull information from templates to only display what the templates have 
         (i.e. text fields, content areas, image areas, etc.)            
     -->
-    <v-card class="pa-10 xs-12 sm-12">
+    <v-card class="pa-10">
         <v-card-title class="mb-10 pa-0 editor-title red--text">Editing {{ this.$route.params.id }}</v-card-title>          
         <div>
             <p>Created: {{ mod.created }}</p>

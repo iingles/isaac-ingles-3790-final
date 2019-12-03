@@ -1,6 +1,6 @@
 <template>
-    <v-card class="pa-10 xs-12 sm-12" v-if="user">
-        <v-card-title class="mb-10 pa-0 editor-title red--text">Editing {{ user.name + ' ' + user.surname }}</v-card-title>
+    <v-card class="pa-10">
+       <v-card-title class="mb-10 pa-0 editor-title red--text">Editing {{ user.name + ' ' + user.surname }}</v-card-title>
        <v-row>
            <v-col cols='6'>
                <v-img 
@@ -18,7 +18,7 @@
                     label="Change ID"
                 >  </v-checkbox>
                 <v-text-field
-                :value=" user.email.split('@')[0]"
+                :value="user.email.split('@')[0]"
                 label="UserId"
                 :disabled="!changeUserId"
             ></v-text-field>
@@ -61,9 +61,7 @@
             class="ma-1"
             >Save</v-btn>  
         </v-row>
-    </v-card>
-    <v-card v-else>
-        loading
+        <!-- {{ Object.keys(user) }} -->
     </v-card>
 </template>
 
@@ -101,17 +99,26 @@ export default {
         let users = this.$store.getters.registeredUsers
 
         /* 
+            If the user isn't "new":
             loop through the users, find the one that matches 
             the route
         */
-        for(let i = 0; i < users.length; i++) {
-            if(users[i].email.split('@')[0] === rtId) {
-                //The module "name" is the same as the route ID
-                vm.user = users[i]
-                vm.userID = vm.user.email.split('@')[0]
-                break
+        if(rtId === 'new') {
+            vm.user.name = 'First Name'
+            vm.user.surname = 'Last Name'
+            vm.user.email = 'enter-new-id@email.com'
+            vm.user.photo = ''
+        } else {
+            for(let i = 0; i < users.length; i++) {
+                if(users[i].email.split('@')[0] === rtId) {
+                    //The module "name" is the same as the route ID
+                    vm.user = users[i]
+                    vm.userID = vm.user.email.split('@')[0]
+                    break
+                }
             }
         }
+        
     },
 }
 </script>

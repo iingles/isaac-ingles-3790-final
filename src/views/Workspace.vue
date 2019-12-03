@@ -12,11 +12,13 @@
                 />                
             </v-col>
             <v-col xs="12" sm="12" md="8" cols='12'>
-                <transition name="slide" mode="out-in">
-                    <router-view
-                    :searchString="this.searchString"
-                    ></router-view>
-                </transition>        
+                <template v-if="this.$route.params.workview != null && this.$route.params.workview != '' && this.$route.params.workview != 'undefined'">                    
+                    <transition name="slide" mode="out-in">                    
+                        <router-view
+                        :searchString="this.searchString"
+                        ></router-view>
+                    </transition>
+                </template>     
             </v-col>
         </v-row>
     </v-container>

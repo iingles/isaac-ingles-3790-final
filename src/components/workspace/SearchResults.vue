@@ -160,13 +160,13 @@ export default {
       })
     },
     editItem (item) {
-        if(this.$route.params.workview == 'modules') {
-          this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.internalName ).catch(err => {})
-        }
-        if(this.$route.params.workview == 'Users') {
-          this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.email.split('@')[0] ).catch(err => {})
-        }
-      },
+      if(this.$route.params.workview == 'modules') {
+        this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.internalName ).catch(err => {})
+      }
+      if(this.$route.params.workview == 'Users') {
+        this.$router.push('/workspace/' + this.$route.params.viewmode + '/' + this.$route.params.workview + '/editor/' + item.email.split('@')[0] ).catch(err => {})
+      }
+     },
     deleteItem (item) {
         console.log('delete ' + item.id)
       },

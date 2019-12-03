@@ -25,9 +25,9 @@ export default {
     methods: {
         selectEditor(mode,view) {
             let vm = this
+
             if(mode == 'modules') {
-                vm.activeEditor = ModuleEditor
-                
+            vm.activeEditor = ModuleEditor
             }
             if(mode == 'admin') {
                 if(view == 'Users') {
@@ -39,6 +39,7 @@ export default {
                 vm.activeEditor = ModuleEditor
             }
             return vm.activeEditor
+
         },
     }
 }

@@ -11,7 +11,6 @@
                 <template v-if="search">
                     <SearchResults 
                         :filterText="this.searchString"
-                        
                     />
                 </template>
             </transition>
@@ -42,7 +41,6 @@ export default {
             editor: false,
         }
     },
-
 }
 </script>
 
