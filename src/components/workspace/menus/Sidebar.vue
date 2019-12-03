@@ -6,7 +6,7 @@
                 <template v-slot:activator="{ on }">
                     <v-icon v-on="on">mdi-help</v-icon>
                 </template>
-                <span>Lorem Ipsum Dolor sit amet</span>
+                <span>Select a category below or search for something specific</span>
             </v-tooltip>
             <v-form>
                 <v-text-field

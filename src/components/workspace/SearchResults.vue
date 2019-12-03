@@ -14,8 +14,8 @@
     <template v-else>
       <v-data-table
         :v-model="selected"
-        :headers="getTableHeaders(this.$route.params.viewmode)"
-        :items="getTableItems(this.$route.params.workview)"
+        :headers="getTableHeaders(theMode)"
+        :items="getTableItems(theView)"
         :items-per-page="5"
         class="elevation-1 xs-12 lg-12"
         >      
@@ -29,10 +29,11 @@
                       dark
                       v-on="on"
                       color="blue"
-                      :to="'/workspace/' + $route.params.viewmode + '/' + $route.params.workview + '/editor' + '/new'"
+                      :to="`/workspace/${theMode}/${theView}/editor/new`"
                     >New</v-btn>
+                    
                 </template>
-                <span>Lorem Ipsum Dolor sit amet</span>
+                <span>Create a new item</span>
             </v-tooltip> 
           </v-toolbar>
         </template>
@@ -52,7 +53,7 @@
           </v-icon>
         </template>
 
-      <template v-if="this.$route.params.workview == 'Users'" v-slot:item.photo="{ item }">
+      <template v-if="theView == 'Users'" v-slot:item.photo="{ item }">
           <v-img 
           :src="item.photo"
           max-height=60    
@@ -78,6 +79,8 @@ export default {
   },
  data () {
     return {
+      theView: this.$route.params.workview,
+      theMode: this.$route.params.viewmode,
       headerKeys: [],
       resultsLoading: false,
       searchData: false,
@@ -190,7 +193,7 @@ export default {
       }
       if(theView == 'Users') {
         //If not done already, load the api call into the local store
-        if(this.$store.getters.registeredUsers.length < 1) {
+        if(this.$store.getters.registeredUsers.length < 1) { 
           let theUsers = vm.getPeople()
           vm.searchResults = this.$store.getters.registeredUsers
         } else {
