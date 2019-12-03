@@ -2,31 +2,36 @@
     <v-container>
         <v-row class="xs-12 md-6 lg-8 xs-ma-0 lg-ma-10">
             <v-col cols="12">
-            <v-card class="pa-10">
-                <v-card-title>Welcome to your Content Management System</v-card-title>
-                <v-form @submit.prevent="onSubmit" @keyup.enter="onSubmit" ref="loginForm">
-                    <v-text-field
-                        v-model.lazy="userName"
-                        label="Username"
-                        :rules="userNameRules"
-                    >
-                    </v-text-field>
-                    <v-text-field
-                        v-model.lazy="password"
-                        label="Password"
-                        type="password"
-                        :rules="passwordRules"
-                    >
-                    </v-text-field>
-                    <v-btn 
-                    @click="onSubmit"
-                    type="submit"
-                    rounded
-                    color="blue"
-                    dark
-                    >Submit</v-btn>
-                </v-form>
-            </v-card>
+                <v-card class="pa-10">
+                    <v-card-title>Welcome to your Content Management System</v-card-title>
+                    <v-form @submit.prevent="onSubmit" @keyup.enter="onSubmit" ref="loginForm">
+                        <v-text-field
+                            v-model.lazy="userName"
+                            label="Username"
+                            :rules="userNameRules"
+                        >
+                        </v-text-field>
+                        <v-text-field
+                            v-model.lazy="password"
+                            label="Password"
+                            type="password"
+                            :rules="passwordRules"
+                        >
+                        </v-text-field>
+                        <v-btn 
+                        @click="onSubmit"
+                        type="submit"
+                        rounded
+                        color="blue"
+                        dark
+                        >Submit</v-btn>
+                    </v-form>
+                </v-card>
+                <transition name="fade" mode="out-in">
+                    <template v-if="hasErrors">
+                        <p :style="'color:red'">Please correct the errors before submitting.</p>
+                    </template>
+                </transition>                
             </v-col>
         </v-row>
     </v-container>
@@ -38,6 +43,7 @@ import { mapState } from 'vuex'
 export default {
     data: () => {
         return {
+            hasErrors: false,
             userName: '',
             password: '',
             userNameRules: [
@@ -50,14 +56,16 @@ export default {
                 v => !/^[;,"']*$/.test(v) || 'Password cannot contain semicolons, commas, or quotes.',
                 v => v.length >= 10 || 'Password must be 10 or more characters and contain at least one number.',
                 v => /[0-9]/.test(v) || 'Password must contain at least one number.',
-                
             ],
         }
     },
     methods: {
         onSubmit() {
+            let vm = this
+
             if(this.$refs.loginForm.validate()) {
-               const formData = {
+                vm.hasErrors = false
+                const formData = {
                     userName: this.userName,
                     password: this.password,
                 }
@@ -66,7 +74,7 @@ export default {
                     password: this.password,
                     loggedIn: true,
                 })
-            } else{ /*handle invalid form error here*/ }
+            } else{ vm.hasErrors = true }
         }
     }
 }
@@ -78,4 +86,12 @@ export default {
     .login-card {
         margin: 0 auto;
     }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
 </style>
