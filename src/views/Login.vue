@@ -53,7 +53,7 @@ export default {
             ],
             passwordRules: [
                 v => !!v || 'Password is required',
-                v => !/^[;,"']*$/.test(v) || 'Password cannot contain semicolons, commas, or quotes.',
+                v => !/[;,"']/.test(v) || 'Password cannot contain semicolons, commas, or quotes.',
                 v => v.length >= 10 || 'Password must be 10 or more characters and contain at least one number.',
                 v => /[0-9]/.test(v) || 'Password must contain at least one number.',
             ],
