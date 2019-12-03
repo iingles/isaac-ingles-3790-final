@@ -1,6 +1,6 @@
 <template>
     <v-card class="pa-10">
-        <!-- Make sure that there are params before displaying the confirmation info -->
+        <!-- Make sure that there are params in the object before displaying the confirmation info -->
         <template v-if="Object.keys(msg).length === 0 && msg.constructor === Object">
             <v-card-title class="blue lighten-1 white--text mb-5">Error</v-card-title>
             <h2>No data recieved!</h2>
@@ -8,8 +8,8 @@
         </template>
         <template v-else>
             <v-card-title class="blue lighten-1 white--text mb-5">Confirmation</v-card-title>
-            <h2>Your message has been sent</h2>
-            <h4>Message Contents:</h4>
+            <h2>Your message has been sent.</h2>
+            <h3>Message Contents:</h3>
             <p>First Name: {{ msg.firstname }}</p>
             <p>Last Name: {{ msg.lastname }}</p>
             <p>email: {{ msg.email }}</p>
