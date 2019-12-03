@@ -13,7 +13,7 @@
             <p>First Name: {{ msg.firstname }}</p>
             <p>Last Name: {{ msg.lastname }}</p>
             <p>email: {{ msg.email }}</p>
-            <p>Issues: <span v-for="issue in msg.issues" :key="issue.key">{{ issue }}</span></p>
+            <p>Issues: <span v-for="issue in msg.issues" :key="issue.key"><p>{{ issue }}</p></span></p>
             <p>Response Required: {{ msg.resreq }}</p>
             <p>Message: {{ msg.message }}</p>
         </template>
