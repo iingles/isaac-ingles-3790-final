@@ -4,16 +4,21 @@
 
 
 1. ### Conditional logic and JavaScript array methods to render large lists:
-    * In the SearchResults.vue component: src/components/workspace/SearchResults.vue, I 
-    1.  * Take the data from the uinames API, put it in the local store, and then am able to render the 
-        Vuetify v-data-table.
+    * In the SearchResults.vue component: src/components/workspace/SearchResults.vue, I
+    1.  Pull data from two data files, src/data/modules.js and src/data/templates.js and render them in the v-data-table.
+    1.  Take the data from the uinames API, put it in the local store, and then render them in the v-data-table.
         [workspace>admin>users](https://iingles-3790-final.netlify.com/workspace/admin/Users)
+        These individual items may be clicked and edited.
 
 1. ### Encapsulate your code as VueJS single-file components:
+   * The main component is App.vue, found in /src/App.vue
+   * The non-dynamic route view components are found in /src/views
+   * The rest of the components are found in /src/components
 
 1. ### Work with the Vue-CLI to create and manage your project within a real development toolset:
 
 1. ### Properly use Git for your source version control:
+   * [My Github Profile](https://github.com/iingles) and [Github project page](https://github.com/iingles/isaac-ingles-3790-final/) should show my commit history.
 
 1. ### Communication between components using 
 
@@ -22,8 +27,11 @@
     1. #### Custom events: 
 
     1. #### Local Store:
-
+      
 1. ### Present a form for user input that provides useful form validation and feedback:
+   1. [Login Page](https://iingles-3790-final.netlify.com/login), source located at /src/views/Login.vue 
+   * **This will only display if the user's login state is false, right now the default is set to "true" so you don't have to login every time.  You must "logout" if you can't see the form.**
+   2. [Help Page](https://iingles-3790-final.netlify.com/Help), source located at /src/views/Help.vue
 
 1. ### Custom directive used on at least one component:
 
@@ -37,11 +45,18 @@
     * I currently request 25 items from the uinames api, and populate a v-data-table located 
     in the SearchResults.vue component: src/components/workspace/SearchResults.vue
     [workspace>admin>users](https://iingles-3790-final.netlify.com/workspace/admin/Users)
+    * Those results are then stored in the local store: /src/store.js
 
 1. ### Provide at least 3 different routes with navigation between them using vue-router:
 
 1. ### State Management using Vuex:
-
+   * I am in the process of converting my store into individual files; but the functional store is still located at /src/store.js
+   * I use global state management for:
+   1. Keeping track of the current user's status (login/logout)
+   2. The state of the modal windows (display/don't display, get messages from calling component)
+   3. The API data downloaded from uinames.com
+   * Apart from the main store file, the logic for state management is spread through much of the application.
+   
 1. ### Structure, document, and deploy your final project code according to common industry practices:
 
 1. ### Github and Netlify URLs
