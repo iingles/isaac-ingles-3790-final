@@ -12,12 +12,7 @@
     <template v-else>
       <Login />
     </template>
-    <Modal 
-      :showModal="this.$store.getters.modalWindow.showModal"
-      :modalTitle="this.$store.getters.modalWindow.modalTitle"
-      :modalMessage="this.$store.getters.modalWindow.modalMessage"
-      :modalAction="this.$store.getters.modalWindow.modalAction"
-    />
+    <Modal  />
   </v-app>
 </template>
 
