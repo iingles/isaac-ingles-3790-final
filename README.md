@@ -27,14 +27,14 @@
 
 1. ### Filters:
 
-### Mixins:
+1. ### Mixins:
 
-### Connect to a server using HTTP and display retrieved data (using Axios):
+1. ### Connect to a server using HTTP and display retrieved data (using Axios):
 
-### Provide at least 3 different routes with navigation between them using vue-router:
+1. ### Provide at least 3 different routes with navigation between them using vue-router:
 
-### State Management using Vuex:
+1. ### State Management using Vuex:
 
-### Structure, document, and deploy your final project code according to common industry practices:
+1. ### Structure, document, and deploy your final project code according to common industry practices:
 
-### Github and Netlify URLs
+1. ### Github and Netlify URLs
