@@ -21,4 +21,4 @@
 ##Provide at least 3 different routes with navigation between them using vue-router:
 ##State Management using Vuex:
 ##Structure, document, and deploy your final project code according to common industry practices.
-##Github and Netlify URLs:
+##Github and Netlify
