@@ -20,7 +20,14 @@
                         :key="$route.params.workview"
                         ></router-view>
                     </transition>
-                </template>     
+                </template>
+                <template v-else>
+                    <v-card>
+                        <p>
+                            Sorry, there was an error!
+                        </p>
+                    </v-card>
+                </template>   
             </v-col>
         </v-row>
     </v-container>
