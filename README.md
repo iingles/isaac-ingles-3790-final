@@ -26,7 +26,7 @@
         * /src/views/Workspace.vue --> /src/components/workspace/menus/Sidebar.vue
         * /src/views/Workspace.vue --> /src/components/workspace/menus/WorkspaceMenu.vue
         * /src/components/workspace/ModuleEditor.vue --> /src/components/workspace/editor/EditorDirectives.vue
-        * 
+        
     1. #### Custom events: 
 
     1. #### Local Store:
@@ -46,7 +46,7 @@
 
 1. ### Mixins:
     global mixin folder: /src/mixins
-    __Note: I am currently working on a mixin for a search filter; as of yet **searchMixin.js** is unused.__
+    __Note:__  *I am currently working on a mixin for a search filter; as of yet __searchMixin.js__ is unused.*
 
     1. /src/components/workspace/UserEditor.vue :
         * __editorLoadInfo.js__
@@ -55,7 +55,7 @@
         * __cmsDirectives.js__
 
 1. ### Connect to a server using HTTP and display retrieved data (using Axios):
-    * I currently request 25 items from the uinames api, and populate a v-data-table located 
+    * I request 25 items from the uinames api, and populate a v-data-table located 
     in the SearchResults.vue component
     * Source is at src/components/workspace/SearchResults.vue
     * Netlify Link: [workspace>admin>users](https://iingles-3790-final.netlify.com/workspace/admin/Users)
