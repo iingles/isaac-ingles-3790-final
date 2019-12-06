@@ -36,6 +36,8 @@
 1. ### Custom directive used on at least one component:
 
 1. ### Use a mix of animations and transitions to enhance some aspects of your project.
+   * I use animations any time the main route is changed.  Source is in /src/App.vue
+   * There are also animations on transitions that happen in the Workspace view, source is at /src/views/Workspace.vue
 
 1. ### Filters:
 
