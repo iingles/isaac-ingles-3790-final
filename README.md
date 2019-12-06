@@ -43,9 +43,10 @@
 
 1. ### Connect to a server using HTTP and display retrieved data (using Axios):
     * I currently request 25 items from the uinames api, and populate a v-data-table located 
-    in the SearchResults.vue component: src/components/workspace/SearchResults.vue
-    [workspace>admin>users](https://iingles-3790-final.netlify.com/workspace/admin/Users)
-    * Those results are then stored in the local store: /src/store.js
+    in the SearchResults.vue component: 
+    * Source is at src/components/workspace/SearchResults.vue
+    * Link: [workspace>admin>users](https://iingles-3790-final.netlify.com/workspace/admin/Users)
+    * Those results are then stored in the local store: /src/store.js.
 
 1. ### Provide at least 3 different routes with navigation between them using vue-router:
 
