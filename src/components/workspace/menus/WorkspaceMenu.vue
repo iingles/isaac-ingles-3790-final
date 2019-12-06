@@ -26,14 +26,14 @@ export default {
         },
         view() {
             this.activeView = this.view
-
+            this.isActive = this.view
         }
     },
-    created() {
-        
+    created() {        
         this.activeView = this.view
         this.isActive = this.view
-    }
+    },
+    
 }
 </script>
 

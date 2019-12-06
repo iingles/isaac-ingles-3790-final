@@ -2,7 +2,7 @@
      <v-container>
         <WorkspaceMenu 
         @changemode="change($event)"
-        :view="viewMode"
+        :view="this.viewMode"
         />
         <v-row>
             <v-col xs="12" sm="12" md="4" lg="3" cols='12'> 
@@ -17,6 +17,7 @@
                     <transition name="slide" mode="out-in">                    
                         <router-view
                         :searchString="this.searchString"
+                        :key="$route.params.workview"
                         ></router-view>
                     </transition>
                 </template>     
@@ -57,12 +58,11 @@ export default {
             this.searchString = evt
         }
     },
-    created() {
-        //make sure that the workspace menu always reflects the route
-       
-        this.viewMode = this.$route.params.viewmode
-
-    }
+    watch: {
+        '$route'() {
+            this.viewMode = this.$route.params.viewmode
+        }
+    }    
 }
 </script>
 
