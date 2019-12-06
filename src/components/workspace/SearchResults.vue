@@ -68,8 +68,8 @@
 </template>
 
 <script>
-import contentModules from '../../assets/modules.js'
-import designTemplates from '../../assets/templates.js'
+import contentModules from '../../data/modules.js'
+import designTemplates from '../../data/templates.js'
 // axios installed!
 import axios from 'axios'
 

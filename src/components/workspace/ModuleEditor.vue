@@ -63,8 +63,8 @@
 </template>
 
 <script>
-import contentModules from '../../assets/modules.js'
-import designTemplates from '../../assets/templates.js'
+import contentModules from '../../data/modules.js'
+import designTemplates from '../../data/templates.js'
 import EditorDirectives from './editor/EditorDirectives.vue'
 import cmsDirectives from '../../mixins/cmsDirectives.js'
 import { mapGetters } from 'vuex'
