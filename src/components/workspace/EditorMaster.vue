@@ -2,7 +2,7 @@
     <v-col>
         <v-container>
             <!-- Dynamic component -->
-            <compnent :is="selectEditor($route.params.viewmode, $route.params.workview)" />
+            <component :is="selectEditor($route.params.viewmode, $route.params.workview)" />
         </v-container>
     </v-col>
 </template>
