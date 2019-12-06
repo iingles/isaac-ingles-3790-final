@@ -9,7 +9,7 @@
         * [workspace>content>modules](https://iingles-3790-final.netlify.com/workspace/content/modules)
         * [workspace>design>templates](https://iingles-3790-final.netlify.com/workspace/design/templates)
     1.  Take the data from the uinames API, put it in the local store, and then render them in the v-data-table.
-        *[workspace>admin>users](https://iingles-3790-final.netlify.com/workspace/admin/Users)
+        * [workspace>admin>users](https://iingles-3790-final.netlify.com/workspace/admin/Users)
         These individual items may be clicked and edited.
 
 1. ### Encapsulate your code as VueJS single-file components:
