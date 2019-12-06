@@ -2,6 +2,7 @@
      <v-container>
         <WorkspaceMenu 
         @changemode="change($event)"
+        :view="viewMode"
         />
         <v-row>
             <v-col xs="12" sm="12" md="4" lg="3" cols='12'> 
@@ -56,6 +57,12 @@ export default {
             this.searchString = evt
         }
     },
+    created() {
+        //make sure that the workspace menu always reflects the route
+       
+        this.viewMode = this.$route.params.viewmode
+
+    }
 }
 </script>
 
