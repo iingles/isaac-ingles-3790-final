@@ -6,8 +6,8 @@
 1. ### Conditional logic and JavaScript array methods to render large lists:
     * In the SearchResults.vue component: src/components/workspace/SearchResults.vue, I 
     1.  * Take the data from the uinames API, put it in the local store, and then am able to render the 
-        * Vuetify v-data-table.
-        * [workspace>admin>users](https://iingles-3790-final.netlify.com/workspace/admin/Users)
+        Vuetify v-data-table.
+        [workspace>admin>users](https://iingles-3790-final.netlify.com/workspace/admin/Users)
 
 1. ### Encapsulate your code as VueJS single-file components:
 
@@ -35,8 +35,8 @@
 
 1. ### Connect to a server using HTTP and display retrieved data (using Axios):
     * I currently request 25 items from the uinames api, and populate a v-data-table located 
-    * in the SearchResults.vue component: src/components/workspace/SearchResults.vue
-    * [workspace>admin>users](https://iingles-3790-final.netlify.com/workspace/admin/Users)
+    in the SearchResults.vue component: src/components/workspace/SearchResults.vue
+    [workspace>admin>users](https://iingles-3790-final.netlify.com/workspace/admin/Users)
 
 1. ### Provide at least 3 different routes with navigation between them using vue-router:
 
