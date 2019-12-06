@@ -23,9 +23,10 @@
 1. ### Communication between components using 
 
     1. #### Props: 
-        * /src/views/Workspace.vue --> /src/components/workspace/meuns/Sidebar.vue
+        * /src/views/Workspace.vue --> /src/components/workspace/menus/Sidebar.vue
+        * /src/views/Workspace.vue --> /src/components/workspace/menus/WorkspaceMenu.vue
         * /src/components/workspace/ModuleEditor.vue --> /src/components/workspace/editor/EditorDirectives.vue
-
+        * 
     1. #### Custom events: 
 
     1. #### Local Store:
