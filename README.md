@@ -3,34 +3,38 @@
 # Fall 2019
 
 
-## Conditional logic and JavaScript array methods to render large lists:
+1. ### Conditional logic and JavaScript array methods to render large lists:
 
-## Encapsulate your code as VueJS single-file components:
+1. ### Encapsulate your code as VueJS single-file components:
 
-## Work with the Vue-CLI to create and manage your project within a real development toolset:
+1. ### Work with the Vue-CLI to create and manage your project within a real development toolset:
 
-## Properly use Git for your source version control:
+1. ### Properly use Git for your source version control:
 
-## Communication between components using 
+1. ### Communication between components using 
 
-1. ### Props: 
+    1. #### Props: 
 
-1. ### Custom events: 
+    1. #### Custom events: 
 
-1. ### Local Store:
+    1. #### Local Store:
 
-## Present a form for user input that provides useful form validation and feedback:
+1. ### Present a form for user input that provides useful form validation and feedback:
 
-## Custom directive used on at least one component:
+1. ### Custom directive used on at least one component:
 
-## Use a mix of animations and transitions to enhance some aspects of your project.
+1. ### Use a mix of animations and transitions to enhance some aspects of your project.
 
-## Connect to a server using HTTP and display retrieved data (using Axios):
+1. ### Filters:
 
-## Provide at least 3 different routes with navigation between them using vue-router:
+### Mixins:
 
-## State Management using Vuex:
+### Connect to a server using HTTP and display retrieved data (using Axios):
 
-## Structure, document, and deploy your final project code according to common industry practices.
+### Provide at least 3 different routes with navigation between them using vue-router:
 
-## Github and Netlify
+### State Management using Vuex:
+
+### Structure, document, and deploy your final project code according to common industry practices:
+
+### Github and Netlify URLs
