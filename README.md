@@ -45,6 +45,13 @@
 1. ### Filters:
 
 1. ### Mixins:
+    global mixin folder: /src/mixins
+
+    1. /src/components/workspace/UserEditor.vue :
+        * __editorLoadInfo.js__
+        * __editorModal.js__
+    1. /src/components/workspace/ModuleEditor.vue :
+        * __cmsDirectives.js__
 
 1. ### Connect to a server using HTTP and display retrieved data (using Axios):
     * I currently request 25 items from the uinames api, and populate a v-data-table located 
