@@ -46,7 +46,7 @@
 
 1. ### Mixins:
     global mixin folder: /src/mixins
-    __Note:__  *I am currently working on a mixin for a search filter; as of yet __searchMixin.js__ is unused.*
+    * __Note:__ *I am currently working on a mixin for a search filter; as of yet __searchMixin.js__ is unused.*
 
     1. /src/components/workspace/UserEditor.vue :
         * __editorLoadInfo.js__
