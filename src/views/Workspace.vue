@@ -38,7 +38,7 @@ export default {
     data: () => {
         return {
             //default to content view
-            viewMode: 'content',
+            viewMode:'content',
             query: '',
             searchString: '',
          }
@@ -62,7 +62,14 @@ export default {
         '$route'() {
             this.viewMode = this.$route.params.viewmode
         }
-    }    
+    },
+    beforeMount() {
+        let vm = this
+        if(this.$route.params.viewmode) {
+            vm.viewMode = this.$route.params.viewmode
+        }
+    }
+    
 }
 </script>
 
