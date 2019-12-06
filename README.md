@@ -49,13 +49,25 @@
     * Those results are then stored in the local store: /src/store.js.
 
 1. ### Provide at least 3 different routes with navigation between them using vue-router:
-
+   * Main router file is in /src/router.js
+   * Main route components are fount in /src/views
+   * Links to routes are: 
+    1. [Dashboard](https://iingles-3790-final.netlify.com/)
+    1. [Workspace](https://iingles-3790-final.netlify.com/workspace)
+        1. [Content](https://iingles-3790-final.netlify.com/workspace/content)
+        1. [Design](https://iingles-3790-final.netlify.com/workspace/design)
+        1. [Admin](https://iingles-3790-final.netlify.com/workspace/admin)
+         * *Each of the child routes of Workspace have dynamic child routes mapped to the specific items that are selected.*
+    1. [Settings](https://iingles-3790-final.netlify.com/settings)
+    1. [Logs](https://iingles-3790-final.netlify.com/logs)
+    1. [Help](https://iingles-3790-final.netlify.com/help)
+    1. [About](https://iingles-3790-final.netlify.com/about)
 1. ### State Management using Vuex:
    * I am in the process of converting my store into individual files; but the functional store is still located at /src/store.js
    * I use global state management for:
    1. Keeping track of the current user's status (login/logout)
-   2. The state of the modal windows (display/don't display, get messages from calling component)
-   3. The API data downloaded from uinames.com
+   1. The state of the modal windows (display/don't display, get messages from calling component)
+   1. The API data downloaded from uinames.com
    * Apart from the main store file, the logic for state management is spread through much of the application.
    
 1. ### Structure, document, and deploy your final project code according to common industry practices:
