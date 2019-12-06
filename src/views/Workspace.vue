@@ -22,10 +22,8 @@
                     </transition>
                 </template>
                 <template v-else>
-                    <v-card>
-                        <p>
-                            Sorry, there was an error!
-                        </p>
+                    <v-card class="pa-10">
+                        <h2>Select an option from the menu on the left.</h2>
                     </v-card>
                 </template>   
             </v-col>
