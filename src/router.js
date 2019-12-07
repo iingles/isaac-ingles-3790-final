@@ -13,6 +13,16 @@ situations rather than loading each route one at a time.
  */
 
 //lazy loading with webpack:
+
+const NotFound = resolve => {
+  require.ensure(
+     ['./views/404.vue'],
+     () => {
+         resolve(require('./views/404.vue'))
+     }
+ )
+}
+
 const Workspace = resolve => {
   /*
   takes an array for the first arguement; inside the 
@@ -99,9 +109,9 @@ export default new Router({
 
   routes: [
     {
-      name: 'Default',
+      name: 'Not Found',
       path: '*',
-      component: Dashboard
+      component: NotFound,
     },
     {
       name: 'Dashboard',
