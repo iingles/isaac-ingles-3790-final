@@ -28,8 +28,16 @@
         * /src/views/Workspace.vue --> /src/components/workspace/menus/Sidebar.vue
         * /src/views/Workspace.vue --> /src/components/workspace/menus/WorkspaceMenu.vue
         * /src/components/workspace/ModuleEditor.vue --> /src/components/workspace/editor/EditorDirectives.vue
+        * I also pass params via vue-router from /src/views/Help.vue to /src/components/HelpConfirmation.vue
         
     1. #### Custom events: 
+
+        These menus use events to trigger navigation or changes in class:
+        1. /src/components/workspace/menus/Sidebar.vue
+        2. /src/components/workspace/menus/WorkspaceMenu.vue
+
+        The SearchResults component uses events to trigger a change in route; passing information along the way
+        1. /src/components/workspace/SearchResults.vue
 
     1. #### Local Store:
         Current store file is located at /src/store.js.  
@@ -105,6 +113,8 @@
    1. The API data downloaded from uinames.com
    * Apart from the main store file, the logic for state management is spread through much of the application.
    
-1. ### Structure, document, and deploy your final project code according to common industry practices:
+1. ### Structure, document, and deploy your final project code according to common industry practices.
 
 1. ### Github and Netlify URLs
+    [Github](https://github.com/iingles/isaac-ingles-3790-final)
+    [Netlify](https://iingles-3790-final.netlify.com/)
