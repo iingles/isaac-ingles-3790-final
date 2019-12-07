@@ -17,7 +17,6 @@ export default {
     data: ()=> {
         return {
             clickView: '',
-            activeView: '',
             isActive: '', //1 by default
         }
     },
@@ -32,7 +31,6 @@ export default {
     },
     created() {        
         let theView = this.$route.params.viewmode
-        let theWork = this.$route.params.workview
         let vm = this
 
         //If we're coming from an outside link, set the active view accordingly
@@ -40,7 +38,7 @@ export default {
         if(theView != undefined) {
             vm.isActive = this.$route.params.viewmode
         } else {
-            vm.isActive = vm.view
+            vm.isActive = 'content' //default to content view ... used to be set to vm.view
         }
     },
 }
