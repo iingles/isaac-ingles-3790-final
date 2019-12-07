@@ -91,6 +91,7 @@
 
 <script>
 
+
 export default {
     data() {
         return {
@@ -140,6 +141,7 @@ export default {
     methods: {
         submitted() {
             let vm = this
+
             if(this.$refs.helpForm.validate()) {
                vm.valid = true
                this.$router.push(
@@ -157,7 +159,9 @@ export default {
                
             } else{ /*handle invalid form error here*/ }
         },
-        
+        caps() {
+
+        },        
     },
     
 }

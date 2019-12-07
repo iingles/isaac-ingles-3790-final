@@ -10,8 +10,8 @@
             <v-card-title class="blue lighten-1 white--text mb-5">Confirmation</v-card-title>
             <h2>Your message has been sent.</h2>
             <h3>Message Contents:</h3>
-            <p>First Name: {{ msg.firstname }}</p>
-            <p>Last Name: {{ msg.lastname }}</p>
+            <p>First Name: {{ msg.firstname  | capitalize}}</p>
+            <p>Last Name: {{ msg.lastname | capitalize }}</p>
             <p>email: {{ msg.email }}</p>
             <p>Issues: <span v-for="issue in msg.issues" :key="issue.key"><p>{{ issue }}</p></span></p>
             <p>Response Required: {{ msg.resreq }}</p>
@@ -21,7 +21,12 @@
 </template>
 
 <script>
+import { capitalize } from '../filters/capitalize.js'
+
 export default {
+    filters: {
+        capitalize
+    },
     data: ()=> {
         return {
             msg: {}
