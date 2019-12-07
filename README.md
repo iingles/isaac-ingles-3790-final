@@ -32,6 +32,21 @@
     1. #### Custom events: 
 
     1. #### Local Store:
+        Current store file is located at /src/store.js.  
+        * __Note:__ *The folder "store" is a work in progress; I am splitting the store into individual files and have not implemented it yet. The active store file is still at /src/store.js.*
+        I use the local store throughout the application; most notably for
+        1. State of the active user; right now only the "loggedIn" property is used and changed when the "Logout" button is clicked or when the user logs back in.  The username and password properties also update when the user logs in and the username can be seen above the "login" button in the left slideout menu.  Source for that logic is in /src/components/shared/Header.vue and in /src/views/Login.vue.
+        1. Modal windows, which are triggered
+            * When a user attempts to logout
+            * When a user clicks "save" or "cancel" in the editor views
+            * When a user attempts to navigate away from an editor view without saving __Note:__*I broke this somehow but the code is still there*
+
+            Source for the modal windows is located in 
+            * src/components/shared/Modal.vue
+            * src/components/shared/Header.vue
+            * the editor components located in /src/components/workspace
+            * /src/mixins/editorModal.js
+            
       
 1. ### Present a form for user input that provides useful form validation and feedback:
    1. [Login Page](https://iingles-3790-final.netlify.com/login), source located at /src/views/Login.vue 
@@ -83,7 +98,7 @@
     1. [Help](https://iingles-3790-final.netlify.com/help)
     1. [About](https://iingles-3790-final.netlify.com/about)
 1. ### State Management using Vuex:
-   * I am in the process of converting my store into individual files; but the functional store is still located at /src/store.js
+   * I am in the process of converting my store into individual files; so the folder at /src/store/ doesn't do anything yet - the functional store is still located at /src/store.js
    * I use global state management for:
    1. Keeping track of the current user's status (login/logout)
    1. The state of the modal windows (display/don't display, get messages from calling component)
