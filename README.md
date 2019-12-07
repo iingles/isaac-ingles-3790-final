@@ -39,7 +39,10 @@
    2. [Help Page](https://iingles-3790-final.netlify.com/Help), source located at /src/views/Help.vue
 
 1. ### Custom directive used on at least one component:
-
+    * There is a global directive called "emphasized declared in /src/main.js
+    * This directive is used in the [Workspace View Port](https://iingles-3790-final.netlify.com/workspace/content/modules) to change the color and various other styles of the "results" text.
+    * source located at /src/main.js and /src/components/workspace/WorkspaceViewPort.vue
+    
 1. ### Use a mix of animations and transitions to enhance some aspects of your project.
    * I use animations any time the main route is changed.  Source is in /src/App.vue
    * There are also animations on transitions that happen in the Workspace view, source is at /src/views/Workspace.vue
