@@ -22,7 +22,7 @@ export default {
     },
     watch: {
         activeView() {
-            this.$emit('changemode', this.activeView)
+            this.$emit('changemode', this.activeView)        
         },
         view() {
             this.activeView = this.view

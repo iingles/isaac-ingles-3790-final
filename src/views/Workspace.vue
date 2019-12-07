@@ -69,9 +69,15 @@ export default {
         }
     },
     beforeMount() {
+        //This should make it so that external links work
         let vm = this
         if(this.$route.params.viewmode) {
-            vm.viewMode = this.$route.params.viewmode
+            if(this.$route.params.workview) {
+                // console.log(this.$route.params.workview)
+            }
+            else {
+                vm.viewMode = this.$route.params.viewmode 
+            }
         }
     }
     
