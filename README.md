@@ -45,10 +45,12 @@
    * There are also animations on transitions that happen in the Workspace view, source is at /src/views/Workspace.vue
 
 1. ### Filters:
+    global filter folder: /src/filters
+    * __Note:__ *I am currently working on a filter for the search function; as of yet __searchFilter.js__ is unused.*
+    * The "Help Confirmation" page uses a filter to capitalize the first letter of a person's first and last names.  First you need to fill out and submit the form on the [Help Page](https://iingles-3790-final.netlify.com/Help) .  Source is at src/components/HelpConfirmation.vue.
 
 1. ### Mixins:
-    global mixin folder: /src/mixins
-    * __Note:__ *I am currently working on a mixin for a search filter; as of yet __searchMixin.js__ is unused.*
+    global mixin folder: /src/mixins    
 
     1. /src/components/workspace/UserEditor.vue :
         * __editorLoadInfo.js__
