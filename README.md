@@ -62,7 +62,7 @@
    2. [Help Page](https://iingles-3790-final.netlify.com/Help), source located at /src/views/Help.vue
 
 1. ### Custom directive used on at least one component:
-    * There is a global directive called "emphasized declared in /src/main.js
+    * There is a global directive called "emphasized" declared in /src/main.js
     * This directive is used in the [Workspace View Port](https://iingles-3790-final.netlify.com/workspace/content/modules) to change the color and various other styles of the "results" text.
     * source located at /src/main.js and /src/components/workspace/WorkspaceViewPort.vue
     
@@ -93,7 +93,7 @@
 
 1. ### Provide at least 3 different routes with navigation between them using vue-router:
    * Main router file is in /src/router.js
-   * Main route components are fount in /src/views
+   * Main route components are found in /src/views
    * Links to routes are: 
     1. [Dashboard](https://iingles-3790-final.netlify.com/)
     1. [Workspace](https://iingles-3790-final.netlify.com/workspace)
@@ -106,7 +106,7 @@
     1. [Help](https://iingles-3790-final.netlify.com/help)
     1. [About](https://iingles-3790-final.netlify.com/about)
 1. ### State Management using Vuex:
-   * I am in the process of converting my store into individual files; so the folder at /src/store/ doesn't do anything yet - the functional store is still located at /src/store.js
+   * I am in the process of converting my store into individual files; so the folder at /src/store/ doesn't do anything yet - __the functional store is still located at /src/store.js__
    * I use global state management for:
    1. Keeping track of the current user's status (login/logout)
    1. The state of the modal windows (display/don't display, get messages from calling component)
@@ -114,7 +114,7 @@
    * Apart from the main store file, the logic for state management is spread through much of the application.
    
 1. ### Structure, document, and deploy your final project code according to common industry practices.
-
+    * I'd appreciate any feedback you have after you review this part.
 1. ### Github and Netlify URLs
-    [Github](https://github.com/iingles/isaac-ingles-3790-final)
-    [Netlify](https://iingles-3790-final.netlify.com/)
+    * [Github](https://github.com/iingles/isaac-ingles-3790-final)
+    * [Netlify](https://iingles-3790-final.netlify.com/)
