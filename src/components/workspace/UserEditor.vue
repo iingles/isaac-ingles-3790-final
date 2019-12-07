@@ -104,8 +104,8 @@ export default {
             the route
         */
         if(rtId === 'new') {
-            vm.user.name = 'First Name'
-            vm.user.surname = 'Last Name'
+            vm.user.name = 'New'
+            vm.user.surname = 'User'
             vm.user.email = 'enter-new-id@email.com'
             vm.user.photo = ''
         } else {
