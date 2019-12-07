@@ -1,9 +1,9 @@
 <template>
     <v-container>
         <v-row class="unselectable">
-            <h1 class="workspace-link" :class="{active: isActive=='content'}" @click="activeView='content', isActive = 'content'">Content</h1>
-            <h1 class="workspace-link" :class="{active: isActive=='design'}" @click="activeView='design', isActive= 'design'">Design</h1>
-            <h1 class="workspace-link" :class="{active: isActive=='admin'}" @click="activeView='admin', isActive = 'admin'">Admin</h1>
+            <h1 class="workspace-link" :class="{active: isActive=='content'}" @click="clickView='content', isActive = 'content'">Content</h1>
+            <h1 class="workspace-link" :class="{active: isActive=='design'}" @click="clickView='design', isActive= 'design'">Design</h1>
+            <h1 class="workspace-link" :class="{active: isActive=='admin'}" @click="clickView='admin', isActive = 'admin'">Admin</h1>
         </v-row>
     </v-container>    
 </template>
@@ -16,24 +16,33 @@ export default {
     },
     data: ()=> {
         return {
+            clickView: '',
             activeView: '',
-            isActive: 'content', //1 by default
+            isActive: '', //1 by default
         }
     },
     watch: {
-        activeView() {
-            this.$emit('changemode', this.activeView)        
+        clickView() {
+            this.$emit('changemode', this.clickView) 
         },
         view() {
-            this.activeView = this.view
+            //Watch for changes in the route so the class changes when you press the 'back' button or something;
             this.isActive = this.view
         }
     },
     created() {        
-        this.activeView = this.view
-        this.isActive = this.view
+        let theView = this.$route.params.viewmode
+        let theWork = this.$route.params.workview
+        let vm = this
+
+        //If we're coming from an outside link, set the active view accordingly
+        //Else, just stick with the view param
+        if(theView != undefined) {
+            vm.isActive = this.$route.params.viewmode
+        } else {
+            vm.isActive = vm.view
+        }
     },
-    
 }
 </script>
 
