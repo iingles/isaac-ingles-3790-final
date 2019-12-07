@@ -14,6 +14,7 @@ situations rather than loading each route one at a time.
 
 //lazy loading with webpack:
 
+//404 Error page
 const NotFound = resolve => {
   require.ensure(
      ['./views/404.vue'],
